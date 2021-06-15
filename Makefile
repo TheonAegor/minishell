@@ -2,7 +2,7 @@ NAME = minishell
 
 option = -Ilibft
 
-cc = gcc -Wall -Werror -Wextra
+cc = gcc #-Wall -Werror -Wextra
 
 files = src/*.c
 
@@ -26,9 +26,10 @@ $(OBJDIR)/%.o:  src/%.c
 clean:
 	rm -rf $(obj)
 
-fclean: clean shot
-	make fclean -C libft
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean
 	make all
+
+PHONY: all
