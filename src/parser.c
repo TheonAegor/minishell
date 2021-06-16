@@ -99,12 +99,25 @@ int ifstop(char c)
 	return (0);
 }
 
+//1)понять сколько будет комманд (;  | )
+//2)выделить под это память
+//3)спарсить команду	
+/*
+t_func_args *take_commands(char *str)
+{
+	t_func_args *funcs_args;
+
+	
+}
+*/
+
 void	ft_parser(char *str, char **env)
 {
 	int		i;
+//	t_func_args *funcs_args;
 	
 	i = -1;
-	while (str[++i] && !ifstop(str[i]))
+	while (str[++i])
 	{
 		if (str[i] == '\'')
 			str = ft_quot_single(str, &i);
@@ -116,6 +129,7 @@ void	ft_parser(char *str, char **env)
 			str = ft_dollar(str, &i, env);
 	}
 	printf("END: str = %s\n", str);
+//	funcs_args = take_commands(str);
 
 // "", '', \, $, ;, >, >>, <
 }
