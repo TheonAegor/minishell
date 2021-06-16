@@ -1,6 +1,6 @@
 NAME = minishell
 
-option = -Ilibft
+option = -Iincludes
 
 cc = gcc #-Wall -Werror -Wextra
 
