@@ -92,24 +92,35 @@ char *ft_dollar(char *str, int *i, char **env)
 
 int ifstop(char c)
 {
-	if (c == ';' || c == '>' || c == '<' || c == '|' || c == '\0')
-	{
+	if (c == ';' || c == '>' || c == '<' || c == '|')
 		return (1);
-	}
 	return (0);
 }
 
 //1)понять сколько будет комманд (;  | )
 //2)выделить под это память
 //3)спарсить команду	
-/*
-t_func_args *take_commands(char *str)
+int		find_stop(char *str)
 {
-	t_func_args *funcs_args;
+	int	i;
 
-	
+	i = -1;
+	while(str[++i])
+		if (ifstop(str[i]))
+			return (i);	
+	return (-1);
 }
-*/
+
+void	take_simple_command(char *str)
+{
+	int start;
+	int end;
+	char *full_command;
+
+	start = 0;	
+	full_command = ft_substr(str, start, find_stop(str) - 1);
+	printf("full_command = %s\n", full_command);
+}
 
 void	ft_parser(char *str, char **env)
 {
@@ -117,6 +128,7 @@ void	ft_parser(char *str, char **env)
 //	t_func_args *funcs_args;
 	
 	i = -1;
+	str = ft_strtrim(str, " \t");
 	while (str[++i])
 	{
 		if (str[i] == '\'')
@@ -129,7 +141,7 @@ void	ft_parser(char *str, char **env)
 			str = ft_dollar(str, &i, env);
 	}
 	printf("END: str = %s\n", str);
-//	funcs_args = take_commands(str);
+	take_simple_command(str);
 
 // "", '', \, $, ;, >, >>, <
 }

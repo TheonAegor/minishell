@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *str = strdup("    ls -la  | cat -e   ");
+	char *str = strdup(" \\|   ls -la \'$USER      hell yeali\'      | cat -e   ");
 	int	i = -1;
 /*
 	while(env[++i])
