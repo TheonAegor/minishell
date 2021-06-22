@@ -31,6 +31,8 @@ int		define_token_type(char c)
 		return (TAB);
 	else if (c == NEWLINE)
 		return (NEWLINE);
+	else if (c == CHAR_NULL)
+		return (CHAR_NULL);
 	else 
 		return (CHAR_GENERAL);
 }
@@ -86,8 +88,9 @@ t_token		*ft_parser(char *str, char **env)
 	state = GENERAL_S;
 	token = init_token(len);
 	tmp = token;
-	while (str[++i])
+	while (1)
 	{
+		i++;
 		chtype = define_token_type(str[i]);
 		tmp = first_token(tmp);
 		if (state == GENERAL_S)
@@ -148,6 +151,16 @@ t_token		*ft_parser(char *str, char **env)
 				j = 0;
 				add_token_front(&token, init_token(len - i));
 				state = ESCAPE_S;
+			}
+			else if (chtype == CHAR_NULL)
+			{
+				printf("inside char_null\n");
+				if (j > 0)
+					tmp->data[j] = 0;
+				j = 0;
+				add_token_front(&token, init_token(1));
+//				tmp = first_token(tmp);
+				break;
 			}
 			else
 			{

@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *str = strdup("ls           | cat -e");
+	char *str = strdup("ls           | cat -e > 1");
 	int	i = -1;
 	t_token *token;
 /*

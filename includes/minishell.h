@@ -28,6 +28,11 @@ enum state {
 	ESCAPE_S,
 };
 
+enum gram_types {
+	CMD,
+	ARG,
+};
+
 typedef struct s_token
 {
 	char			*data;
@@ -60,4 +65,5 @@ void			print_token_data(t_token *token);
 void			print_node_data_type(t_tree_node *n);
 t_tree_node     *init_tree_with_values(char *data, int type);
 t_tree_node		*init_tree_node(int size);
-void            implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)());
+int		        implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)());
+void	        insert_node(t_tree_node **head, t_tree_node *new);
