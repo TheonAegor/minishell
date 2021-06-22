@@ -1,8 +1,17 @@
-#include "libft.h"
-#include <stdio.h>
+#include "minishell.h"
 
-int main()
+int main(int argc, char **argv, char **env)
 {
-	printf("hello world");	
+	char *str = strdup("ls           | cat -e");
+	int	i = -1;
+	t_token *token;
+/*
+	while(env[++i])
+		printf("%s\n", env[i]);
+*/
+	printf("Original str = %s\n", str);
+	token = ft_parser(str, env);
+	grammar(token);
+	
 	return (1);
 }
