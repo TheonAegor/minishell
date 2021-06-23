@@ -63,13 +63,13 @@ void	ft_dollar(t_token **token, int *i, char *str, char **env)
 			}
 		}
 	}
-	printf("env = %s\n", tmp2);
+//	printf("env = %s\n", tmp2);
 	add_token_front(token, init_token(ft_strlen(tmp2)));
 	tmp = first_token(*token);
 	tmp->data = tmp2;
 	tmp->data[ft_strlen(tmp2)] = 0;
 	tmp->type = DOLLAR;
-	printf("tmp->data = %s\n", tmp->data);
+//	printf("tmp->data = %s\n", tmp->data);
 }
 
 t_token		*ft_parser(char *str, char **env)
@@ -154,7 +154,7 @@ t_token		*ft_parser(char *str, char **env)
 			}
 			else if (chtype == CHAR_NULL)
 			{
-				printf("inside char_null\n");
+//				printf("inside char_null\n");
 				if (j > 0)
 					tmp->data[j] = 0;
 				j = 0;

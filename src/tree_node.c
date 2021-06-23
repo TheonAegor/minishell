@@ -25,39 +25,24 @@ t_tree_node		*init_tree_with_values(char *data, int type)
 
 void		insert_node(t_tree_node **head, t_tree_node *new)
 {
-	t_tree_node *tmp;
-	t_tree_node *tmp2;
-
-	printf("\nstart insert_node...\n");
-	tmp = *head;
-	tmp2 = (*head)->left;
-	printf("tmp_addr = %p, head_addr = %p, tmp2_addr = %p\n", tmp, (*head), tmp2);
+//	printf("\nstart insert_node...\n");
+//	printf("before head = %s\n", (*head)->data);
 	if (new->type == CHAR_GENERAL)
 	{
-		while(tmp)
-		{
-			printf("ttttt\n");
-			tmp = (*tmp).left;
-		}
-		printf("tmp_addr = %p, head->left_addr = %p, tmp2_addr = %p\n", &tmp, (*head)->left, &tmp2);
-		if (tmp == NULL)
-			printf("tmp == null\n"); 
-		else
-			printf("tmp != null\n"); 
-		tmp = new; 
-		if (tmp == NULL)
-			printf("tmp is null\n");
-		else
-			printf("tmp is NOT null\n");
-		print_node_data_type((*head)->left);
+		while(*head)
+			*head = (*head)->left;
+		*head = new; 
+//		printf("before head = %s\n", (*head)->data);
 	}
 	else
 	{
-		while(tmp)
-			tmp = tmp->right;
-		tmp = new;
+		while(*head)
+		{
+			*head = (*head)->left;
+		}
+		*head = new;
 	}
-	printf("\n...end insert_node\n");
+//	printf("\n...end insert_node\n");
 }
 
 int			implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
@@ -68,7 +53,7 @@ int			implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
 		return (0);	
 	}
 	f(n);
-	printf("here\n");
+//	printf("here\n");
 	implement_f_to_all_tree_nodes(n->left, f);
 //	printf("after first rec, n = %s\n", n->data);
 	implement_f_to_all_tree_nodes(n->right, f);
@@ -84,4 +69,43 @@ void			print_node_data_type(t_tree_node *n)
 	}
 	else
 		printf("n is null inside print_node_data_type\n");
+}
+
+void		insert(char *data, int type, t_tree_node **leaf)
+{
+//	printf("here\n");
+	if (*leaf == NULL)
+	{
+		*leaf = malloc(sizeof(t_tree_node));
+		(*leaf)->data = malloc(sizeof(char) * ft_strlen(data) +1);	
+		(*leaf)->data = data;
+//		(*leaf)->data[0] = 0;
+		(*leaf)->type = type;
+		(*leaf)->left = 0;
+		(*leaf)->right = 0;
+
+	}
+	else if (type == CHAR_GENERAL)
+		insert(data, type, &(*leaf)->left);
+	else
+		insert(data, type, &(*leaf)->right);
+}
+
+void		insert_tree(t_tree_node *new, t_tree_node **leaf)
+{
+	if (*leaf == NULL)
+		*leaf = new;
+	else if (new->type == CHAR_GENERAL)
+		insert_tree(new, &(*leaf)->left);
+	else
+		insert_tree(new, &(*leaf)->right);
+}
+
+void			find_num_of_left_nodes(t_tree_node *head, int *count)
+{
+	if (head != NULL)
+	{
+		find_num_of_left_nodes(head->left, count);		
+		(*count)++;
+	}
 }
