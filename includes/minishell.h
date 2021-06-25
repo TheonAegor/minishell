@@ -66,6 +66,18 @@ typedef struct	s_tree_node
 	int					type;
 } t_tree_node;
 
+typedef struct	s_support_token
+{
+	t_token	*token;
+	char	*str;
+	int		len;
+	int		state;
+	int		chtype;
+	int		i;
+	int		j;
+	int		error;
+}	t_support_token;
+
 t_token			*init_token(int size);
 t_token			*first_token(t_token *last_token);
 t_token			*ft_parser(char *str, char **env);
@@ -84,6 +96,12 @@ void			execute(t_tree_node *head, t_simple_command **com);
 void            find_num_of_left_nodes(t_tree_node *head, int *count);
 void			init_simple_command(t_simple_command **com, t_tree_node *head, int flag);
 void		    print_simple_command_info(t_simple_command *com);
-void        del_comm_name_args(t_simple_command **com);
-void        fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
-void        execute_command(t_simple_command **com);
+void		    del_comm_name_args(t_simple_command **com);
+void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
+void   		    execute_command(t_simple_command **com);
+int				error_manager();
+void			ft_dollar(t_token **token, int *i, char *str, char **env, int *n);
+void			dquote_state_processor(t_support_token **sup, char **env);
+void			quote_state_processor(t_support_token **sup);
+void			escape_state_processor(t_support_token **sup);
+void			general_state_processor(t_support_token **sup, char **env);

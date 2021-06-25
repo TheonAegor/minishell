@@ -28,7 +28,7 @@ void	init_simple_command(t_simple_command **com, t_tree_node *head, int flag)
 			((*com)->arguments)[i] = strdup(head->data);	
 			i++;
 		}
-		print_simple_command_info(*com);
+//		print_simple_command_info(*com);
 	}
 }
 

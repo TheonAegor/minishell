@@ -49,11 +49,11 @@ int			implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
 {
 	if (n == NULL)
 	{
-//		printf("node is null");
+		printf("node is null");
 		return (0);	
 	}
+	printf("here\n");
 	f(n);
-//	printf("here\n");
 	implement_f_to_all_tree_nodes(n->left, f);
 //	printf("after first rec, n = %s\n", n->data);
 	implement_f_to_all_tree_nodes(n->right, f);

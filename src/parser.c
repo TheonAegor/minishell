@@ -37,19 +37,23 @@ int		define_token_type(char c)
 		return (CHAR_GENERAL);
 }
 
-void	ft_dollar(t_token **token, int *i, char *str, char **env)
+void	ft_dollar(t_token **token, int *i, char *str, char **env, int *n)
 {
 	t_token *tmp;
 	char	*tmp2;
 	char	*tmp3;
+	int		flag;
 	int		j;
 	int		k;
 
 	j = *i;
+	flag = 0;
 	while(str[++(*i)])
 		if (str[*i] != '_' && !ft_isalnum(str[*i]))
 			break;
-	tmp2 = ft_substr(str, j + 1, *i - j - 1);	
+	(*i) = *i - 1;
+//	printf("j = %d, *i = %d\n", j, *i);
+	tmp2 = ft_substr(str, j + 1, *i - j);	
 	k = -1;
 	while (env[++k])
 	{
@@ -59,143 +63,65 @@ void	ft_dollar(t_token **token, int *i, char *str, char **env)
 			if (ft_strncmp(tmp3, tmp2, ft_strlen(tmp2)) == 0) 
 			{
 				tmp2 = ft_strdup(ft_split(env[k], '=')[1]);
+				flag++;
 				break;
 			}
 		}
 	}
-//	printf("env = %s\n", tmp2);
-	add_token_front(token, init_token(ft_strlen(tmp2)));
-	tmp = first_token(*token);
-	tmp->data = tmp2;
-	tmp->data[ft_strlen(tmp2)] = 0;
-	tmp->type = DOLLAR;
+	if (flag == 0)
+		tmp2 = ft_strdup("");
+//	printf("tmp->data=%s\n", (*token)->data);
+	(*token)->data = ft_strjoin((*token)->data, tmp2); 
+	(*token)->type = DOLLAR;
+	*n = *n + ft_strlen(tmp2) - 1;
+//	printf("tmp->data=%s\n", (*token)->data);
+//	printf("end\n");
 //	printf("tmp->data = %s\n", tmp->data);
+}
+
+void		init_sup_struct(char *str,t_support_token **sup)
+{
+	(*sup)->i = -1;
+	(*sup)->j = 0;
+	(*sup)->str = ft_strdup(str);
+	(*sup)->len = ft_strlen(str);
+	(*sup)->token = init_token((*sup)->len);	
+	(*sup)->state = GENERAL_S;
+	(*sup)->error = -1;
 }
 
 t_token		*ft_parser(char *str, char **env)
 {
-	int		i;
-	t_token *token;
 	t_token *tmp;
-	int		chtype;
-	int		state;
-	int		len;
-	int		j;
-	
-	i = -1;
-	j = 0;
-	len = ft_strlen(str);
-	state = GENERAL_S;
-	token = init_token(len);
-	tmp = token;
+	t_support_token *sup;
+
+	sup = malloc(sizeof(t_support_token));
+	init_sup_struct(str, &sup);
+	tmp = sup->token;
 	while (1)
 	{
-		i++;
-		chtype = define_token_type(str[i]);
-		tmp = first_token(tmp);
-		if (state == GENERAL_S)
+		sup->i++;
+		(sup->chtype) = define_token_type(str[sup->i]);
+//		printf("sup->chtype = %d\n", sup->chtype);
+		if ((sup->state) == GENERAL_S)
+			general_state_processor(&sup, env);
+		else if ((sup->state) == QUOTE_S)
+			quote_state_processor(&sup);
+		else if ((sup->state) == DQUOTE_S)
+			dquote_state_processor(&sup, env);
+		else if ((sup->state) == ESCAPE_S)
+			escape_state_processor(&sup);
+		if (sup->chtype == CHAR_NULL)
 		{
-			if (chtype == CHAR_GENERAL)
-			{
-				tmp->data[j++] = str[i];	
-				tmp->type = TOKEN;
-			}
-			else if (chtype == WHITESPACE)
-			{
-				if (j > 0)
-				{
-					tmp->data[j] = 0;
-					add_token_front(&token, init_token(len - i));
-					j = 0;
-				}
-//				printf("here");
-			}
-			else if (chtype == DOLLAR)
-			{
-				if (j > 0)
-					tmp->data[j] = 0;
-				ft_dollar(&token, &i, str, env);
-				add_token_front(&token, init_token(len - i));
-				j = 0;
-			}
-			else if (chtype == QUOTE)
-			{
-				if (j > 0)
-					tmp->data[j] = 0;
-				j = 0;
-				add_token_front(&token, init_token(len - i));
-				state = QUOTE_S;
-			}
-			else if (chtype == DQUOTE)
-			{
-				if (j > 0)
-					tmp->data[j] = 0;
-				j = 0;
-				add_token_front(&token, init_token(len - i));
-				state = DQUOTE_S;
-			}
-			else if (chtype == PIPE || chtype == SEMICOLON || chtype == GREATER || chtype == LOWER)
-			{
-				if (j > 0)
-					tmp->data[j] = 0;
-				add_token_front(&token, init_token(len - i));
-				tmp->data[0] = chtype;
-				tmp->data[1] = '\0';
-				tmp->type = chtype;
-				j = 0;
-			}
-			else if (chtype == ESCAPE)
-			{
-				if (j > 0)
-					tmp->data[j] = 0;
-				j = 0;
-				add_token_front(&token, init_token(len - i));
-				state = ESCAPE_S;
-			}
-			else if (chtype == CHAR_NULL)
-			{
-//				printf("inside char_null\n");
-				if (j > 0)
-					tmp->data[j] = 0;
-				j = 0;
-				add_token_front(&token, init_token(1));
-//				tmp = first_token(tmp);
-				break;
-			}
-			else
-			{
-				tmp->data[j++] = chtype;	
-				tmp->type = TOKEN;
-			}
+//			printf("char_null break\n");
+			break;
 		}
-		else if (state == QUOTE_S)
-		{
-			if (chtype == QUOTE)
-			{
-				state = GENERAL_S;
-				add_token_front(&token, init_token(len - i));
-				j = 0;
-			}
-			else
-			{
-				tmp->data[j++] = str[i]; 
-				tmp->type = QUOTE;
-			}
-		}
-		else if (state == DQUOTE_S)
-		{
-			tmp->data[j++] = str[i]; 
-			if (chtype == DQUOTE)
-			{
-				add_token_front(&token, init_token(len - i));
-				state = GENERAL_S;	
-				j = 0;
-			}
-		}
+//		printf("here\n");
 	}
-	implement_f_to_all_tokens(&token, print_token_data);
+	printf("before implement print_token\n");
+	implement_f_to_all_tokens(&(sup->token), print_token_data);
 
-	return (token);
+	return (sup->token);
 // "", '', \, $, ;, >, >>, <
 }
 /*

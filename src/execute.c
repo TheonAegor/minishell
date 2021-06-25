@@ -10,7 +10,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		pipe(fd);
 		init_simple_command(com, head->left, 0);
 		(*com)->pipe_write = fd[1];
-		execute_command(com);
+//		execute_command(com);
 		(*com)->pipe_read = fd[0];
 		(*com)->pipe_write = -99;
 		execute(head->right, com);
@@ -20,7 +20,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 //		printf("\tinside greater\n");
 		fill_redirect_in_info(com, head->right);
 		init_simple_command(com, head->left, 0);
-		execute_command(com);
+//		execute_command(com);
 		(*com)->redirect_in = NULL;
 		execute(head->right, com);
 	}
@@ -28,7 +28,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 	{
 //		printf("\tinside chr null\n");
 		init_simple_command(com, head->left, 0);
-		execute_command(com);
+//		execute_command(com);
 	}
 }
 
