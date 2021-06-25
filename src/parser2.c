@@ -63,82 +63,30 @@ void		general_state_processor(t_support_token **sup, char **env)
 	t_token *tmp;
 
 	tmp = first_token((*sup)->token);
-	if (((*sup)->chtype) == CHAR_GENERAL)
-	{
-		tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
-		tmp->type = TOKEN;
-	}
-	else if (((*sup)->chtype) == WHITESPACE)
-	{	
-//		printf("j = %d\n", j);
-		if (((*sup)->j) > 0)
-		{
-			tmp->data[((*sup)->j)] = 0;
-			add_token_front(&(*sup)->token, init_token(((*sup)->len) - (*sup)->i));
-			((*sup)->j) = 0;
-	//		printf("str in whitespace = %s\n", tmp->data);
-		}
-//		printf("here");
-	}
+	if (((*sup)->chtype) == WHITESPACE)
+		case_whitespace(sup, &tmp);
 	else if (((*sup)->chtype) == DOLLAR)
-	{
-		ft_dollar(&tmp, &(*sup)->i, (*sup)->str, env, &((*sup)->j));
-		((*sup)->j)++;
-	}
+		case_dollar(sup, env, &tmp);
 	else if (((*sup)->chtype) == QUOTE)
-	{
-		if (((*sup)->j) > 0)
-		{
-			tmp->data[((*sup)->j)] = 0;
-			add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
-			((*sup)->j) = 0;
-		}
-		((*sup)->state) = QUOTE_S;
-	}
+		case_quote(sup, &tmp);
 	else if (((*sup)->chtype) == DQUOTE)
-	{
-		if (((*sup)->j) > 0)
-		{
-			tmp->data[((*sup)->j)] = 0;
-			((*sup)->j) = 0;
-			add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
-		}
-		((*sup)->state) = DQUOTE_S;
-	}
+		case_dquote(sup, &tmp);
 	else if (((*sup)->chtype) == ESCAPE)
-	{
 		((*sup)->state) = ESCAPE_S;
-	}
-	else if (((*sup)->chtype) == PIPE || ((*sup)->chtype) == SEMICOLON || ((*sup)->chtype) == GREATER || ((*sup)->chtype) == LOWER)
-	{
-		if (((*sup)->j) > 0)
-			tmp->data[((*sup)->j)] = 0;
-		add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
-		tmp->data[0] = ((*sup)->chtype);
-		tmp->data[1] = '\0';
-		tmp->type = ((*sup)->chtype);
-		((*sup)->j) = 0;
-	}
+	else if (is_separator((*sup)->chtype))
+		case_separator(sup, &tmp);
 	else if (((*sup)->chtype) == CHAR_NULL)
-	{
-//		printf("inside char_null\n");
-		if (((*sup)->j) > 0)
-		{
-			tmp->data[((*sup)->j)] = 0;
-			add_token_front(&tmp, init_token(1));
-			((*sup)->j) = 0;
-		}
-//		(*sup)->token = first_token(tmp);
-	}
+		case_charnull_in_general(sup, &tmp);
 	else
-	{
-		tmp->data[((*sup)->j)++] = ((*sup)->chtype);	
-		tmp->type = TOKEN;
-	}
+		case_general_char(sup, &tmp);
 }
 
 void		escape_state_processor(t_support_token **sup)
 {
-	(*sup)->token->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
+	t_token *tmp;
+
+//	printf("j = %d, i = %d, str[i] = %c\n", (*sup)->j, (*sup)->i, (*sup)->str[(*sup)->i]); 
+	tmp = first_token((*sup)->token);
+	tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
 	((*sup)->state) = GENERAL_S;
 }

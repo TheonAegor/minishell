@@ -15,8 +15,6 @@ void	init_right_side(t_token *this, t_tree_node **head)
 	while(tmp)
 		tmp = tmp->right;
 	tmp = init_tree_with_values(this->data, this->type);
-//	printf("inside init_right\n");
-//	print_node_data_type(head);
 }
 
 void	init_left_side(t_token *this, t_tree_node **head)
@@ -24,12 +22,8 @@ void	init_left_side(t_token *this, t_tree_node **head)
 	t_tree_node *tmp;
 
 	tmp = *head;
-//	printf("\nthis->data == %s\n", this->data);
-//	if (tmp == NULL)
-//		printf("node is null inside init\n");
 	if (this->type == CHAR_GENERAL)
 	{
-//		printf("inside general char\n");
 		if (tmp != NULL)
 		{
 			while (tmp)
@@ -39,16 +33,6 @@ void	init_left_side(t_token *this, t_tree_node **head)
 		else
 			*head = init_tree_with_values(this->data, this->type);
 	}
-	/*
-	if (*head == NULL)
-		printf("head is null after inside init\n");
-	else
-		printf("head is NOT null after inside init\n");
-		*/
-
-//	printf("inside init_left\n");
-//	print_node_data_type(head);
-//	printf("end of init_left\n");
 }
 
 t_tree_node	*grammar(t_token *p)
@@ -59,16 +43,17 @@ t_tree_node	*grammar(t_token *p)
 	t_tree_node *head = NULL;
 
 	t_token		*end;
-	t_token		*start;
 	t_token		*tmp2;
 	int			flag;
 
+	end = p; //token
 
-	end = p;
 	node = NULL;
 	save = node;
-	start = end;
+
 	flag = 0;
+
+	printf("\nstart of grammar\n");
 	while (1)
 	{
 		if (is_end_of_command(end->type))
@@ -93,7 +78,9 @@ t_tree_node	*grammar(t_token *p)
 			insert(end->data, end->type, &node);
 		end = end->next;
 	}
+	free_delete_all_tokens(&p);
 //	printf("\nbefore implement\n");
-//	implement_f_to_all_tree_nodes(head, print_node_data_type);
+	implement_f_to_all_tree_nodes(head, print_node_data_type);
+	printf("end of grammar\n");
 	return (head);
 }

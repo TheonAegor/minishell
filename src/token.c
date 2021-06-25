@@ -6,6 +6,7 @@ t_token	*init_token(int size)
 
 	token = malloc(sizeof(t_token));
 	token->data = malloc(size+1);
+	token->data[0] = 0;
 	token->data[size] = 0;
 	
 	token->type = CHAR_NULL;
@@ -29,14 +30,14 @@ void	implement_f_to_all_tokens(t_token **last_token,void (*f)())
 {
 	t_token		*tmp;
 
-	printf("inside implement\n");
+//	printf("inside implement\n");
 	tmp = *last_token;
 	while (tmp)
 	{
 		f(tmp);
 		tmp = tmp->next;
 	}
-	printf("end of emplement\n");
+//	printf("end of implement\n");
 }
 
 t_token	*first_token(t_token *last_token)
@@ -47,4 +48,21 @@ t_token	*first_token(t_token *last_token)
 	while (tmp->next)
 		tmp = tmp->next;
 	return(tmp);
+}
+
+void		free_delete_all_tokens(t_token **last_token)
+{
+	t_token *tmp;
+	t_token *tmp2;
+
+	tmp = *last_token;
+	while (tmp)
+	{
+		free(tmp->data);
+		tmp->data = NULL;
+		tmp2 = tmp;
+		tmp = tmp->next;
+		free(tmp2);
+		tmp2 = NULL;
+	}
 }

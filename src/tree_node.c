@@ -18,7 +18,7 @@ t_tree_node		*init_tree_with_values(char *data, int type)
 	t_tree_node *node;
 
 	node = init_tree_node(ft_strlen(data));
-	node->data = data;
+	node->data = ft_strdup(data);
 	node->type = type;
 	return (node);
 }
@@ -37,9 +37,7 @@ void		insert_node(t_tree_node **head, t_tree_node *new)
 	else
 	{
 		while(*head)
-		{
 			*head = (*head)->left;
-		}
 		*head = new;
 	}
 //	printf("\n...end insert_node\n");
@@ -49,10 +47,10 @@ int			implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
 {
 	if (n == NULL)
 	{
-		printf("node is null");
+//		printf("node is null");
 		return (0);	
 	}
-	printf("here\n");
+//	printf("here\n");
 	f(n);
 	implement_f_to_all_tree_nodes(n->left, f);
 //	printf("after first rec, n = %s\n", n->data);
@@ -77,12 +75,11 @@ void		insert(char *data, int type, t_tree_node **leaf)
 	if (*leaf == NULL)
 	{
 		*leaf = malloc(sizeof(t_tree_node));
-		(*leaf)->data = malloc(sizeof(char) * ft_strlen(data) +1);	
-		(*leaf)->data = data;
+		(*leaf)->data = ft_strdup(data);
 //		(*leaf)->data[0] = 0;
 		(*leaf)->type = type;
-		(*leaf)->left = 0;
-		(*leaf)->right = 0;
+		(*leaf)->left = NULL;
+		(*leaf)->right = NULL;
 
 	}
 	else if (type == CHAR_GENERAL)
@@ -108,4 +105,22 @@ void			find_num_of_left_nodes(t_tree_node *head, int *count)
 		find_num_of_left_nodes(head->left, count);		
 		(*count)++;
 	}
+}
+
+void		free_del_all_nodes(t_tree_node **head)
+{
+	if ((*head)->right == NULL && (*head)->left == NULL)
+	{
+		free((*head)->data);
+		(*head)->data = NULL; 
+		free(*head);
+//		*head = NULL;
+		return ;
+	}
+	if ((*head)->left)
+		free_del_all_nodes(&(*head)->left);
+	if ((*head)->right)
+		free_del_all_nodes(&(*head)->right);
+	free_del_all_nodes(head);
+	printf("here\n");
 }
