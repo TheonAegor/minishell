@@ -18,6 +18,8 @@ t_tree_node		*init_tree_with_values(char *data, int type)
 	t_tree_node *node;
 
 	node = init_tree_node(ft_strlen(data));
+	free(node->data);
+	node->data = NULL;
 	node->data = ft_strdup(data);
 	node->type = type;
 	return (node);
@@ -25,14 +27,11 @@ t_tree_node		*init_tree_with_values(char *data, int type)
 
 void		insert_node(t_tree_node **head, t_tree_node *new)
 {
-//	printf("\nstart insert_node...\n");
-//	printf("before head = %s\n", (*head)->data);
 	if (new->type == CHAR_GENERAL)
 	{
 		while(*head)
 			*head = (*head)->left;
 		*head = new; 
-//		printf("before head = %s\n", (*head)->data);
 	}
 	else
 	{
@@ -40,10 +39,9 @@ void		insert_node(t_tree_node **head, t_tree_node *new)
 			*head = (*head)->left;
 		*head = new;
 	}
-//	printf("\n...end insert_node\n");
 }
 
-int			implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
+int				implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
 {
 	if (n == NULL)
 	{
@@ -114,7 +112,8 @@ void		free_del_all_nodes(t_tree_node **head)
 		free((*head)->data);
 		(*head)->data = NULL; 
 		free(*head);
-//		*head = NULL;
+		*head = NULL;
+//		printf("null exit\n");
 		return ;
 	}
 	if ((*head)->left)
@@ -122,5 +121,5 @@ void		free_del_all_nodes(t_tree_node **head)
 	if ((*head)->right)
 		free_del_all_nodes(&(*head)->right);
 	free_del_all_nodes(head);
-	printf("here\n");
+//	printf("finished func\n");
 }

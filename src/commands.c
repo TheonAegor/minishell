@@ -54,6 +54,11 @@ void		fill_redirect_in_info(t_simple_command **com, t_tree_node *head)
 	(*com)->redirect_in = strdup(head->left->data);
 }
 
+void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
+{
+	(*com)->redirect_out = strdup(head->left->data);
+}
+
 void		execute_command(t_simple_command **com)
 {
 	printf("-----------inside execute command----------\n");

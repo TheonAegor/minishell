@@ -12,7 +12,9 @@ enum token_type {
 	SEMICOLON = ';',
 	PIPE = '|',
 	GREATER = '>',
+	DGREATER,
 	LOWER = '<',
+	DLOWER,
 	WHITESPACE = ' ',
 	TAB = '\t',
 	NEWLINE = '\n',
@@ -49,6 +51,7 @@ typedef struct	s_simple_command
 	char	*error_log;
 	int		pipe_read;
 	int		pipe_write;
+	int		save;
 	char	*redirect_in;
 	char	*redirect_out;
 }	t_simple_command;
@@ -98,6 +101,7 @@ void			init_simple_command(t_simple_command **com, t_tree_node *head, int flag);
 void		    print_simple_command_info(t_simple_command *com);
 void		    del_comm_name_args(t_simple_command **com);
 void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
+void        fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
 void   		    execute_command(t_simple_command **com);
 int				error_manager();
 void			ft_dollar(t_token **token, int *i, char *str, char **env, int *n);
@@ -119,3 +123,4 @@ void			free_array(char **arr);
 char		    *look_in_env(char **env, char *to_find);
 void			free_del_str(char *str);
 void	        free_del_all_nodes(t_tree_node **head);
+void        case_lower_greater(t_support_token **sup, t_token **tmp);

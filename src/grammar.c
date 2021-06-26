@@ -2,7 +2,7 @@
 
 int		is_end_of_command(int type)
 {
-	if (type == PIPE || type == SEMICOLON || type == GREATER || type == LOWER || type == CHAR_NULL)
+	if (type == PIPE || type == SEMICOLON || type == GREATER || type == LOWER || type == CHAR_NULL || type == DGREATER || type == DLOWER)
 		return (1);
 	return (0);
 }
@@ -78,8 +78,6 @@ t_tree_node	*grammar(t_token *p)
 			insert(end->data, end->type, &node);
 		end = end->next;
 	}
-	free_delete_all_tokens(&p);
-//	printf("\nbefore implement\n");
 	implement_f_to_all_tree_nodes(head, print_node_data_type);
 	printf("end of grammar\n");
 	return (head);
