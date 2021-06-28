@@ -4,31 +4,23 @@ void	init_simple_command(t_simple_command **com, t_tree_node *head, int flag)
 {
 	int i;
 
-//	printf("start of init_simple_command\n");
 	if ((*com)->command_name == NULL)
 	{
-//		printf("com_name is null\n");
 		(*com)->command_name = ft_strdup(head->data);
 		find_num_of_left_nodes(head->left, &(*com)->num_of_arguments);
 		(*com)->arguments = malloc(sizeof(char*)*(*com)->num_of_arguments + 1);
-		init_simple_command(com, head->left, 1); 
+		init_simple_command(com, head->left, 1);
 	}
 	else if ((*com)->arguments != NULL && flag == 0)
 	{
-//		printf("there are args\n");
 		del_comm_name_args(com);
-		init_simple_command(com, head, 0); 
+		init_simple_command(com, head, 0);
 	}
 	else
 	{
-//		printf("else\n");
 		i = 0;
 		while (i < (*com)->num_of_arguments)
-		{
-			((*com)->arguments)[i] = strdup(head->data);	
-			i++;
-		}
-//		print_simple_command_info(*com);
+			((*com)->arguments)[i++] = strdup(head->data);	
 	}
 }
 
@@ -59,9 +51,23 @@ void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
 	(*com)->redirect_out = strdup(head->left->data);
 }
 
-void		execute_command(t_simple_command **com)
+void		execute_command(t_simple_command *com)
 {
 	printf("-----------inside execute command----------\n");
+	if (tmp->pipe_read != NO_VAL)
+	{
+		read_from_pipe(com);
+	}
+	else if (tmp->redirect_out != NULL)
+	{
+		read_from_redirect(com);
+	}
+	else if (tmp->pipe_write != NO_VAL)
+	{
+		write_in_pipe(com);
+	}
+	else
+		do_func(com);
 	print_simple_command_info(*com);
 	printf("-----------end of execute command----------\n");
 }

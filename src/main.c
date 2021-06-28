@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *str = ft_strdup("ls -la | cat -e << 1 ; cat -e | ls -la");
+	char *str = ft_strdup("ls -la | cat -e << 1 ; cat -e | ls -la")<;
 	int	i = -1;
 	t_token *token;
 	t_tree_node *head;
@@ -20,6 +20,6 @@ int main(int argc, char **argv, char **env)
 //	free_del_all_nodes(&head);
 //	implement_f_to_all_tree_nodes(head, print_node_data_type);
 //	printf("~~~~~before execute~~~~~\n");
-	execute(head, &command);	 
+	execute(head, &command);
 	return (1);
 }
