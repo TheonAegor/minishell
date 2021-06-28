@@ -8,25 +8,30 @@ int checknum(char *str)
 	i = 0;
 	while (str[i] != 0)
 	{
-		if ((str[i] < 48 || str[i] > 57) && str[i] != '-')
-			return (0);
+		if ((str[i] < '0' || str[i] > '9') && str[i] != '-')
+			return (1);
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
-int exit_blt(t_all *all)
+void exit_blt(t_all *all)
 {
-	if (arraylen(all->argv) > 2)
-		printf("minishell: exit: слишком много аргументов\n");
-	else if (arraylen(all->argv) == 1)
-		exit(0);
-	else if (checknum(all->argv[1]) == 0)
-	{
-		printf("minishell: exit: %s: требуется числовой аргумент\n", all->argv[1]);
-		exit(2);
-	}
+	if (arraylen(all->argv) > 1)
+		result_error(all, "слишком много аргументов\n", NULL, 1);
 	else
-		exit((char)(ft_atoi(all->argv[1])));
-	return(1);
+	{
+		printf("exit\n");
+		if (arraylen(all->argv) == 0)
+			exit(0);
+		else if (checknum(all->argv[0]) == 1)
+		{
+			result_error(all, "требуется числовой аргумент", all->argv[0], 2);
+			printf("%s\n", all->result);
+			exit(2);
+		}
+		else
+			exit((char)(ft_atoi(all->argv[0])));
+		change_last_arg(all);
+	}
 }

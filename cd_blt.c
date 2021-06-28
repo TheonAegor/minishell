@@ -7,6 +7,7 @@ char *gethome(t_all *all)
 	char *home;
 
 	i = 0;
+	home = NULL;
 	while (all->envp[i] != NULL)
 	{
 		if (ft_strncmp(all->envp[i], "HOME=", 5) == 0)
@@ -16,41 +17,35 @@ char *gethome(t_all *all)
 	return(home);
 }
 
-int pwdchange(t_all *all)
+void cd_blt(t_all *all)
 {
 	char *pwd;
-	int i;
+	char *home;
 
-	i = 0;
 	pwd = NULL;
-	pwd = getcwd(pwd, 0);
-	while (all->envp[i] != 0)
+	home = gethome(all);
+	if (arraylen(all->argv) == 1 && ft_strncmp(all->argv[0], "~", 2) != 0)
 	{
-		if (ft_strncmp(all->envp[i], "PWD=", 4) == 0)
+		if (chdir(all->argv[0]) == 0)
 		{
-			free(all->envp[i]);
-			all->envp[i] = ft_strjoin("PWD=", pwd);
+			pwd = getcwd(pwd, 0);
+			change_env(all, "PWD", pwd);
+			free(pwd);
 		}
-		i++;
-	}
-	return(1);
-}
-
-int cd_blt(t_all *all)
-{
-	if (arraylen(all->argv) == 2)
-	{
-		if (chdir(all->argv[1]) == 0)
-			pwdchange(all);
 		else
-			printf("minishell: cd: %s: Нет такого файла или каталога\n", all->argv[1]);
+			result_error(all, "Нет такого файла или каталога\n", all->argv[0], 1);
 	}
-	else if (arraylen(all->argv) > 2)
-		printf("minishell: cd: слишком много аргументов\n");
+	else if (arraylen(all->argv) > 1)
+		result_error(all, "слишком много аргументов\n", NULL, 1);
 	else
 	{
-		chdir(gethome(all));
-		pwdchange(all);
+		if (home == NULL)
+			result_error(all, "Не задана переменная HOME\n", NULL, 1);
+		else if (chdir(home) == 0)
+			change_env(all, "PWD", home);
+		else
+			result_error(all, "Нет такого файла или каталога\n", home, 1);
 	}
-	return(1);
+	free(home);
+	change_last_arg(all);
 }
