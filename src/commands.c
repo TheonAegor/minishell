@@ -56,6 +56,7 @@ void		execute_command(t_simple_command *com)
 	printf("-----------inside execute command----------\n");
 	if (com->pipe_read != NO_VAL)
 	{
+		write(1, "qqqqqqqqqq ", 11);
 		read_from_pipe(com);
 	}
 	else if (com->redirect_out != NULL)
