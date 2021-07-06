@@ -4,6 +4,7 @@ void	init_simple_command(t_simple_command **com, t_tree_node *head, int flag)
 {
 	int i;
 
+	printf("start of init_simple_command\n");
 	if ((*com)->command_name == NULL)
 	{
 		(*com)->command_name = ft_strdup(head->data);
@@ -54,6 +55,7 @@ void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
 void		execute_command(t_simple_command *com)
 {
 	printf("-----------inside execute command----------\n");
+	print_simple_command_info(com);
 	if (com->pipe_read != NO_VAL)
 	{
 		write(1, "qqqqqqqqqq ", 11);

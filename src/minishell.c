@@ -189,6 +189,18 @@ void init_all(t_all *all)
 	all->name = NULL;
 }
 
+t_simple_command	*init_command()
+{
+	t_simple_command *command;
+
+	command = malloc(sizeof(t_simple_command));
+	command->num_of_arguments = NO_VAL;
+	command->pipe_read = NO_VAL;
+	command->pipe_write = NO_VAL;
+	command->save = NO_VAL;
+	return (command);
+}
+
 int main(int argc, char **argv, char **envp)
 {
 	char *str;
@@ -201,7 +213,7 @@ int main(int argc, char **argv, char **envp)
 	rl_catch_signals = 0;
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
-	command = malloc(sizeof(t_simple_command));
+	command = init_command();
 	while (1 == 1)
 	{
 		str = readline("minishell$ ");
