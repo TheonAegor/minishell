@@ -14,15 +14,16 @@ void unset_blt(t_all *all)
 	{
 		j = 0;
 		flag = 0;
-		while (all->argv[j] != NULL)
-		{
-			if (ft_strncmp(all->envp[i], all->argv[j], ft_strlen(all->argv[j])) == 0)
+		if (all->argv != 0)
+			while (all->argv[j] != NULL)
 			{
-				flag = 1;
-				break;
+				if (ft_strncmp(all->envp[i], all->argv[j], ft_strlen(all->argv[j])) == 0)
+				{
+					flag = 1;
+					break;
+				}
+				j++;
 			}
-			j++;
-		}
 		if (flag != 1)
 			new_envp = arrayadd(new_envp, all->envp[i]);
 		i++;
