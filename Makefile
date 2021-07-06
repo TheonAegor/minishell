@@ -2,7 +2,7 @@ NAME = minishell
 
 option = -Iincludes
 
-cc = gcc #-Wall -Werror -Wextra
+cc = gcc  #-Wall -Werror -Wextra
 
 files = src/*.c
 
@@ -17,17 +17,16 @@ obj = $(addprefix $(OBJDIR)/,$(addsuffix .o, $(basename $(notdir $(src)))))
 all = $(NAME)
 
 all: $(obj)
-	@$(cc) -o $(NAME) $(option) $^ libft/libft.a 
+	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
 
 $(OBJDIR)/%.o:  src/%.c
 	@mkdir -p $(OBJDIR)
-	$(cc) $(option) -O3 -c $< -o $@
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 clean:
 	rm -rf $(obj)
 
-fclean: clean shot
-	make fclean -C libft
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean
