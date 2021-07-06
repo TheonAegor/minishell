@@ -23,12 +23,12 @@ void exit_blt(t_all *all)
 	{
 		printf("exit\n");
 		if (arraylen(all->argv) == 0)
-			exit(0);
+			exit(all->exit_status);
 		else if (checknum(all->argv[0]) == 1)
 		{
 			result_error(all, "требуется числовой аргумент", all->argv[0], 2);
 			printf("%s\n", all->result);
-			exit(2);
+			exit(all->exit_status);
 		}
 		else
 			exit((char)(ft_atoi(all->argv[0])));

@@ -43,26 +43,18 @@ char **form_array(t_all *all, char *first_arg)
 	return(array);
 }
 
-void sigint_ex(int sig)
-{
-	(void)sig;
-	printf("123 ");
-}
-
 int exec_blt(t_all *all, char *first_arg)
 {
 	pid_t pid;
 	char *fullpath;
 	int i;
-	int flag;
 	int status;
 
 	i = 0;
-	flag = 0;
 	all->argv = form_array(all, first_arg);
-	pid = fork();
 	get_path(all);
-//	signal_flags.exec_flag = 1;
+	signal_flags.exec_flag = 1;
+	pid = fork();
 	if (pid == 0)
 	{
 		while (all->path[i] != NULL)
@@ -70,26 +62,32 @@ int exec_blt(t_all *all, char *first_arg)
 			fullpath = ft_strjoin(all->path[i], all->name);
 			if (execve(fullpath, all->argv, all->envp) != -1)
 			{
-				flag = 1;
 				free(fullpath);
 				break;
 			}
 			free(fullpath);
 			i++;
 		}
-		if (flag == 0 && execve(all->name, all->argv, all->envp) == -1)
-			exit(127);
-		//		exit(0);
+		execve(all->name, all->argv, all->envp);
+		exit(127);
 	}
 	else
 	{
-	//	signal_flags.pid = pid;
 		wait(&status);
+		signal_flags.pid = pid;
 		if (WIFEXITED(status) != 0)
 		{
 			if (WEXITSTATUS(status) != 0)
 				all->error_flag = 1;
 			all->exit_status = WEXITSTATUS(status);
+		}
+		if (WIFSIGNALED(status) != 0)
+		{
+			all->error_flag = 1;
+			all->exit_status = 128 + WTERMSIG(status);
+			if (WTERMSIG(status) == 3)
+				printf("Выход (стек памяти сброшен на диск)");
+			printf("\n");
 		}
 		if (all->exit_status == 127)
 			result_error(all, "команда не найдена\n", NULL, 127);

@@ -71,10 +71,9 @@ char **arrayadd(char **src, char *str)
 	return(array);
 }
 
-void buffree(char *buf, char *buftrim, char **bufsplit)
+void buffree(char *buf, char **bufsplit)
 {
 	free(buf);
-	free(buftrim);
 	arrayfree(bufsplit);
 }
 
@@ -142,15 +141,15 @@ char *stradd(char *dst, char *str)
 
 void result_error(t_all *all, char *error, char *arg, int exit_status)
 {
-	all->result = stradd(all->result, "minishell: ");
-	all->result = stradd(all->result, all->name);
-	all->result = stradd(all->result, ": ");
+	all->error = stradd(all->error, "minishell: ");
+	all->error = stradd(all->error, all->name);
+	all->error = stradd(all->error, ": ");
 	if (arg != NULL)
 	{
-		all->result = stradd(all->result, arg);
-		all->result = stradd(all->result, ": ");
+		all->error = stradd(all->error, arg);
+		all->error = stradd(all->error, ": ");
 	}
-	all->result = stradd(all->result, error);
+	all->error = stradd(all->error, error);
 	all->exit_status = exit_status;
 	all->error_flag = 1;
 }
@@ -180,20 +179,12 @@ void sigint(int sig)
 	(void)sig;
 	if (signal_flags.exec_flag == 0)
 	{
+//		all->exit_status = 130;
 		printf("^C\n");
 		rl_on_new_line();
 		rl_replace_line("", 0);
 		rl_redisplay();
 	}
-	/* else */
-	/* { */
-	/* 	printf("%d", signal_flags.pid); */
-	/* 	kill(signal_flags.pid, SIGINT); */
-	/* 	printf("\n"); */
-	/* 	rl_on_new_line(); */
-	/* 	rl_replace_line("", 0); */
-	/* 	rl_redisplay(); */
-	/* } */
 }
 
 void sigquit(int sig)
@@ -215,13 +206,13 @@ int main(int argc, char **argv, char **envp)
 	int		i;
 	int		j;
 	char	*buf;
-	char	*buftrim;
 	char	**bufsplit;
 	(void)	argc;
 
 	i = 0;
 	all.argv = NULL;
 	all.result = NULL;
+	all.error = NULL;
 	all.name = NULL;
 	buf = NULL;
 	signal_flags.exec_flag = 0;
@@ -238,8 +229,7 @@ int main(int argc, char **argv, char **envp)
 			add_history(buf);
 		if (buf == NULL)
 			exit(0);
-		buftrim = ft_strtrim(buf, " \n");
-		bufsplit = ft_split(buftrim, ' ');
+		bufsplit = ft_split(buf, ' ');
 		if (bufsplit[0] != 0)
 		{
 			all.name = ft_strdup(bufsplit[0]);
@@ -251,7 +241,7 @@ int main(int argc, char **argv, char **envp)
 		}
 		if (bufsplit[0] == 0)
 		{
-			buffree(buf, buftrim, bufsplit);
+			buffree(buf, bufsplit);
 			continue;
 		}
 		else if (ft_strncmp(all.name, "?", 2) == 0)
@@ -290,18 +280,23 @@ int main(int argc, char **argv, char **envp)
 		if (all.result != NULL)
 		{
 			printf("%s", all.result);
-			free(all.result);
-		
+			free(all.result);	
+		}
+		if (all.error != NULL)
+		{
+			printf("%s", all.error);
+			free(all.error);	
 		}
 		if (all.name != NULL)
 			free(all.name);
 		signal_flags.exec_flag = 0;
 		was_error(&all);
-		buffree(buf, buftrim, bufsplit);
+		buffree(buf, bufsplit);
 		arrayfree(all.argv);
 		all.argv = NULL;
 		all.name = NULL;
 		all.result = NULL;
+		all.error = NULL;
 		buf = NULL;
 	}
 }
