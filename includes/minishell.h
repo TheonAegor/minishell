@@ -1,10 +1,11 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include "libft.h"
+# include <stdio.h>
+# include <string.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include "libft.h"
 # include <unistd.h>
 # include <signal.h>
 # include <readline/readline.h>
@@ -26,10 +27,9 @@ enum token_type {
 	LOWER = '<',
 	DLOWER,
 	WHITESPACE = ' ',
-	TAB = '\t',
-	NEWLINE = '\n',
+	TTAB = '\t',
+	NNEWLINE = '\n',
 	CHAR_NULL = 0,
-
 	TOKEN = -1,
 	NO_VAL = -99,
 	SKIP_LEFT,
@@ -45,6 +45,11 @@ typedef struct	s_all
 	char		**path;
 	int			exit_status;
 	int			error_flag;	
+	int			pipe_read;
+	int			pipe_write;
+	int			save;
+	char		*redirect_in;
+	char		*redirect_out;
 }				t_all;
 
 typedef struct	s_signal
@@ -179,5 +184,9 @@ void			echo_blt(t_all *all);
 void			unset_blt(t_all *all);
 void			exit_blt(t_all *all);
 int				exec_blt(t_all *all, char *first_arg);
-
+void sigint(int sig);
+void sigquit(int sig);
+void do_func(t_simple_command *com);
+void init_all(t_all *all);
+void was_error(t_all *all);
 #endif

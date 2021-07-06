@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 char *gethome(t_all *all)

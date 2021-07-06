@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 void unset_blt(t_all *all)

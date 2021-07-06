@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 int find_pos(t_all *all)

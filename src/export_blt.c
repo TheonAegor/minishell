@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 int check_arg(char *str)

@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 extern t_signal signal_flags;

@@ -1,4 +1,3 @@
-#include "libft.h"
 #include "minishell.h"
 
 void env_blt(t_all *all)

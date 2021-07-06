@@ -174,24 +174,6 @@ void change_last_arg(t_all *all)
 		change_env(all, "_", all->argv[arraylen(all->argv) - 1]);
 }
 
-void sigint(int sig)
-{
-	(void)sig;
-	if (signal_flags.exec_flag == 0)
-	{
-//		all->exit_status = 130;
-		printf("^C\n");
-		rl_on_new_line();
-		rl_replace_line("", 0);
-		rl_redisplay();
-	}
-}
-
-void sigquit(int sig)
-{
-	(void)sig;
-}
-
 void was_error(t_all *all)
 {
 	if (all->error_flag == 1)
@@ -200,103 +182,41 @@ void was_error(t_all *all)
 		all->exit_status = 0;
 }
 
+void init_all(t_all *all)
+{
+	all->argv = NULL;
+	all->result = NULL;
+	all->error = NULL;
+	all->name = NULL;
+}
+
 int main(int argc, char **argv, char **envp)
 {
-	t_all	all;
-	int		i;
-	int		j;
-	char	*buf;
-	char	**bufsplit;
+	char *str;
+	t_token *token;
+	t_tree_node *head;
+	t_simple_command *command;
 	(void)	argc;
 
-	i = 0;
-	all.argv = NULL;
-	all.result = NULL;
-	all.error = NULL;
-	all.name = NULL;
-	buf = NULL;
 	signal_flags.exec_flag = 0;
-	all.exit_status = 0;
 	rl_catch_signals = 0;
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
-	all.envp = arraycpy(envp);
+	command = malloc(sizeof(t_simple_command));
 	while (1 == 1)
 	{
-		i = 0;
-		buf = readline("minishell$ ");
-		if (buf != NULL && buf[0] != 0)
-			add_history(buf);
-		if (buf == NULL)
+		str = readline("minishell$ ");
+		if (str != NULL && str[0] != 0)
+			add_history(str);
+		if (str == NULL)
 			exit(0);
-		bufsplit = ft_split(buf, ' ');
-		if (bufsplit[0] != 0)
-		{
-			all.name = ft_strdup(bufsplit[0]);
-			while (bufsplit[i + 1] != 0)
-			{
-				all.argv = arrayadd(all.argv, bufsplit[i + 1]);
-				i++;
-			}
-		}
-		if (bufsplit[0] == 0)
-		{
-			buffree(buf, bufsplit);
+		if (str == NULL)
 			continue;
-		}
-		else if (ft_strncmp(all.name, "?", 2) == 0)
-			printf("%d\n", all.exit_status);
-		else if (ft_strncmp(all.name, "_", 2) == 0)
-		{
-			j = 0;
-			while (all.envp[j] != 0)
-			{
-				if (ft_strncmp(all.envp[j], "_=", 2) == 0)
-					break;
-				j++;
-			}
-			printf("%s\n", all.envp[j] + 2);
-		}
-		else if (strncmp_mix(all.name, "pwd", 4) == 0)
-			pwd_blt(&all);
-		else if (strncmp_mix(all.name, "env", 4) == 0)
-			env_blt(&all);
-		else if (strncmp_mix(all.name, "export", 7) == 0)
-			export_blt(&all);
-		else if (strncmp_mix(all.name, "cd", 3) == 0)
-			cd_blt(&all);
-		else if (strncmp_mix(all.name, "echo", 5) == 0)
-			echo_blt(&all);
-		else if (strncmp_mix(all.name, "unset", 6) == 0)
-			unset_blt(&all);
-		else if (strncmp_mix(all.name, "exit", 5) == 0)
-			exit_blt(&all);
-		else
-		{
-			all.name = ft_strdup(bufsplit[0]);
-			exec_blt(&all, argv[0]);
-			arrayfree(all.path);
-		}
-		if (all.result != NULL)
-		{
-			printf("%s", all.result);
-			free(all.result);	
-		}
-		if (all.error != NULL)
-		{
-			printf("%s", all.error);
-			free(all.error);	
-		}
-		if (all.name != NULL)
-			free(all.name);
+		token = ft_parser(str, envp);
+		free(str);
+		head = grammar(token);
+		free_delete_all_tokens(&token);
+        execute(head, &command);
 		signal_flags.exec_flag = 0;
-		was_error(&all);
-		buffree(buf, bufsplit);
-		arrayfree(all.argv);
-		all.argv = NULL;
-		all.name = NULL;
-		all.result = NULL;
-		all.error = NULL;
-		buf = NULL;
 	}
 }
