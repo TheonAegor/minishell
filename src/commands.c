@@ -54,20 +54,20 @@ void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
 void		execute_command(t_simple_command *com)
 {
 	printf("-----------inside execute command----------\n");
-	if (tmp->pipe_read != NO_VAL)
+	if (com->pipe_read != NO_VAL)
 	{
 		read_from_pipe(com);
 	}
-	else if (tmp->redirect_out != NULL)
+	else if (com->redirect_out != NULL)
 	{
 		read_from_redirect(com);
 	}
-	else if (tmp->pipe_write != NO_VAL)
+	else if (com->pipe_write != NO_VAL)
 	{
 		write_in_pipe(com);
 	}
 	else
 		do_func(com);
-	print_simple_command_info(*com);
+	print_simple_command_info(com);
 	printf("-----------end of execute command----------\n");
 }
