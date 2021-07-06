@@ -2,7 +2,7 @@
 
 int main(int argc, char **argv, char **env)
 {
-	char *str = ft_strdup("ls -la | cat -e << 1 ; cat -e | ls -la")<;
+	char *str = ft_strdup("ls -la | cat -e << 1 ; cat -e | ls -la");
 	int	i = -1;
 	t_token *token;
 	t_tree_node *head;
