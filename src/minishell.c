@@ -30,16 +30,17 @@ int arraylen(char **array)
 	return (i);
 }
 
-char **arraycpy(char **src)
+char **arraycpy(char **src, int len)
 {
 	int i;
-	int len;
 	char **array;
 
 	i = 0;
-	len = arraylen(src);
-	array = malloc((len + 1) * sizeof(char *));
-	while (src[i] != 0)
+	if (len == NO_VAL)
+		array = malloc(1 * sizeof(char *));
+	else
+		array = malloc((len + 1) * sizeof(char *));
+	while (i < len)
 	{
 		array[i] = ft_strdup(src[i]);
 		i++;
@@ -117,7 +118,6 @@ char *stradd(char *dst, char *str)
 
 	i = 0;
 	j = 0;
-
 	new = malloc((ft_strlen(dst) + ft_strlen(str) + 1) * sizeof(char));
 	if (dst != NULL)
 		while (dst[i] != 0)
@@ -181,15 +181,7 @@ void was_error(t_all *all)
 		all->exit_status = 0;
 }
 
-void init_all(t_all *all)
-{
-	all->argv = NULL;
-	all->result = NULL;
-	all->error = NULL;
-	all->name = NULL;
-}
-
-t_simple_command	*init_command()
+t_simple_command	*init_command(char **envp)
 {
 	t_simple_command *command;
 
@@ -198,6 +190,7 @@ t_simple_command	*init_command()
 	command->pipe_read = NO_VAL;
 	command->pipe_write = NO_VAL;
 	command->save = NO_VAL;
+	command->envp = arraycpy(envp, arraylen(envp));
 	return (command);
 }
 
@@ -213,7 +206,7 @@ int main(int argc, char **argv, char **envp)
 	rl_catch_signals = 0;
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
-	command = init_command();
+	command = init_command(envp);
 	while (1 == 1)
 	{
 		str = readline("minishell$ ");

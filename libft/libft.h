@@ -51,7 +51,7 @@ size_t				ft_strlcat(char *dst, const char *src,
 		size_t dstsize);
 size_t				ft_strlcpy(char *dst, const char *src,
 		size_t dstsize);
-int					ft_strlen(const char *str);
+size_t				ft_strlen(const char *s);
 char				*ft_itoa(int n);
 char				*ft_strmapi(char const *s,
 		char (*f)(unsigned int, char));

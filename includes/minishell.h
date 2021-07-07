@@ -82,6 +82,7 @@ typedef struct	s_simple_command
 	int		num_of_arguments;
 	char	*command_name;
 	char	**arguments;
+	char	**envp;
 	char	*result;
 	char	*error_log;
 	int		pipe_read;
@@ -168,7 +169,7 @@ void			clear_simple_command(t_simple_command **com);
 int				strncmp_mix(const char *s1, const char *s2, size_t n);
 void			sigint(int sig);
 void			sigquit(int sig);
-char			**arraycpy(char **src);
+char			**arraycpy(char **src, int len);
 int				arraylen(char **array);
 void			result_error(t_all *all, char *error, char *arg, int exit_status);
 char			*stradd(char *dst, char *str);

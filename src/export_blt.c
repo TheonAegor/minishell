@@ -24,7 +24,7 @@ char **envp_sort(char **src)
 	char *temp;
 
 	i = 0;
-	envp = arraycpy(src);
+	envp = arraycpy(src, arraylen(src));
 	while (envp[i] != NULL)
 	{
 		j = 0;
