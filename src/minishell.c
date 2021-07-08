@@ -186,7 +186,7 @@ t_simple_command	*init_command(char **envp)
 	t_simple_command *command;
 
 	command = malloc(sizeof(t_simple_command));
-	command->num_of_arguments = NO_VAL;
+	command->num_of_arguments = 0;
 	command->pipe_read = NO_VAL;
 	command->pipe_write = NO_VAL;
 	command->save = NO_VAL;
