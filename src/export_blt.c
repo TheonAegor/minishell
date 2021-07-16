@@ -1,5 +1,7 @@
 #include "minishell.h"
 
+extern t_all *all;
+
 int check_arg(char *str)
 {
 	int i;
@@ -46,7 +48,7 @@ char **envp_sort(char **src)
 	return(envp);
 }
 
-void	export_blt(t_all *all)
+void	export_blt()
 {
 	char **envp_cpy;
 	char *equal;
@@ -84,10 +86,10 @@ void	export_blt(t_all *all)
 		{
 			check = check_arg(all->argv[i]);
 			if (check == 1)
-				result_error(all, "это недопустимый идентификатор\n", all->argv[i], 1);
+				result_error("это недопустимый идентификатор\n", all->argv[i], 1);
 			else
-				envadd(all, all->argv[i]);
+				envadd(all->argv[i]);
 			i++;
 		}
-	change_last_arg(all);
+	change_last_arg();
 }

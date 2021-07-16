@@ -1,6 +1,8 @@
 #include "minishell.h"
 
-int find_pos(t_all *all)
+extern t_all *all;
+
+int find_pos()
 {
 	int i;
 	int j;
@@ -22,7 +24,7 @@ int find_pos(t_all *all)
 	return (-1);
 }
 
-int check_n(t_all *all)
+int check_n()
 {
 	int i;
 
@@ -43,15 +45,15 @@ int check_n(t_all *all)
 	return (1);
 }
 
-void echo_blt(t_all *all)
+void echo_blt()
 {
 	int i;
 
 	i = 0;
 	if (all->argv != NULL)
 	{
-		if (check_n(all) == 1)
-			i = find_pos(all);
+		if (check_n() == 1)
+			i = find_pos();
 		while (all->argv[i] != NULL)
 		{
 			all->result = stradd(all->result, all->argv[i]);
@@ -59,11 +61,11 @@ void echo_blt(t_all *all)
 				all->result = stradd(all->result, " ");
 			i++;
 		}
-		if (check_n(all) == 0)
+		if (check_n() == 0)
 			all->result = stradd(all->result, "\n");
 	}
 	else
 		all->result = stradd(all->result, "\n");
-	change_last_arg(all);
+	change_last_arg();
 	all->exit_status = 0;
 }

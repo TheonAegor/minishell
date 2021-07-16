@@ -1,5 +1,7 @@
 #include "minishell.h"
 
+extern t_all *all;
+
 int checknum(char *str)
 {
 	int i;
@@ -14,10 +16,10 @@ int checknum(char *str)
 	return (0);
 }
 
-void exit_blt(t_all *all)
+void exit_blt()
 {
 	if (arraylen(all->argv) > 1)
-		result_error(all, "слишком много аргументов\n", NULL, 1);
+		result_error("слишком много аргументов\n", NULL, 1);
 	else
 	{
 		printf("exit\n");
@@ -25,12 +27,12 @@ void exit_blt(t_all *all)
 			exit(all->exit_status);
 		else if (checknum(all->argv[0]) == 1)
 		{
-			result_error(all, "требуется числовой аргумент", all->argv[0], 2);
+			result_error("требуется числовой аргумент", all->argv[0], 2);
 			printf("%s\n", all->result);
 			exit(all->exit_status);
 		}
 		else
 			exit((char)(ft_atoi(all->argv[0])));
-		change_last_arg(all);
+		change_last_arg();
 	}
 }

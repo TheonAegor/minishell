@@ -1,6 +1,7 @@
 #include "minishell.h"
 
 t_signal signal_flags;
+t_all	*all;
 
 void arrayfree(char **array)
 {
@@ -77,7 +78,7 @@ void buffree(char *buf, char **bufsplit)
 	arrayfree(bufsplit);
 }
 
-void envadd(t_all *all, char *new_str)
+void envadd(char *new_str)
 {
 	int i;
 	char *equal;
@@ -138,7 +139,7 @@ char *stradd(char *dst, char *str)
 	return(new);
 }
 
-void result_error(t_all *all, char *error, char *arg, int exit_status)
+void result_error(char *error, char *arg, int exit_status)
 {
 	all->error = stradd(all->error, "minishell: ");
 	all->error = stradd(all->error, all->name);
@@ -153,7 +154,7 @@ void result_error(t_all *all, char *error, char *arg, int exit_status)
 	all->error_flag = 1;
 }
 
-void change_env(t_all *all, char *key, char *data)
+void change_env(char *key, char *data)
 {
 	char *complete;
 
@@ -161,19 +162,19 @@ void change_env(t_all *all, char *key, char *data)
 	complete = stradd(complete, key);
 	complete = stradd(complete, "=");
 	complete = stradd(complete, data);
-	envadd(all, complete);
+	envadd(complete);
 	free(complete);
 }
 
-void change_last_arg(t_all *all)
+void change_last_arg()
 {
 	if (arraylen(all->argv) == 0)
-		change_env(all, "_", all->name);
+		change_env("_", all->name);
 	else
-		change_env(all, "_", all->argv[arraylen(all->argv) - 1]);
+		change_env("_", all->argv[arraylen(all->argv) - 1]);
 }
 
-void was_error(t_all *all)
+void was_error()
 {
 	if (all->error_flag == 1)
 		all->error_flag = 0;
@@ -202,6 +203,7 @@ int main(int argc, char **argv, char **envp)
 	t_simple_command *command;
 	(void)	argc;
 
+	all = malloc(sizeof(t_all));
 	signal_flags.exec_flag = 0;
 	rl_catch_signals = 0;
 	signal(SIGINT, sigint);
@@ -214,7 +216,7 @@ int main(int argc, char **argv, char **envp)
 			add_history(str);
 		if (str == NULL)
 			exit(0);
-		if (str == NULL)
+		if (str[0] == 0)
 			continue;
 		token = ft_parser(str, envp);
 		free(str);

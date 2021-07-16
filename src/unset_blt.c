@@ -1,6 +1,8 @@
 #include "minishell.h"
 
-void unset_blt(t_all *all)
+extern t_all *all;
+
+void unset_blt()
 {
 	int i;
 	int j;
@@ -29,5 +31,5 @@ void unset_blt(t_all *all)
 	}
 	arrayfree(all->envp);
 	all->envp = new_envp;
-	change_last_arg(all);
+	change_last_arg();
 }

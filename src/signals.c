@@ -1,6 +1,7 @@
 #include "minishell.h"
 
 extern t_signal signal_flags;
+extern t_all *all;
 
 void sigint(int sig)
 {

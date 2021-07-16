@@ -1,8 +1,9 @@
 #include "minishell.h"
 
 extern t_signal signal_flags;
+extern t_all *all;
 
-int get_path(t_all *all)
+int get_path()
 {
 	int i;
 	char *temp;
@@ -25,7 +26,7 @@ int get_path(t_all *all)
 	return(1);
 }
 
-char **form_array(t_all *all, char *first_arg)
+char **form_array(char *first_arg)
 {
 	int i;
 	char **array;
@@ -42,7 +43,7 @@ char **form_array(t_all *all, char *first_arg)
 	return(array);
 }
 
-int exec_blt(t_all *all, char *first_arg)
+int exec_blt(char *first_arg)
 {
 	pid_t pid;
 	char *fullpath;
@@ -50,8 +51,8 @@ int exec_blt(t_all *all, char *first_arg)
 	int status;
 
 	i = 0;
-	all->argv = form_array(all, first_arg);
-	get_path(all);
+	all->argv = form_array(first_arg);
+	get_path();
 	signal_flags.exec_flag = 1;
 	pid = fork();
 	if (pid == 0)
@@ -89,11 +90,11 @@ int exec_blt(t_all *all, char *first_arg)
 			printf("\n");
 		}
 		if (all->exit_status == 127)
-			result_error(all, "команда не найдена\n", NULL, 127);
+			result_error("команда не найдена\n", NULL, 127);
 	}
 	if (arraylen(all->argv) == 1)
-		change_env(all, "_", all->name);
+		change_env("_", all->name);
 	else
-		change_env(all, "_", all->argv[arraylen(all->argv) - 1]);
+		change_env("_", all->argv[arraylen(all->argv) - 1]);
 	return(0);
 }
