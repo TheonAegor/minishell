@@ -78,7 +78,7 @@ t_tree_node	*grammar(t_token *p)
 			insert(end->data, end->type, &node);
 		end = end->next;
 	}
-//	implement_f_to_all_tree_nodes(head, print_node_data_type);
+	implement_f_to_all_tree_nodes(head, print_node_data_type);
 //	printf("end of grammar\n");
 	return (head);
 }

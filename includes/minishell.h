@@ -133,9 +133,9 @@ void			insert(char *data, int type, t_tree_node **leaf);
 void			insert_tree(t_tree_node *new, t_tree_node **leaf);
 void			execute(t_tree_node *head, t_simple_command **com);
 void            find_num_of_left_nodes(t_tree_node *head, int *count);
-void			init_simple_command(t_simple_command **com, t_tree_node *head, int flag);
+void			init_simple_command(t_simple_command **com, t_tree_node *head);
 void		    print_simple_command_info(t_simple_command *com);
-void		    del_comm_name_args(t_simple_command **com);
+int			    del_comm_name_args(t_simple_command **com);
 void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
 void        fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
 void   		    execute_command(t_simple_command **com);
@@ -191,4 +191,5 @@ void sigquit(int sig);
 void do_func(t_simple_command *com);
 void init_all();
 void was_error();
+int	redirect_in(t_simple_command **command);
 #endif

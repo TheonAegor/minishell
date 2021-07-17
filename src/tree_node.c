@@ -80,7 +80,7 @@ void		insert(char *data, int type, t_tree_node **leaf)
 		(*leaf)->right = NULL;
 
 	}
-	else if (type == CHAR_GENERAL)
+	else if (type == CHAR_GENERAL || type == DQUOTE || type == QUOTE)
 		insert(data, type, &(*leaf)->left);
 	else
 		insert(data, type, &(*leaf)->right);
@@ -90,7 +90,7 @@ void		insert_tree(t_tree_node *new, t_tree_node **leaf)
 {
 	if (*leaf == NULL)
 		*leaf = new;
-	else if (new->type == CHAR_GENERAL)
+	else if (new->type == CHAR_GENERAL || new->type == DQUOTE || new->type == QUOTE)
 		insert_tree(new, &(*leaf)->left);
 	else
 		insert_tree(new, &(*leaf)->right);

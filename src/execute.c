@@ -8,10 +8,13 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		int	fd[2];
 
 		pipe(fd);
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
+		printf("here\n");
 		(*com)->pipe_write = fd[1];
+		printf("here\n");
 
 		execute_command(com);
+		printf("here\n");
 
 		(*com)->pipe_read = fd[0];
 		(*com)->pipe_write = NO_VAL;
@@ -22,19 +25,22 @@ void	execute(t_tree_node *head, t_simple_command **com)
 	{
 		printf("> greater\n");
 //		printf("\tinside greater\n");
+		init_simple_command(com, head->left);
 		fill_redirect_in_info(com, head->right);
-		init_simple_command(com, head->left, 0);
 		execute_command(com);
+		free((*com)->redirect_in);
 		(*com)->redirect_in = NULL;
 		move_to_next_command(&head);
-		execute(head->right, com);
+		if (head->right)
+			execute(head->right, com);
 	}
 	else if (head->type == DGREATER)
 	{
 		printf(">> command\n");
 		fill_redirect_in_info(com, head->right);
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
 		execute_command(com);
+		free((*com)->redirect_in);
 		(*com)->redirect_in = NULL;
 		move_to_next_command(&head);
 		execute(head->right, com);
@@ -44,7 +50,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		printf("< lower \n");
 //		printf("\tinside greater\n");
 		fill_redirect_out_info(com, head->right);
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
 		(*com)->save = LOWER;
 		execute_command(com);
 		(*com)->save = NO_VAL;
@@ -58,7 +64,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		printf("<< dlower \n");
 //		printf("\tinside greater\n");
 		fill_redirect_out_info(com, head->right);
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
 		(*com)->save = DLOWER;
 		execute_command(com);
 		(*com)->save = NO_VAL;
@@ -70,7 +76,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 	else if (head->type == SEMICOLON)
 	{
 		printf("; semicolon\n");
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
 		execute_command(com);
 		clear_simple_command(com);
 		execute(head->right, com);
@@ -79,7 +85,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 	{
 		printf("0 char_null\n");
 //		printf("\tinside chr null\n");
-		init_simple_command(com, head->left, 0);
+		init_simple_command(com, head->left);
 		execute_command(com);
 	}
 }
