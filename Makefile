@@ -14,9 +14,9 @@ OBJDIR = obj
 
 obj = $(addprefix $(OBJDIR)/,$(addsuffix .o, $(basename $(notdir $(src)))))
 
-all = $(NAME)
+all: $(NAME)
 
-all: $(obj)
+$(NAME): $(obj)
 	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
 
 $(OBJDIR)/%.o:  src/%.c

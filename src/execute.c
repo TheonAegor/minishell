@@ -10,11 +10,12 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		pipe(fd);
 		init_simple_command(com, head->left, 0);
 		(*com)->pipe_write = fd[1];
-		(*com)->pipe_read = NO_VAL;
-		(*com)->save = NO_VAL;
-		execute_command(*com);
+
+		execute_command(com);
+
 		(*com)->pipe_read = fd[0];
 		(*com)->pipe_write = NO_VAL;
+
 		execute(head->right, com);
 	}
 	else if (head->type == GREATER)
@@ -23,7 +24,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 //		printf("\tinside greater\n");
 		fill_redirect_in_info(com, head->right);
 		init_simple_command(com, head->left, 0);
-		execute_command(*com);
+		execute_command(com);
 		(*com)->redirect_in = NULL;
 		move_to_next_command(&head);
 		execute(head->right, com);
@@ -33,7 +34,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		printf(">> command\n");
 		fill_redirect_in_info(com, head->right);
 		init_simple_command(com, head->left, 0);
-		execute_command(*com);
+		execute_command(com);
 		(*com)->redirect_in = NULL;
 		move_to_next_command(&head);
 		execute(head->right, com);
@@ -45,7 +46,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		fill_redirect_out_info(com, head->right);
 		init_simple_command(com, head->left, 0);
 		(*com)->save = LOWER;
-		execute_command(*com);
+		execute_command(com);
 		(*com)->save = NO_VAL;
 		free((*com)->redirect_out);
 		(*com)->redirect_out = NULL;
@@ -59,7 +60,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		fill_redirect_out_info(com, head->right);
 		init_simple_command(com, head->left, 0);
 		(*com)->save = DLOWER;
-		execute_command(*com);
+		execute_command(com);
 		(*com)->save = NO_VAL;
 		free((*com)->redirect_out);
 		(*com)->redirect_out = NULL;
@@ -70,7 +71,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 	{
 		printf("; semicolon\n");
 		init_simple_command(com, head->left, 0);
-		execute_command(*com);
+		execute_command(com);
 		clear_simple_command(com);
 		execute(head->right, com);
 	}
@@ -79,7 +80,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 		printf("0 char_null\n");
 //		printf("\tinside chr null\n");
 		init_simple_command(com, head->left, 0);
-		execute_command(*com);
+		execute_command(com);
 	}
 }
 
@@ -88,6 +89,7 @@ void	print_simple_command_info(t_simple_command *com)
 	int i;
 
 	i = -1;
+	printf("===============START_SIMPLE_COMMAND_INFO=============\n");
 	printf("command name = %s\n", com->command_name);
 	printf("num of args = %d\n", com->num_of_arguments);
 	printf("save = %d\n", com->save);
@@ -99,4 +101,5 @@ void	print_simple_command_info(t_simple_command *com)
 	{
 		printf("%d argument = %s\n", i, com->arguments[i]);
 	}
+	printf("================END_SIMPLE_COMMAND_INFO==============\n");
 }

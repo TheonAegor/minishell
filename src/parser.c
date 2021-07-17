@@ -95,18 +95,9 @@ t_token		*ft_parser(char *str, char **env)
 		if (sup->chtype == CHAR_NULL)
 			break;
 	}
-//	printf("before implement print_token\n");
-	implement_f_to_all_tokens(&(sup->token), print_token_data);
+//	implement_f_to_all_tokens(&(sup->token), print_token_data);
 	
 	tmp = sup->token;
 	free_support_token(&sup);
 	return (tmp);
-// "", '', \, $, ;, >, >>, <
 }
-/*
-int preparser(char *str)
-{
-	while(*str)
-		if (|,; first || |,; double)
-}
- */
