@@ -1,0 +1,8 @@
+#!/bin/bash
+
+rm minishell
+cd ../
+rm minishell
+make ; cp minishell test/
+cd test/
+./minishell

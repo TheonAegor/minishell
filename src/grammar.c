@@ -53,7 +53,7 @@ t_tree_node	*grammar(t_token *p)
 
 	flag = 0;
 
-	printf("\nstart of grammar\n");
+//	printf("\nstart of grammar\n");
 	while (1)
 	{
 		if (is_end_of_command(end->type))
@@ -79,6 +79,6 @@ t_tree_node	*grammar(t_token *p)
 		end = end->next;
 	}
 	implement_f_to_all_tree_nodes(head, print_node_data_type);
-	printf("end of grammar\n");
+//	printf("end of grammar\n");
 	return (head);
 }

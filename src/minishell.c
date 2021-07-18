@@ -191,6 +191,12 @@ t_simple_command	*init_command(char **envp)
 	command->pipe_read = NO_VAL;
 	command->pipe_write = NO_VAL;
 	command->save = NO_VAL;
+<<<<<<< HEAD
+=======
+	command->redirect_in = NULL;
+	command->redirect_out = NULL;
+	command->envp = arraycpy(envp, arraylen(envp));
+>>>>>>> redirect_in
 	return (command);
 }
 
