@@ -162,7 +162,7 @@ void	        free_del_all_nodes(t_tree_node **head);
 void			case_lower_greater(t_support_token **sup, t_token **tmp);
 void			move_to_next_command(t_tree_node **node);
 int				read_from_pipe(t_simple_command **com);
-int				read_from_redirect(t_simple_command *com);
+int				redirect_out(t_simple_command **com);
 int				write_in_pipe(t_simple_command **com);
 void			clear_simple_command(t_simple_command **com);
 

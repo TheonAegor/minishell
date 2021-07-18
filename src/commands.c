@@ -98,7 +98,7 @@ void		execute_command(t_simple_command **command)
 	}
 	else if (com->redirect_out != NULL)
 	{
-		read_from_redirect(com);
+		redirect_out(&com);
 	}
 	else if (com->pipe_write != NO_VAL)
 	{
