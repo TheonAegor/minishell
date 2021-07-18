@@ -8,8 +8,6 @@ void free_all()
 		free(all->name);
 	if (all->argv != NULL)
 		arrayfree(all->argv);
-//	if (all->envp != NULL)
-//		arrayfree(all->envp);
 	if (all->redirect_in != NULL)
 		free(all->redirect_in);
 	if (all->redirect_out != NULL)
@@ -26,7 +24,6 @@ void init_all()
 {
 	all->name = NULL;
 	all->argv = NULL;
-	all->envp = NULL;
 	all->result = NULL;
 	all->error = NULL;
 	all->path = NULL;
@@ -39,7 +36,6 @@ void list_to_list(t_simple_command *com)
 	init_all();
 	all->name = ft_strdup(com->command_name);
 	all->argv = arraycpy(com->arguments, com->num_of_arguments);
-	all->envp = arraycpy(com->envp, arraylen(com->envp));
 	all->pipe_read = com->pipe_read;
 	all->pipe_write = com->pipe_write;
 	all->save = com->save;
@@ -85,6 +81,5 @@ void do_func(t_simple_command *com)
 	}
 	signal_flags.exec_flag = 0;
 	was_error();
-	write(1, " QQQ ", 5);
 	free_all();
 }
