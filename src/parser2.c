@@ -7,8 +7,8 @@ void	dquote_state_processor(t_support_token **sup, char **env)
 	tmp = first_token((*sup)->token);
 	if ((*sup)->chtype == DQUOTE)
 	{
-		add_token_front(&(*sup)->token, init_token((*sup)->len - (*sup)->i));
-		(*sup)->state = GENERAL_S;	
+//		add_token_front(&(*sup)->token, init_token((*sup)->len - (*sup)->i));
+//		(*sup)->state = GENERAL_S;	
 		(*sup)->j = 0;
 	}
 	else if ((*sup)->chtype == ESCAPE)
@@ -39,12 +39,13 @@ void		quote_state_processor(t_support_token **sup)
 {
 	t_token *tmp;
 
+//	printf("in quote state proc, j = %d\n", (*sup)->j);
 	tmp = first_token((*sup)->token);
 	if (((*sup)->chtype) == QUOTE)
 	{
 		((*sup)->state) = GENERAL_S;
-		add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
-		((*sup)->j) = 0;
+//		add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
+//		((*sup)->j) = 0;
 	}
 	else if (((*sup)->chtype) == CHAR_NULL)
 	{

@@ -61,7 +61,7 @@ void	ft_dollar(t_token **token, int *i, char *str, char **env, int *n)
 	free_del_str(tmp);
 }
 
-void		init_sup_struct(char *str,t_support_token **sup)
+static void	init_sup_struct(char *str,t_support_token **sup)
 {
 	(*sup)->i = -1;
 	(*sup)->j = 0;
