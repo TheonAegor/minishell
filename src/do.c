@@ -81,6 +81,5 @@ void do_func(t_simple_command *com)
 	}
 	signal_flags.exec_flag = 0;
 	was_error();
-//	write(1, " QQQ ", 5);
 	free_all();
 }

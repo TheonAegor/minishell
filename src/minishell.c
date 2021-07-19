@@ -193,7 +193,6 @@ t_simple_command	*init_command(char **envp)
 	command->save = NO_VAL;
 	command->redirect_in = NULL;
 	command->redirect_out = NULL;
-	command->envp = arraycpy(envp, arraylen(envp));
 	return (command);
 }
 
