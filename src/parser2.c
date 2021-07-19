@@ -8,8 +8,8 @@ void	dquote_state_processor(t_support_token **sup, char **env)
 	if ((*sup)->chtype == DQUOTE)
 	{
 //		add_token_front(&(*sup)->token, init_token((*sup)->len - (*sup)->i));
-//		(*sup)->state = GENERAL_S;	
-		(*sup)->j = 0;
+		(*sup)->state = GENERAL_S;	
+//		(*sup)->j = 0;
 	}
 	else if ((*sup)->chtype == ESCAPE)
 	{
