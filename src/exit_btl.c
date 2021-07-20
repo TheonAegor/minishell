@@ -27,8 +27,8 @@ void exit_blt()
 			exit(all->exit_status);
 		else if (checknum(all->argv[0]) == 1)
 		{
-			result_error("требуется числовой аргумент", all->argv[0], 2);
-			printf("%s\n", all->result);
+			result_error("требуется числовой аргумент\n", all->argv[0], 2);
+			printf("%s", all->error);
 			exit(all->exit_status);
 		}
 		else

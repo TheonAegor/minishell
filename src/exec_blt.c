@@ -1,6 +1,5 @@
 #include "minishell.h"
 
-extern t_signal signal_flags;
 extern t_all *all;
 
 int get_path()
@@ -53,7 +52,7 @@ int exec_blt(char *first_arg)
 	i = 0;
 	all->argv = form_array(first_arg);
 	get_path();
-	signal_flags.exec_flag = 1;
+	all->exec_flag = 1;
 	pid = fork();
 	if (pid == 0)
 	{
@@ -74,22 +73,21 @@ int exec_blt(char *first_arg)
 	else
 	{
 		wait(&status);
-		signal_flags.pid = pid;
 		if (WIFEXITED(status) != 0)
 		{
 			if (WEXITSTATUS(status) != 0)
 				all->error_flag = 1;
-			all->exit_status = WEXITSTATUS(status);
+			change_env_error(WEXITSTATUS(status));
 		}
 		if (WIFSIGNALED(status) != 0)
 		{
 			all->error_flag = 1;
-			all->exit_status = 128 + WTERMSIG(status);
+			change_env_error(128 + WTERMSIG(status));
 			if (WTERMSIG(status) == 3)
 				printf("Выход (стек памяти сброшен на диск)");
 			printf("\n");
 		}
-		if (all->exit_status == 127)
+		if (WEXITSTATUS(status) == 127)
 			result_error("команда не найдена\n", NULL, 127);
 	}
 	if (arraylen(all->argv) == 1)

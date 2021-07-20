@@ -46,18 +46,13 @@ typedef struct	s_all
 	char		**path;
 	int			exit_status;
 	int			error_flag;	
+	int			exec_flag;
 	int			pipe_read;
 	int			pipe_write;
 	int			save;
 	char		*redirect_in;
 	char		*redirect_out;
 }				t_all;
-
-typedef struct	s_signal
-{
-	int			exec_flag;
-	int			pid;
-}				t_signal;
 
 enum state {
 	GENERAL_S,
@@ -192,5 +187,6 @@ void 			sigquit(int sig);
 void 			do_func(t_simple_command *com);
 void			init_all();
 void			was_error();
+int       change_env_error(int exit_status);
 int				redirect_in(t_simple_command **command);
 #endif
