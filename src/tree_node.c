@@ -80,7 +80,7 @@ void		insert(char *data, int type, t_tree_node **leaf)
 		(*leaf)->right = NULL;
 
 	}
-	else if (type == CHAR_GENERAL || type == DQUOTE || type == QUOTE)
+	else if (type == CHAR_GENERAL || type == DQUOTE || type == QUOTE || type == DOLLAR)
 		insert(data, type, &(*leaf)->left);
 	else
 		insert(data, type, &(*leaf)->right);
