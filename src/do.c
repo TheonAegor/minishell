@@ -35,7 +35,8 @@ void list_to_list(t_simple_command *com)
 {
 	init_all();
 	all->name = ft_strdup(com->command_name);
-	all->argv = arraycpy(com->arguments, com->num_of_arguments);
+	if (com->num_of_arguments != 0)
+		all->argv = arraycpy(com->arguments, com->num_of_arguments);
 	all->pipe_read = com->pipe_read;
 	all->pipe_write = com->pipe_write;
 	all->save = com->save;
@@ -45,8 +46,6 @@ void list_to_list(t_simple_command *com)
 
 void do_func(t_simple_command *com)
 {
-	extern t_signal signal_flags;
-
 	change_env_error(0);
 	list_to_list(com);
 	if (strncmp_mix(all->name, "pwd", 4) == 0)
@@ -79,7 +78,7 @@ void do_func(t_simple_command *com)
 		printf("%s", all->error);
 		printf("===============ERROR=================\n");
 	}
-	signal_flags.exec_flag = 0;
+	all->exec_flag = 0;
 	was_error();
 	free_all();
 }

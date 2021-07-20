@@ -45,18 +45,13 @@ typedef struct	s_all
 	char		**path;
 	int			exit_status;
 	int			error_flag;	
+	int			exec_flag;
 	int			pipe_read;
 	int			pipe_write;
 	int			save;
 	char		*redirect_in;
 	char		*redirect_out;
 }				t_all;
-
-typedef struct	s_signal
-{
-	int			exec_flag;
-	int			pid;
-}				t_signal;
 
 enum state {
 	GENERAL_S,

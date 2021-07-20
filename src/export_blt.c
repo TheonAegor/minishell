@@ -61,7 +61,7 @@ void	export_blt()
 	if (arraylen(all->argv) == 0)
 		while (envp_cpy[i] != NULL)
 		{
-			if (ft_strncmp(envp_cpy[i], "_=", 2) == 0)
+			if (ft_strncmp(envp_cpy[i], "_=", 2) == 0 || ft_strncmp(envp_cpy[i], "?=", 2) == 0)
 			{
 				i++;
 				continue;

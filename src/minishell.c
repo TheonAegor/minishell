@@ -1,6 +1,5 @@
 #include "minishell.h"
 
-t_signal signal_flags;
 t_all	*all;
 
 void arrayfree(char **array)
@@ -70,12 +69,6 @@ char **arrayadd(char **src, char *str)
 	array[i] = 0;
 	arrayfree(src);
 	return(array);
-}
-
-void buffree(char *buf, char **bufsplit)
-{
-	free(buf);
-	arrayfree(bufsplit);
 }
 
 void envadd(char *new_str)
@@ -193,7 +186,7 @@ void was_error()
 		all->exit_status = 0;
 }
 
-t_simple_command	*init_command(char **envp)
+t_simple_command	*init_command()
 {
 	t_simple_command *command;
 
@@ -222,26 +215,28 @@ int main(int argc, char **argv, char **envp)
 	(void)	argc;
 
 	all = malloc(sizeof(t_all));
-	signal_flags.exec_flag = 0;
+	all->exec_flag = 0;
 	rl_catch_signals = 0;
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
-	command = init_command(envp);
+	command = init_command();
 	all->envp = arraycpy(envp, arraylen(envp));
 	while (1 == 1)
 	{
 		str = readline("minishell$ ");
-		if (str != NULL && str[0] != 0)
-			add_history(str);
 		if (str == NULL)
-			exit(0);
+		{
+			printf("exit\n");
+			exit(all->exit_status);
+		}
 		if (str[0] == 0)
 			continue;
+		add_history(str);
 		token = ft_parser(str, all->envp);
 		free(str);
 		head = grammar(token);
 		free_delete_all_tokens(&token);
         execute(head, &command);
-		signal_flags.exec_flag = 0;
+		all->exec_flag = 0;
 	}
 }

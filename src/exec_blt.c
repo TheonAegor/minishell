@@ -1,6 +1,5 @@
 #include "minishell.h"
 
-extern t_signal signal_flags;
 extern t_all *all;
 
 int get_path()
@@ -53,7 +52,7 @@ int exec_blt(char *first_arg)
 	i = 0;
 	all->argv = form_array(first_arg);
 	get_path();
-	signal_flags.exec_flag = 1;
+	all->exec_flag = 1;
 	pid = fork();
 	if (pid == 0)
 	{
@@ -74,7 +73,6 @@ int exec_blt(char *first_arg)
 	else
 	{
 		wait(&status);
-		signal_flags.pid = pid;
 		if (WIFEXITED(status) != 0)
 		{
 			if (WEXITSTATUS(status) != 0)
