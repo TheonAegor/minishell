@@ -1,0 +1,720 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Mon Jul 19 11:55:01 2021
+
+# Variables
+
+# 'override' directive
+GNUMAKEFLAGS := 
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = ubuntu
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# environment
+SNAP_COMMON = /var/snap/code/common
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /run/user/1000/gdm/Xauthority
+# environment
+GDMSESSION = ubuntu
+# environment
+XMODIFIERS = @im=ibus
+# makefile
+CURDIR := /home/taegor/school21/level3/minishell
+# makefile
+SHELL = /bin/sh
+# environment
+SNAP_DATA = /var/snap/code/70
+# environment
+VTE_VERSION = 6003
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environment
+JOURNAL_STREAM = 8:43683
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+# environment
+SNAP_INSTANCE_NAME = code
+# environment
+SNAP_ARCH = amd64
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+IM_CONFIG_PHASE = 1
+# environment
+USERNAME = taegor
+# environment
+MAKELEVEL := 0
+# environment
+XDG_DATA_DIRS = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 11)
+mkdir = mkdir -p
+# environment
+MANAGERPID = 1162
+# environment
+P9K_SSH = 0
+# environment
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e8ff17f5-0932-4d23-8517-7f1e4648b98c.sock
+# environment
+LC_NAME = ru_RU.UTF-8
+# environment
+VSCODE_CWD = /home/taegor/school21/level3/minishell/src
+# environment
+GSETTINGS_SCHEMA_DIR = /snap/code/70/usr/share/glib-2.0/schemas
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/taegor/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/taegor/.dotnet/tools:/home/taegor/.fzf/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+LSCOLORS = Gxfxcxdxbxegedabagacad
+# makefile (from 'Makefile', line 7)
+files = src/*.c
+# environment
+SESSION_MANAGER = local/taegor-BOHK-WAX9X:@/tmp/.ICE-unix/1594,unix/taegor-BOHK-WAX9X:/tmp/.ICE-unix/1594
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GDK_PIXBUF_MODULE_FILE = /home/taegor/snap/code/common/.cache/gdk-pixbuf-loaders.cache
+# environment
+SNAP = /snap/code/70
+# environment
+BREAKPAD_DUMP_LOCATION = /home/taegor/.config/Code/exthost Crash Reports
+# environment
+SNAP_VERSION = c3f12631
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+VSCODE_LOG_STACK = false
+# environment
+DISABLE_WAYLAND = 1
+# environment
+VSCODE_CRASH_REPORTER_START_OPTIONS = {"companyName":"Microsoft","productName":"VSCode","submitURL":"appcenter://code?aid=fba07a4d-84bd-4fc8-a125-9640fc8ce171&uid=b72e4976-7877-4fa6-a8be-be4bf85f65f3&iid=b72e4976-7877-4fa6-a8be-be4bf85f65f3&sid=b72e4976-7877-4fa6-a8be-be4bf85f65f3","uploadToServer":true}
+# environment
+INVOCATION_ID = f3e45d035e364feea23ac66f26302298
+# environment
+GDK_PIXBUF_MODULEDIR = /snap/code/70/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# environment
+XDG_SESSION_DESKTOP = ubuntu
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# environment
+GIO_LAUNCHED_DESKTOP_FILE_PID = 11475
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+SNAP_INSTANCE_KEY = 
+# environment
+PWD = /home/taegor/school21/level3/minishell
+# makefile (from 'Makefile', line 9)
+src = $(wildcard src/*.c)
+# default
+.LOADED := 
+# environment
+SSH_AGENT_PID = 1383
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
+# environment
+GTK_MODULES = gail:atk-bridge
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environment
+HOME = /home/taegor
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/taegor/.config/Code/CachedData/c3f126316369cd610563c75b1b1725e0679adfb3
+# environment
+LOGNAME = taegor
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
+# environment
+SNAP_CONTEXT = 8ywV54PvFFEyxQXe5_ApcRo0PqIxSy3qZKhex_eelxfBaxK8StVb
+# automatic
++F = $(notdir $+)
+# environment
+ZSH = /home/taegor/.oh-my-zsh
+# environment
+SNAP_USER_COMMON = /home/taegor/snap/code/common
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# makefile (from 'Makefile', line 15)
+obj = $(addprefix $(OBJDIR)/,$(addsuffix .o, $(basename $(notdir $(src)))))
+# environment
+LC_TIME = ru_RU.UTF-8
+# environment
+SNAP_REAL_HOME = /home/taegor
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+QT_IM_MODULE = ibus
+# environment
+SNAP_USER_DATA = /home/taegor/snap/code/70
+# environment
+SHLVL = 1
+# environment
+GNOME_SHELL_SESSION_MODE = ubuntu
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = taegor
+# environment
+SNAP_REVISION = 70
+# environment
+LC_MONETARY = ru_RU.UTF-8
+# makefile
+.DEFAULT_GOAL := all
+# environment
+XDG_CURRENT_DESKTOP = Unity
+# makefile (from 'Makefile', line 1)
+NAME = minishell
+# environment
+LESS = -R
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+LC_TELEPHONE = ru_RU.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+_WSREP_START_POSITION = 
+# environment
+OLDPWD = /home/taegor/school21/level3/minishell
+# environment
+TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-4a99fe2d-1.58.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MAIL = taegor@student.21-school.ru
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# environment
+LC_PAPER = ru_RU.UTF-8
+# environment
+QT_ACCESSIBILITY = 1
+# default
+MAKEFILES := 
+# environment
+SNAP_COOKIE = 8ywV54PvFFEyxQXe5_ApcRo0PqIxSy3qZKhex_eelxfBaxK8StVb
+# environment
+LC_NUMERIC = ru_RU.UTF-8
+# environment
+VSCODE_BROWSER_CODE_LOADING = bypassHeatCheck
+# automatic
+<F = $(notdir $<)
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# makefile (from 'Makefile', line 13)
+OBJDIR = obj
+# environment
+LC_MEASUREMENT = ru_RU.UTF-8
+# environment
+SNAP_NAME = code
+# environment
+PAGER = less
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 5)
+cc = gcc  
+# environment
+P9K_TTY = old
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+SNAP_REEXEC = 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+WINDOWPATH = 2
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+LC_IDENTIFICATION = ru_RU.UTF-8
+# default
+.RECIPEPREFIX := 
+# environment
+LC_ADDRESS = ru_RU.UTF-8
+# makefile (from 'Makefile', line 3)
+ 
+option = -Iincludes
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
+# environment
+_P9K_TTY = /dev/pts/0
+# environment
+VSCODE_PID = 22941
+# environment
+TERMINATOR_UUID = urn:uuid:fae5280d-cdb6-49c1-8477-03405cc2b5e3
+# variable set hash-table stats:
+# Load=149/1024=15%, Rehash=0, Collisions=23/186=12%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66313, inode 1052290): 15 files, no impossibilities.
+# src (device 66313, inode 1052285): 33 files, no impossibilities.
+
+# 48 files, no impossibilities in 2 directories.
+
+# Implicit Rules
+
+obj/%.o: src/%.c
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# 1 implicit rules, 0 (0.0%) terminal.
+
+# Files
+
+obj/token2.o: src/token2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'token2'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+obj/parser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/commands2.o: src/commands2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'commands2'
+#  Last modified 2021-07-19 11:07:50.964696497
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/parser4.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-19 09:58:29.863115584
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/unset_blt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: minishell
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+
+# Not a target:
+src/exec_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.73839024
+#  File has been updated.
+#  Successfully updated.
+
+obj/utils2.o: src/utils2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils2'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+obj/pipe.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/parser3.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+
+obj/do.o: src/do.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'do'
+#  Last modified 2021-07-19 11:19:33.102666428
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:20:17.134072261
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/token2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+obj/tree_node.o: src/tree_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'tree_node'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/commands2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:20:17.134072261
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/execute.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/utils2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+minishell: obj/pwd_blt.o obj/commands2.o obj/exec_blt.o obj/tree_node.o obj/token2.o obj/export_blt.o obj/parser4.o obj/do.o obj/utils2.o obj/parser3.o obj/commands3.o obj/cd_blt.o obj/utils.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/token.o obj/grammar.o obj/unset_blt.o obj/commands.o obj/execute.o obj/redirect_in.o obj/minishell.o obj/signals.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/parser2.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  recipe to execute (from 'Makefile', line 20):
+	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
+
+# Not a target:
+obj/error_manager.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+fclean: clean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 30):
+	rm -rf $(NAME)
+
+obj/pwd_blt.o: src/pwd_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'pwd_blt'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+obj/parser2.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/cd_blt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/commands3.o: src/commands3.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'commands3'
+#  Last modified 2021-07-19 11:07:50.964696497
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := obj/commands3.o
+# automatic
+# % := 
+# automatic
+# * := commands3
+# automatic
+# + := src/commands3.c
+# automatic
+# | := 
+# automatic
+# < := src/commands3.c
+# automatic
+# ^ := src/commands3.c
+# automatic
+# ? := src/commands3.c
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/do.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/tree_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:20:17.138072219
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/signals.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/echo_blt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/token.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/commands.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/grammar.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/export_blt.o: src/export_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'export_blt'
+ 
+#  Last modified 2021-07-19 11:07:50.964696497
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+re: fclean
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 33):
+	make all
+
+# Not a target:
+obj/redirect_in.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 27):
+	rm -rf $(obj)
+
+# Not a target:
+obj/utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/pwd_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/commands3.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-19 11:55:00.534283609
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/exit_btl.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/parser4.o: src/parser4.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser4'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/exec_blt.o: src/exec_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exec_blt'
+#  Last modified 2021-07-19 11:07:50.964696497
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+obj/minishell.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+obj/strncmp_mix.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/export_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.73839024
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+obj/env_blt.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+obj/parser3.o: src/parser3.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser3'
+#  Last modified 2021-07-19 11:07:50.968696056
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# files hash-table stats:
+# Load=48/1024=5%, Rehash=0, Collisions=1/125=1%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 108 / storage = 1192 B / avg = 11 B
+# current buf: size = 8162 B / used = 1192 B / count = 108 / avg = 11 B
+
+# strcache performance: lookups = 135 / hit rate = 20%
+# hash-table stats:
+# Load=108/8192=1%, Rehash=0, Collisions=4/135=3%
+# Finished Make data base on Mon Jul 19 11:55:01 2021
+
+ 
