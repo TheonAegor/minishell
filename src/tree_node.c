@@ -48,7 +48,7 @@ int				implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)())
 //		printf("node is null");
 		return (0);	
 	}
-//	printf("here\n");
+	printf("here\n");
 	f(n);
 	implement_f_to_all_tree_nodes(n->left, f);
 //	printf("after first rec, n = %s\n", n->data);

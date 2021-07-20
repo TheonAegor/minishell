@@ -71,7 +71,7 @@ void	init_simple_command(t_simple_command **command, t_tree_node *head)
 		del_comm_name_args(&com);
 	name_and_alloc_args(&com, head);
 	fill_arguments(&com, head->left);
-	printf("end of init_simple_command\n");
+//	printf("end of init_simple_command\n");
 }
 
 
@@ -90,8 +90,10 @@ void		execute_command(t_simple_command **command)
 	t_simple_command *com;
 
 	com = *command;
-	printf("-----------inside execute command----------\n");
+//	printf("-----------inside execute command----------\n");
+#ifdef PRINT
 	print_simple_command_info(com);
+#endif
 	if (com->pipe_read != NO_VAL)
 	{
 		read_from_pipe(&com);
@@ -111,5 +113,5 @@ void		execute_command(t_simple_command **command)
 	else
 		do_func(com);
 //	print_simple_command_info(com);
-	printf("-----------end of execute command----------\n");
+//	printf("-----------end of execute command----------\n");
 }

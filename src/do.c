@@ -72,9 +72,9 @@ void do_func(t_simple_command *com)
 	if (all->result != NULL)
 	{
 		com->result = ft_strdup(all->result);
-		printf("===============RESULT=================\n");
+//		printf("===============RESULT=================\n");
 		printf("%s", all->result);
-		printf("===============RESULT=================\n");
+//		printf("===============RESULT=================\n");
 	}
 	if (all->error != NULL)
 	{
@@ -85,6 +85,6 @@ void do_func(t_simple_command *com)
 	}
 	signal_flags.exec_flag = 0;
 	was_error();
-	write(1, " QQQ ", 5);
+//	write(1, " QQQ ", 5);
 	free_all();
 }
