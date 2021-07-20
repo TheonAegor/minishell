@@ -21,7 +21,7 @@ int find_pos()
 		}
 		i++;
 	}
-	return (-1);
+	return (i);
 }
 
 int check_n()

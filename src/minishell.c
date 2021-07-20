@@ -193,7 +193,6 @@ t_simple_command	*init_command(char **envp)
 	command->save = NO_VAL;
 	command->redirect_in = NULL;
 	command->redirect_out = NULL;
-	command->envp = arraycpy(envp, arraylen(envp));
 	return (command);
 }
 
@@ -211,6 +210,7 @@ int main(int argc, char **argv, char **envp)
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
 	command = init_command(envp);
+	all->envp = arraycpy(envp, arraylen(envp));
 	while (1 == 1)
 	{
 		str = readline("minishell$ ");
