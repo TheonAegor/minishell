@@ -54,10 +54,8 @@ void echo_blt()
 	{
 		if (check_n() == 1)
 			i = find_pos();
-		printf("%d\n", i);
 		while (all->argv[i] != NULL)
 		{
-			write(1, " QQQ ", 5);
 			all->result = stradd(all->result, all->argv[i]);
 			if (all->argv[i + 1] != NULL)
 				all->result = stradd(all->result, " ");
@@ -69,5 +67,5 @@ void echo_blt()
 	else
 		all->result = stradd(all->result, "\n");
 	change_last_arg();
-	all->exit_status = 0;
+	change_env_error(0);
 }

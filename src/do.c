@@ -47,7 +47,7 @@ void do_func(t_simple_command *com)
 {
 	extern t_signal signal_flags;
 
-	all->exit_status = 0;
+	change_env_error(0);
 	list_to_list(com);
 	if (strncmp_mix(all->name, "pwd", 4) == 0)
 		pwd_blt();

@@ -139,6 +139,18 @@ char *stradd(char *dst, char *str)
 	return(new);
 }
 
+int change_env_error(int exit_status)
+{
+	char *str_error;
+
+	all->exit_status = exit_status;
+	str_error = ft_itoa(exit_status);
+	change_env("?", str_error);
+	free(str_error);
+	all->error_flag = 1;
+	return (0);
+}
+
 void result_error(char *error, char *arg, int exit_status)
 {
 	all->error = stradd(all->error, "minishell: ");
@@ -150,8 +162,7 @@ void result_error(char *error, char *arg, int exit_status)
 		all->error = stradd(all->error, ": ");
 	}
 	all->error = stradd(all->error, error);
-	all->exit_status = exit_status;
-	all->error_flag = 1;
+	change_env_error(exit_status);
 }
 
 void change_env(char *key, char *data)
@@ -196,6 +207,12 @@ t_simple_command	*init_command(char **envp)
 	return (command);
 }
 
+int setup_envp()
+{
+	change_env("_", "minishell");
+	change_env("?", "0");
+}
+
 int main(int argc, char **argv, char **envp)
 {
 	char *str;
@@ -220,7 +237,7 @@ int main(int argc, char **argv, char **envp)
 			exit(0);
 		if (str[0] == 0)
 			continue;
-		token = ft_parser(str, envp);
+		token = ft_parser(str, all->envp);
 		free(str);
 		head = grammar(token);
 		free_delete_all_tokens(&token);

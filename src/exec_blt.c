@@ -79,17 +79,17 @@ int exec_blt(char *first_arg)
 		{
 			if (WEXITSTATUS(status) != 0)
 				all->error_flag = 1;
-			all->exit_status = WEXITSTATUS(status);
+			change_env_error(WEXITSTATUS(status));
 		}
 		if (WIFSIGNALED(status) != 0)
 		{
 			all->error_flag = 1;
-			all->exit_status = 128 + WTERMSIG(status);
+			change_env_error(128 + WTERMSIG(status));
 			if (WTERMSIG(status) == 3)
 				printf("Выход (стек памяти сброшен на диск)");
 			printf("\n");
 		}
-		if (all->exit_status == 127)
+		if (WEXITSTATUS(status) == 127)
 			result_error("команда не найдена\n", NULL, 127);
 	}
 	if (arraylen(all->argv) == 1)

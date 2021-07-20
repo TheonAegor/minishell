@@ -191,5 +191,6 @@ void sigquit(int sig);
 void do_func(t_simple_command *com);
 void init_all();
 void was_error();
+int  change_env_error(int exit_status);
 int	redirect_in(t_simple_command **command);
 #endif
