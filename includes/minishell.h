@@ -1,5 +1,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
+//# define PRINT
 
 # include <stdio.h>
 # include <string.h>
@@ -132,7 +133,7 @@ void			init_simple_command(t_simple_command **com, t_tree_node *head);
 void		    print_simple_command_info(t_simple_command *com);
 int			    del_comm_name_args(t_simple_command **com);
 void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
-void        fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
+void        	fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
 void   		    execute_command(t_simple_command **com);
 int				error_manager();
 void			ft_dollar(t_token **token, int *i, char *str, char **env, int *n);
@@ -181,11 +182,11 @@ void			echo_blt();
 void			unset_blt();
 void			exit_blt();
 int				exec_blt(char *first_arg);
-void sigint(int sig);
-void sigquit(int sig);
-void do_func(t_simple_command *com);
-void init_all();
-void was_error();
-int  change_env_error(int exit_status);
-int	redirect_in(t_simple_command **command);
+void 			sigint(int sig);
+void 			sigquit(int sig);
+void 			do_func(t_simple_command *com);
+void			init_all();
+void			was_error();
+int       change_env_error(int exit_status);
+int				redirect_in(t_simple_command **command);
 #endif

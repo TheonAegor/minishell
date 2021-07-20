@@ -67,9 +67,9 @@ void do_func(t_simple_command *com)
 	if (all->result != NULL)
 	{
 		com->result = ft_strdup(all->result);
-		printf("===============RESULT=================\n");
+//		printf("===============RESULT=================\n");
 		printf("%s", all->result);
-		printf("===============RESULT=================\n");
+//		printf("===============RESULT=================\n");
 	}
 	if (all->error != NULL)
 	{
