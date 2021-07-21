@@ -41,29 +41,6 @@ static int	fill_arguments(t_simple_command **com, t_tree_node *head)
 
 void	init_simple_command(t_simple_command **command, t_tree_node *head)
 {
-/*
- * 1)Приходит из экзекьютора
- *	1.1)Как первая команда -- нади инициализировать
- *		начальными значениями 
- *						   -- нужно записать имя и аргументы
- *		..first_init
- *		..args
- *		..data
- *	1.2)Вторая и более команда -- не надо иниициализировать
- *							   -- нужно удалить имя и аргументы
- *		..delete
- *		..args
- *		..data
- *
- * 2)Отсюда же
- *	2.1)с удаленным именем и аргументами
- *							-- нужно записать имя и аргументы
- *		..args
- *		..data
- *	2.2)с именем и выделенными местом под аргументы
- *		.data
- * 
-*/
 	t_simple_command *com;
 
 	com = *command;
@@ -71,18 +48,6 @@ void	init_simple_command(t_simple_command **command, t_tree_node *head)
 		del_comm_name_args(&com);
 	name_and_alloc_args(&com, head);
 	fill_arguments(&com, head->left);
-//	printf("end of init_simple_command\n");
-}
-
-
-void		fill_redirect_in_info(t_simple_command **com, t_tree_node *head)
-{
-	(*com)->redirect_in = strdup(head->left->data);
-}
-
-void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
-{
-	(*com)->redirect_out = strdup(head->left->data);
 }
 
 void		execute_command(t_simple_command **command)
@@ -95,23 +60,28 @@ void		execute_command(t_simple_command **command)
 	print_simple_command_info(com);
 #endif
 	if (com->pipe_read != NO_VAL)
-	{
 		read_from_pipe(&com);
-	}
 	else if (com->redirect_out != NULL)
-	{
 		redirect_out(&com);
-	}
 	else if (com->pipe_write != NO_VAL)
-	{
 		write_in_pipe(&com);
-	}
 	else if (com->redirect_in != NULL)
 	{
+		printf("inside\n");
 		redirect_in(&com);	
 	}
 	else
 		do_func(com);
 //	print_simple_command_info(com);
 //	printf("-----------end of execute command----------\n");
+}
+
+void		fill_redirect_in_info(t_simple_command **com, t_tree_node *head)
+{
+	(*com)->redirect_in = strdup(head->left->data);
+}
+
+void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
+{
+	(*com)->redirect_out = strdup(head->left->data);
 }

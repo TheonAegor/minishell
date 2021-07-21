@@ -8,6 +8,7 @@ int	redirect_in(t_simple_command **command)
 
 	com = *command;
 	std_out = dup(1);
+	printf("com->save = %d\n",com->save);
 	if (com->save == NO_VAL)
 		fd = open(com->redirect_in, O_CREAT | O_WRONLY | O_TRUNC, S_IRWXU);
 	else

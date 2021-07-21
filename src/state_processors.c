@@ -30,9 +30,12 @@ void	dquote_state_processor(t_support_token **sup, char **env)
 	tmp = first_token((*sup)->token);
 	if ((*sup)->chtype == DQUOTE)
 	{
-//		add_token_front(&(*sup)->token, init_token((*sup)->len - (*sup)->i));
+		if ((*sup)->j == 0)
+		{
+			tmp->data[(*sup)->j++] = '\0'; 
+			tmp->type = DQUOTE;
+		}
 		(*sup)->state = GENERAL_S;	
-//		(*sup)->j = 0;
 	}
 	else if ((*sup)->chtype == ESCAPE)
 	{

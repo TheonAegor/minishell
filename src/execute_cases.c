@@ -20,19 +20,43 @@ int pipe_case(t_tree_node *head, t_simple_command **com)
 
 int greater_case(t_tree_node *head, t_simple_command **com)
 {
-	init_simple_command(com, head->left);
-	fill_redirect_in_info(com, head->right);
-	execute_command(com);
-	free((*com)->redirect_in);
-	(*com)->redirect_in = NULL;
-	move_to_next_command(&head);
-	if (head->right)
-		execute(head->right, com);
+    char *tmp_arg;
+    char *tmp_cmd;
+
+    init_simple_command(com, head->left);
+    tmp_arg = ft_strdup((*com)->arguments[0]);
+    tmp_cmd = ft_strdup((*com)->command_name);
+    while (head->right->type == GREATER || head->right->type == DGREATER)
+    {
+        (*com)->arguments[0] = ft_strdup("");
+        (*com)->command_name = ft_strdup("echo");
+
+        (*com)->redirect_in = ft_strdup(head->right->left->data);
+    	execute_command(com);
+    	free((*com)->redirect_in);
+    	(*com)->redirect_in = NULL;
+//    	move_to_next_command(&head);
+        head = head->right;
+        printf("\t\theraaaaaaaae\n");
+    }
+    if (head->type == DGREATER)
+        (*com)->save = 1;
+    printf("\t\therrrrre\n");
+    (*com)->redirect_in = ft_strdup(head->right->left->data);
+    (*com)->arguments[0] = tmp_arg;
+    (*com)->command_name = tmp_cmd;
+    execute_command(com);
+    free((*com)->redirect_in);
+    (*com)->redirect_in = NULL;
+    move_to_next_command(&head);
+    (*com)->save = NO_VAL;
+    if (head->right)
+        execute(head->right, com);
 }
 
 int dgreater_case(t_tree_node *head, t_simple_command **com)
 {
-	fill_redirect_in_info(com, head->right);
+    (*com)->redirect_out = strdup(head->left->data);
 	init_simple_command(com, head->left);
 	(*com)->save = 1;
 

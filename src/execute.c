@@ -4,10 +4,8 @@ void	execute(t_tree_node *head, t_simple_command **com)
 {
 	if (head->type == PIPE)
 		pipe_case(head, com);
-	else if (head->type == GREATER)
+	else if (head->type == GREATER || head->type == DGREATER)
 		greater_case(head, com);
-	else if (head->type == DGREATER)
-		dgreater_case(head, com);
 	else if (head->type == LOWER)
 		lower_case(head, com);
 	else if (head->type == DLOWER)

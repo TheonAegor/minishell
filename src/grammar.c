@@ -2,7 +2,8 @@
 
 int		is_end_of_command(int type)
 {
-	if (type == PIPE || type == SEMICOLON || type == GREATER || type == LOWER || type == CHAR_NULL || type == DGREATER || type == DLOWER)
+	if (type == PIPE || type == SEMICOLON || type == GREATER || type == LOWER \
+	|| type == CHAR_NULL || type == DGREATER || type == DLOWER)
 		return (1);
 	return (0);
 }
