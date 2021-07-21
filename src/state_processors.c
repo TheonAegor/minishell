@@ -1,5 +1,28 @@
 #include "minishell.h"
 
+void		general_state_processor(t_support_token **sup, char **env)
+{
+	t_token *tmp;
+
+	tmp = first_token((*sup)->token);
+	if (((*sup)->chtype) == WHITESPACE)
+		case_whitespace(sup, &tmp);
+	else if (((*sup)->chtype) == DOLLAR)
+		case_dollar(sup, env, &tmp);
+	else if (((*sup)->chtype) == QUOTE)
+		case_quote(sup, &tmp);
+	else if (((*sup)->chtype) == DQUOTE)
+		case_dquote(sup, &tmp);
+	else if (((*sup)->chtype) == ESCAPE)
+		((*sup)->state) = ESCAPE_S;
+	else if (is_separator((*sup)->chtype))
+		case_separator(sup, &tmp);
+	else if (((*sup)->chtype) == CHAR_NULL)
+		case_charnull_in_general(sup, &tmp);
+	else
+		case_general_char(sup, &tmp);
+}
+
 void	dquote_state_processor(t_support_token **sup, char **env)
 {
 	t_token *tmp;
@@ -20,7 +43,7 @@ void	dquote_state_processor(t_support_token **sup, char **env)
 	}
 	else if ((*sup)->chtype == DOLLAR)
 	{
-		ft_dollar(&tmp, &(*sup)->i, (*sup)->str, env, &(*sup)->j);
+		ft_dollar(&tmp, env, sup);
 		(*sup)->j++;
 	}
 	else if ((*sup)->chtype == CHAR_NULL)
@@ -57,29 +80,6 @@ void		quote_state_processor(t_support_token **sup)
 		tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i]; 
 		tmp->type = QUOTE;
 	}
-}
-
-void		general_state_processor(t_support_token **sup, char **env)
-{
-	t_token *tmp;
-
-	tmp = first_token((*sup)->token);
-	if (((*sup)->chtype) == WHITESPACE)
-		case_whitespace(sup, &tmp);
-	else if (((*sup)->chtype) == DOLLAR)
-		case_dollar(sup, env, &tmp);
-	else if (((*sup)->chtype) == QUOTE)
-		case_quote(sup, &tmp);
-	else if (((*sup)->chtype) == DQUOTE)
-		case_dquote(sup, &tmp);
-	else if (((*sup)->chtype) == ESCAPE)
-		((*sup)->state) = ESCAPE_S;
-	else if (is_separator((*sup)->chtype))
-		case_separator(sup, &tmp);
-	else if (((*sup)->chtype) == CHAR_NULL)
-		case_charnull_in_general(sup, &tmp);
-	else
-		case_general_char(sup, &tmp);
 }
 
 void		escape_state_processor(t_support_token **sup)

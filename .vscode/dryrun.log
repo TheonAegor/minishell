@@ -8,7 +8,6 @@ mkdir -p obj
 gcc   -Iincludes -O3 -c src/exec_blt.c -o obj/exec_blt.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/tree_node.c -o obj/tree_node.o -lreadline
- 
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/token2.c -o obj/token2.o -lreadline
 mkdir -p obj
@@ -37,7 +36,6 @@ mkdir -p obj
 gcc   -Iincludes -O3 -c src/token.c -o obj/token.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/grammar.c -o obj/grammar.o -lreadline
- 
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/unset_blt.c -o obj/unset_blt.o -lreadline
 mkdir -p obj
@@ -57,7 +55,6 @@ gcc   -Iincludes -O3 -c src/error_manager.c -o obj/error_manager.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/exit_btl.c -o obj/exit_btl.o -lreadline
 mkdir -p obj
- 
 gcc   -Iincludes -O3 -c src/env_blt.c -o obj/env_blt.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/parser2.c -o obj/parser2.o -lreadline

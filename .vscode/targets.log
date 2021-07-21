@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 19 11:55:01 2021
+# Make data base, printed on Wed Jul 21 11:27:12 2021
 
 # Variables
 
@@ -79,11 +79,11 @@ MANAGERPID = 1162
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-e8ff17f5-0932-4d23-8517-7f1e4648b98c.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-15955e27-de2f-43ac-89e7-8626872e97cc.sock
 # environment
 LC_NAME = ru_RU.UTF-8
 # environment
-VSCODE_CWD = /home/taegor/school21/level3/minishell/src
+VSCODE_CWD = /home/taegor/school21/level3/minishell
 # environment
 GSETTINGS_SCHEMA_DIR = /snap/code/70/usr/share/glib-2.0/schemas
 # default
@@ -225,7 +225,7 @@ MAKE_COMMAND := make
 # environment
 _WSREP_START_POSITION = 
 # environment
-OLDPWD = /home/taegor/school21/level3/minishell
+OLDPWD = /home/taegor/school21/level3/minishell/test
 # environment
 TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
@@ -290,12 +290,12 @@ WINDOWPATH = 2
 .INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
 # environment
 LC_IDENTIFICATION = ru_RU.UTF-8
+ 
 # default
 .RECIPEPREFIX := 
 # environment
 LC_ADDRESS = ru_RU.UTF-8
 # makefile (from 'Makefile', line 3)
- 
 option = -Iincludes
 # environment
 LANG = C
@@ -304,13 +304,13 @@ TERM = xterm-256color
 # environment
 TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
-_P9K_TTY = /dev/pts/0
+_P9K_TTY = /dev/pts/6
 # environment
-VSCODE_PID = 22941
+VSCODE_PID = 78593
 # environment
-TERMINATOR_UUID = urn:uuid:fae5280d-cdb6-49c1-8477-03405cc2b5e3
+TERMINATOR_UUID = urn:uuid:363df2e8-a150-4533-a3ce-1038e92c080d
 # variable set hash-table stats:
-# Load=149/1024=15%, Rehash=0, Collisions=23/186=12%
+# Load=149/1024=15%, Rehash=0, Collisions=23/180=13%
 
 # Pattern-specific Variable Values
 
@@ -318,10 +318,10 @@ TERMINATOR_UUID = urn:uuid:fae5280d-cdb6-49c1-8477-03405cc2b5e3
 
 # Directories
 
-# . (device 66313, inode 1052290): 15 files, no impossibilities.
-# src (device 66313, inode 1052285): 33 files, no impossibilities.
+# . (device 66313, inode 1052290): 16 files, no impossibilities.
+# src (device 66313, inode 1052285): 42 files, no impossibilities.
 
-# 48 files, no impossibilities in 2 directories.
+# 58 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -337,7 +337,7 @@ obj/%.o: src/%.c
 obj/token2.o: src/token2.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'token2'
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 19:32:38.669326928
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -345,15 +345,26 @@ obj/token2.o: src/token2.c
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/parser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/exit_btl.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+obj/parser.o: src/parser.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser'
+#  Last modified 2021-07-20 19:32:39.489658435
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 obj/commands2.o: src/commands2.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'commands2'
-#  Last modified 2021-07-19 11:07:50.964696497
+#  Last modified 2021-07-20 19:32:38.389210032
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -367,32 +378,10 @@ src/parser4.c:
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-obj/unset_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-all: minishell
-#  Command line target.
+obj/unset_blt.o: src/unset_blt.c
 #  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
-
-# Not a target:
-src/exec_blt.c:
-#  Implicit rule search has been done.
-#  Last modified 2021-07-18 21:17:35.73839024
-#  File has been updated.
-#  Successfully updated.
-
-obj/utils2.o: src/utils2.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'utils2'
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Implicit/static pattern stem: 'unset_blt'
+#  Last modified 2021-07-20 19:32:39.821789645
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -400,22 +389,78 @@ obj/utils2.o: src/utils2.c
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/pipe.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/echo_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+all: minishell
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/exec_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/minishell.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/strncmp_mix.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+obj/utils2.o: src/utils2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils2'
+#  Last modified 2021-07-20 19:32:39.009468735
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/pipe.o: src/pipe.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'pipe'
+#  Last modified 2021-07-20 19:32:39.385617334
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/env_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.73839024
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/parser3.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 18:16:57.643598233
 #  File has been updated.
 #  Successfully updated.
 
 obj/do.o: src/do.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'do'
-#  Last modified 2021-07-19 11:19:33.102666428
+#  Last modified 2021-07-20 19:32:38.953445494
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -439,12 +484,19 @@ src/token2.c:
 obj/tree_node.o: src/tree_node.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'tree_node'
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 19:32:38.609301879
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	@mkdir -p $(OBJDIR)
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/parser.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:17:15.317358003
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/commands2.c:
@@ -453,11 +505,22 @@ src/commands2.c:
 #  File has been updated.
 #  Successfully updated.
 
+obj/execute.o: src/execute.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'execute'
+#  Last modified 2021-07-20 19:32:40.001860808
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
 # Not a target:
-obj/execute.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/unset_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/utils2.c:
@@ -468,19 +531,28 @@ src/utils2.c:
 
 minishell: obj/pwd_blt.o obj/commands2.o obj/exec_blt.o obj/tree_node.o obj/token2.o obj/export_blt.o obj/parser4.o obj/do.o obj/utils2.o obj/parser3.o obj/commands3.o obj/cd_blt.o obj/utils.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/token.o obj/grammar.o obj/unset_blt.o obj/commands.o obj/execute.o obj/redirect_in.o obj/minishell.o obj/signals.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/parser2.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2021-07-20 19:32:45.36365235
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
 	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
 
 # Not a target:
-obj/error_manager.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/pipe.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:20:17.138072219
+#  File has been updated.
+#  Successfully updated.
+
+obj/error_manager.o: src/error_manager.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'error_manager'
+#  Last modified 2021-07-20 19:32:40.466034496
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 fclean: clean
 #  Implicit rule search has not been done.
@@ -492,49 +564,40 @@ fclean: clean
 obj/pwd_blt.o: src/pwd_blt.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'pwd_blt'
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 19:32:38.317179974
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	@mkdir -p $(OBJDIR)
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/parser2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/parser2.o: src/parser2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser2'
+#  Last modified 2021-07-20 19:32:40.706124334
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/cd_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/cd_blt.o: src/cd_blt.c
+#  Implicit rule search has been done.
+ 
+#  Implicit/static pattern stem: 'cd_blt'
+#  Last modified 2021-07-20 19:32:39.229555681
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 obj/commands3.o: src/commands3.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'commands3'
-#  Last modified 2021-07-19 11:07:50.964696497
+#  Last modified 2021-07-20 19:32:39.145522483
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/commands3.o
-# automatic
-# % := 
-# automatic
-# * := commands3
-# automatic
-# + := src/commands3.c
-# automatic
-# | := 
-# automatic
-# < := src/commands3.c
-# automatic
-# ^ := src/commands3.c
-# automatic
-# ? := src/commands3.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	@mkdir -p $(OBJDIR)
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
@@ -542,22 +605,26 @@ obj/commands3.o: src/commands3.c
 # Not a target:
 src/do.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 18:38:21.955513827
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/tree_node.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-07-18 21:20:17.138072219
+#  Last modified 2021-07-20 18:52:02.814484941
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-obj/signals.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/signals.o: src/signals.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'signals'
+#  Last modified 2021-07-20 19:32:40.329983587
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
 .DEFAULT:
@@ -566,34 +633,56 @@ obj/signals.o:
 #  File has not been updated.
 
 # Not a target:
-obj/echo_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:20:02.03671202
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-obj/token.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/echo_blt.o: src/echo_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'echo_blt'
+#  Last modified 2021-07-20 19:32:39.585696376
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/commands.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/token.o: src/token.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'token'
+#  Last modified 2021-07-20 19:32:39.665727992
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/grammar.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/commands.o: src/commands.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'commands'
+#  Last modified 2021-07-20 19:32:39.913826004
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/grammar.o: src/grammar.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'grammar'
+#  Last modified 2021-07-20 19:32:39.74976119
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 obj/export_blt.o: src/export_blt.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'export_blt'
- 
-#  Last modified 2021-07-19 11:07:50.964696497
+#  Last modified 2021-07-20 19:32:38.773370347
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -607,11 +696,15 @@ re: fclean
 #  recipe to execute (from 'Makefile', line 33):
 	make all
 
-# Not a target:
-obj/redirect_in.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/redirect_in.o: src/redirect_in.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'redirect_in'
+#  Last modified 2021-07-20 19:32:40.077889256
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 clean:
 #  Implicit rule search has not been done.
@@ -620,11 +713,22 @@ clean:
 #  recipe to execute (from 'Makefile', line 27):
 	rm -rf $(obj)
 
+obj/utils.o: src/utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils'
+#  Last modified 2021-07-20 19:32:39.313588878
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
 # Not a target:
-obj/utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/error_manager.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.73839024
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/pwd_blt.c:
@@ -634,67 +738,140 @@ src/pwd_blt.c:
 #  Successfully updated.
 
 # Not a target:
-src/commands3.c:
+src/parser2.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-07-19 11:55:00.534283609
+#  Last modified 2021-07-20 18:16:57.643598233
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-obj/exit_btl.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-obj/parser4.o: src/parser4.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'parser4'
-#  Last modified 2021-07-19 11:07:50.968696056
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 23):
-	@mkdir -p $(OBJDIR)
-	$(cc) $(option) -O3 -c $< -o $@ -lreadline
-
-obj/exec_blt.o: src/exec_blt.c
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'exec_blt'
-#  Last modified 2021-07-19 11:07:50.964696497
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 23):
-	@mkdir -p $(OBJDIR)
-	$(cc) $(option) -O3 -c $< -o $@ -lreadline
-
-# Not a target:
-obj/minishell.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/strncmp_mix.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/export_blt.c:
+src/cd_blt.c:
 #  Implicit rule search has been done.
 #  Last modified 2021-07-18 21:17:35.73839024
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-obj/env_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/commands3.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:17:15.317358003
+#  File has been updated.
+#  Successfully updated.
+
+obj/exit_btl.o: src/exit_btl.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exit_btl'
+#  Last modified 2021-07-20 19:32:40.542062944
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/parser4.o: src/parser4.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser4'
+#  Last modified 2021-07-20 19:32:38.865408755
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/signals.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+obj/exec_blt.o: src/exec_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exec_blt'
+#  Last modified 2021-07-20 19:32:38.497255121
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/minishell.o: src/minishell.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'minishell'
+#  Last modified 2021-07-20 19:32:40.261958132
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/token.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+obj/strncmp_mix.o: src/strncmp_mix.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'strncmp_mix'
+#  Last modified 2021-07-20 19:32:40.402010539
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/commands.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:17:15.317358003
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/grammar.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:17:15.317358003
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/export_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:38:21.955513827
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/redirect_in.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-20 18:17:15.317358003
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-18 21:17:35.742390273
+#  File has been updated.
+#  Successfully updated.
+
+obj/env_blt.o: src/env_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'env_blt'
+#  Last modified 2021-07-20 19:32:40.610088399
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+ 
 
 obj/parser3.o: src/parser3.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parser3'
-#  Last modified 2021-07-19 11:07:50.968696056
+#  Last modified 2021-07-20 19:32:39.089500352
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
@@ -702,19 +879,19 @@ obj/parser3.o: src/parser3.c
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # files hash-table stats:
-# Load=48/1024=5%, Rehash=0, Collisions=1/125=1%
+# Load=66/1024=6%, Rehash=0, Collisions=4/197=2%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 108 / storage = 1192 B / avg = 11 B
-# current buf: size = 8162 B / used = 1192 B / count = 108 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 152 / storage = 1741 B / avg = 11 B
+# current buf: size = 8162 B / used = 1741 B / count = 152 / avg = 11 B
 
-# strcache performance: lookups = 135 / hit rate = 20%
+# strcache performance: lookups = 199 / hit rate = 23%
 # hash-table stats:
-# Load=108/8192=1%, Rehash=0, Collisions=4/135=3%
-# Finished Make data base on Mon Jul 19 11:55:01 2021
+# Load=152/8192=2%, Rehash=0, Collisions=3/199=2%
+# Finished Make data base on Wed Jul 21 11:27:12 2021
 
  

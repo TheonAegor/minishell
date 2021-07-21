@@ -1,13 +1,6 @@
 #include "minishell.h"
-void    print_token_data(t_token *token)
-{
-		printf("(");
-		printf("%s", token->data);
-//		printf("%d", token->type);
-		printf(")");
-}
 
-int		define_token_type(char c)
+static int		define_token_type(char c)
 {
 	if (c == ESCAPE)
 		return (ESCAPE);
@@ -35,30 +28,6 @@ int		define_token_type(char c)
 		return (CHAR_NULL);
 	else 
 		return (CHAR_GENERAL);
-}
-
-void	ft_dollar(t_token **token, int *i, char *str, char **env, int *n)
-{
-	char	*tmp;
-	char	*res;
-	int		j;
-
-	j = *i;
-	while(str[++(*i)])
-		if (str[*i] != '_' && !ft_isalnum(str[*i]))
-			break;
-	(*i) = *i - 1;
-	tmp = ft_substr(str, j + 1, *i - j);	
-	res = look_in_env(env, tmp);
-	free_del_str(tmp);
-
-	tmp = ft_strdup((*token)->data);
-	free((*token)->data);
-	(*token)->data = ft_strjoin(tmp, res); 
-	(*token)->type = DOLLAR;
-	*n = *n + ft_strlen(res) - 1;
-	free_del_str(res);
-	free_del_str(tmp);
 }
 
 static void	init_sup_struct(char *str,t_support_token **sup)

@@ -13,7 +13,7 @@ void	case_whitespace(t_support_token **sup, t_token **tmp)
 
 void	case_dollar(t_support_token **sup, char **env, t_token **tmp)
 {
-	ft_dollar(tmp, &(*sup)->i, (*sup)->str, env, &((*sup)->j));
+	ft_dollar(tmp, env, sup);
 	((*sup)->j)++;
 }
 

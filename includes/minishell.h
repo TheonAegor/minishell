@@ -1,6 +1,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
-//# define PRINT
+# define PRINT
 
 # include <stdio.h>
 # include <string.h>
@@ -136,7 +136,7 @@ void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
 void        	fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
 void   		    execute_command(t_simple_command **com);
 int				error_manager();
-void			ft_dollar(t_token **token, int *i, char *str, char **env, int *n);
+void			ft_dollar(t_token **token, char **env, t_support_token **sup);
 void			dquote_state_processor(t_support_token **sup, char **env);
 void			quote_state_processor(t_support_token **sup);
 void			escape_state_processor(t_support_token **sup);
