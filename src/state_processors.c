@@ -50,10 +50,7 @@ void	dquote_state_processor(t_support_token **sup, char **env)
 		(*sup)->j++;
 	}
 	else if ((*sup)->chtype == CHAR_NULL)
-	{
-		printf("dquote\n");
 		(*sup)->error = 1;
-	}
 	else
 	{
 		tmp->data[(*sup)->j++] = (*sup)->str[(*sup)->i]; 

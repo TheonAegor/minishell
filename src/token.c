@@ -36,6 +36,7 @@ void	implement_f_to_all_tokens(t_token **last_token,void (*f)())
 		f(tmp);
 		tmp = tmp->next;
 	}
+	printf("\n");
 }
 
 t_token	*first_token(t_token *last_token)
