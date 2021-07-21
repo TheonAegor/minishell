@@ -148,6 +148,14 @@ void			case_dollar(t_support_token **sup, char **env, t_token **tmp);
 void			case_separator(t_support_token **sup, t_token **tmp);
 void			case_charnull_in_general(t_support_token **sup, t_token **tmp);
 void			case_general_char(t_support_token **sup, t_token **tmp);
+
+int				pipe_case(t_tree_node *head, t_simple_command **com);
+int				greater_case(t_tree_node *head, t_simple_command **com);
+int				dgreater_case(t_tree_node *head, t_simple_command **com);
+int				lower_case(t_tree_node *head, t_simple_command **com);
+int				dlower_case(t_tree_node *head, t_simple_command **com);
+int				semicolon_case(t_tree_node *head, t_simple_command **com);
+int				null_case(t_tree_node *head, t_simple_command **com);
 int				is_separator(int chtype);
 void			free_delete_all_tokens(t_token **last_token);
 void			free_support_token(t_support_token **sup);

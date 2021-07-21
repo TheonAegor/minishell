@@ -30,14 +30,12 @@ void	implement_f_to_all_tokens(t_token **last_token,void (*f)())
 {
 	t_token		*tmp;
 
-//	printf("inside implement\n");
 	tmp = *last_token;
 	while (tmp)
 	{
 		f(tmp);
 		tmp = tmp->next;
 	}
-//	printf("end of implement\n");
 }
 
 t_token	*first_token(t_token *last_token)

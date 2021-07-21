@@ -3,83 +3,19 @@
 void	execute(t_tree_node *head, t_simple_command **com)
 {
 	if (head->type == PIPE)
-	{
-		int	fd[2];
-
-		pipe(fd);
-		init_simple_command(com, head->left);
-		(*com)->pipe_write = fd[1];
-
-		execute_command(com);
-
-		(*com)->pipe_read = fd[0];
-		(*com)->pipe_write = NO_VAL;
-
-		execute(head->right, com);
-	}
+		pipe_case(head, com);
 	else if (head->type == GREATER)
-	{
-		init_simple_command(com, head->left);
-		fill_redirect_in_info(com, head->right);
-		execute_command(com);
-		free((*com)->redirect_in);
-		(*com)->redirect_in = NULL;
-		move_to_next_command(&head);
-		if (head->right)
-			execute(head->right, com);
-	}
+		greater_case(head, com);
 	else if (head->type == DGREATER)
-	{
-		fill_redirect_in_info(com, head->right);
-		init_simple_command(com, head->left);
-		(*com)->save = 1;
-
-		execute_command(com);
-
-		free((*com)->redirect_in);
-		(*com)->redirect_in = NULL;
-		move_to_next_command(&head);
-		if (head->right)
-			execute(head->right, com);
-	}
+		dgreater_case(head, com);
 	else if (head->type == LOWER)
-	{
-		fill_redirect_out_info(com, head->right);
-		init_simple_command(com, head->left);
-		(*com)->save = LOWER;
-		
-		execute_command(com);
-
-		free((*com)->redirect_out);
-		(*com)->redirect_out = NULL;
-		move_to_next_command(&head);
-		if (head->right)
-			execute(head->right, com);
-	}
+		lower_case(head, com);
 	else if (head->type == DLOWER)
-	{
-		fill_redirect_out_info(com, head->right);
-		init_simple_command(com, head->left);
-		(*com)->save = DLOWER;
-		execute_command(com);
-		(*com)->save = NO_VAL;
-		free((*com)->redirect_out);
-		(*com)->redirect_out = NULL;
-		move_to_next_command(&head);
-		execute(head->right, com);
-	}
+		dlower_case(head, com);
 	else if (head->type == SEMICOLON)
-	{
-		init_simple_command(com, head->left);
-		execute_command(com);
-		clear_simple_command(com);
-		execute(head->right, com);
-	}
+		semicolon_case(head, com);
 	else if (head->type == CHAR_NULL)
-	{
-		init_simple_command(com, head->left);
-		execute_command(com);
-	}
+		null_case(head, com);
 }
 
 void	print_simple_command_info(t_simple_command *com)
