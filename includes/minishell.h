@@ -152,7 +152,6 @@ int				is_separator(int chtype);
 void			free_delete_all_tokens(t_token **last_token);
 void			free_support_token(t_support_token **sup);
 void			free_array(char **arr);
-char		    *look_in_env(char **env, char *to_find);
 void			free_del_str(char *str);
 void	        free_del_all_nodes(t_tree_node **head);
 void			case_lower_greater(t_support_token **sup, t_token **tmp);

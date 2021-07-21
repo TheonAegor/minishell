@@ -1,5 +1,35 @@
 #include "minishell.h"
 
+static char	*look_in_env(char **env, char *to_find)
+{
+	char	**tmp;
+	char	*res;
+	int		k;
+
+	k = -1;
+    if (ft_strlen(to_find) == 0)
+    {
+	    res = ft_strdup("$");
+        return (res);
+    }
+	res = ft_strdup("");
+	while (env[++k])
+	{
+		if (ft_strnstr(env[k], to_find, ft_strlen(to_find)))
+		{
+			tmp = ft_split(env[k], '=');
+			if (ft_strncmp(tmp[0], to_find, ft_strlen(to_find)) == 0)
+			{
+				free(res);
+				res = ft_strdup(tmp[1]);
+				break;
+			}
+		}
+	}
+	free_array(tmp);
+	return (res);
+}
+
 void	ft_dollar(t_token **token, char **env, t_support_token **sup)
 {
 	char	*tmp;
@@ -8,7 +38,8 @@ void	ft_dollar(t_token **token, char **env, t_support_token **sup)
 
 	j = (*sup)->i;
 	while((*sup)->str[++((*sup)->i)])
-		if ((*sup)->str[(*sup)->i] != '_' && !ft_isalnum((*sup)->str[(*sup)->i]))
+		if ((*sup)->str[(*sup)->i] != '_' && !ft_isalnum((*sup)->str[(*sup)->i]) \
+        && (*sup)->str[(*sup)->i] != '?')
 			break;
 	((*sup)->i) = (*sup)->i - 1;
 	tmp = ft_substr((*sup)->str, j + 1, (*sup)->i - j);	
