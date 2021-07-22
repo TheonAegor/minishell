@@ -221,6 +221,7 @@ int main(int argc, char **argv, char **envp)
 	signal(SIGQUIT, sigquit);
 	command = init_command();
 	all->envp = arraycpy(envp, arraylen(envp));
+	setup_envp();
 	while (1 == 1)
 	{
 		str = readline("minishell$ ");

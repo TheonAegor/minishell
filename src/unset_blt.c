@@ -18,6 +18,11 @@ void unset_blt()
 		if (all->argv != 0)
 			while (all->argv[j] != NULL)
 			{
+				if (ft_strchr(all->argv[j], '=') != NULL)
+				{
+					j++;
+					continue;
+				}
 				if (ft_strncmp(all->envp[i], all->argv[j], ft_strlen(all->argv[j])) == 0)
 				{
 					flag = 1;

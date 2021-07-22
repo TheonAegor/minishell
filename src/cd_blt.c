@@ -30,11 +30,19 @@ void cd_blt()
 		if (chdir(all->argv[0]) == 0)
 		{
 			pwd = getcwd(pwd, 0);
-			change_env("PWD", pwd);
+			if (pwd == NULL && errno == 2)
+				all->error = stradd(all->error, "cd: ошибка определения текущего каталога: getcwd: нет доступа к родительским каталогам: Нет такого файла или каталога\n");
+			else
+				change_env("PWD", pwd);
 			free(pwd);
 		}
 		else
-			result_error("Нет такого файла или каталога\n", all->argv[0], 1);
+		{
+			if (errno == 2)
+				result_error("Нет такого файла или каталога\n", all->argv[0], 1);
+			else
+				result_error("Это не каталог\n", all->argv[0], 1);
+		}
 	}
 	else if (arraylen(all->argv) > 1)
 		result_error("слишком много аргументов\n", NULL, 1);
