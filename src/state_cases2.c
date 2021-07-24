@@ -4,6 +4,7 @@ static char	*look_in_env(char **env, char *to_find)
 {
 	char	**tmp;
 	char	*res;
+	int		check;
 	int		k;
 
 	k = -1;
@@ -18,15 +19,16 @@ static char	*look_in_env(char **env, char *to_find)
 		if (ft_strnstr(env[k], to_find, ft_strlen(to_find)))
 		{
 			tmp = ft_split(env[k], '=');
-			if (ft_strncmp(tmp[0], to_find, ft_strlen(to_find)) == 0)
+			check = ft_strncmp(tmp[0], to_find, ft_strlen(to_find)); 
+			if (check == 0)
 			{
 				free(res);
 				res = ft_strdup(tmp[1]);
+				free_array(tmp);
 				break;
 			}
 		}
 	}
-	free_array(tmp);
 	return (res);
 }
 
@@ -44,13 +46,15 @@ void	ft_dollar(t_token **token, char **env, t_support_token **sup)
 	((*sup)->i) = (*sup)->i - 1;
 	tmp = ft_substr((*sup)->str, j + 1, (*sup)->i - j);	
 	res = look_in_env(env, tmp);
-	free_del_str(tmp);
 
+	free_del_str(tmp);
 	tmp = ft_strdup((*token)->data);
 	free((*token)->data);
 	(*token)->data = ft_strjoin(tmp, res); 
 	(*token)->type = DOLLAR;
 	(*sup)->j = (*sup)->j + ft_strlen(res) - 1;
+	if ((*sup)->j == -1)
+		(*sup)->j = 0;
 	free_del_str(res);
 	free_del_str(tmp);
 }
