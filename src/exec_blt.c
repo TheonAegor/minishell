@@ -43,24 +43,46 @@ static char **prepare_array()
 	return(array);
 }
 
+int mywexitstatus(int status)
+{
+	return (((status) & 0xff00) >> 8);
+}
+
+int mywtermsig(int status)
+{
+	return ((status) & 0x7f);
+}
+
+int mywifsignaled(int status)
+{
+	return (((signed char) (((status) & 0x7f) + 1) >> 1) > 0);
+}
+
+int mywifexited(int status)
+{
+	if (mywtermsig(status) == 0)
+		return (1);
+	return (0);
+}
+
 static void parent(int *status)
 {
 	wait(status);
-	if (WIFEXITED(*status) != 0)
+	if (mywifexited(*status) != 0)
 	{
-		if (WEXITSTATUS(*status) != 0)
+		if (mywexitstatus(*status) != 0)
 			g_all->error_flag = 1;
-		change_env_error(WEXITSTATUS(*status));
+		change_env_error(mywexitstatus(*status));
 	}
-	if (WIFSIGNALED(*status) != 0)
+	if (mywifsignaled(*status) != 0)
 	{
 		g_all->error_flag = 1;
-		change_env_error(128 + WTERMSIG(*status));
-		if (WTERMSIG(*status) == 3)
+		change_env_error(128 + mywtermsig(*status));
+		if (mywtermsig(*status) == 3)
 			printf(QUIT);
 		printf("\n");
 	}
-	if (WEXITSTATUS(*status) == 127)
+	if (mywexitstatus(*status) == 127)
 		result_error(NO_FILE_OR_DIR, NULL, 127);
 }
 
