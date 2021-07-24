@@ -1,59 +1,63 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all	*g_all;
 
-char *gethome()
+static char	*gethome(void)
 {
-	int i;
-	char *home;
+	int		i;
+	char	*home;
 
 	i = 0;
 	home = NULL;
-	while (all->envp[i] != NULL)
+	while (g_all->envp[i] != NULL)
 	{
-		if (ft_strncmp(all->envp[i], "HOME=", 5) == 0)
-			home = ft_strdup(all->envp[i] + 5);
+		if (ft_strncmp(g_all->envp[i], "HOME=", 5) == 0)
+			home = ft_strdup(g_all->envp[i] + 5);
 		i++;
 	}
-	return(home);
+	return (home);
 }
 
-void cd_blt()
+static void	cd_one_arg(void)
 {
-	char *pwd;
-	char *home;
+	char	*pwd;
 
 	pwd = NULL;
-	home = gethome();
-	if (arraylen(all->argv) == 1 && ft_strncmp(all->argv[0], "~", 2) != 0)
+	if (chdir(g_all->argv[0]) == 0)
 	{
-		if (chdir(all->argv[0]) == 0)
-		{
-			pwd = getcwd(pwd, 0);
-			if (pwd == NULL && errno == 2)
-				all->error = stradd(all->error, "cd: ошибка определения текущего каталога: getcwd: нет доступа к родительским каталогам: Нет такого файла или каталога\n");
-			else
-				change_env("PWD", pwd);
-			free(pwd);
-		}
+		pwd = getcwd(pwd, 0);
+		if (pwd == NULL && errno == 2)
+			g_all->error = stradd(g_all->error, CD_DELETED_DIR);
 		else
-		{
-			if (errno == 2)
-				result_error("Нет такого файла или каталога\n", all->argv[0], 1);
-			else
-				result_error("Это не каталог\n", all->argv[0], 1);
-		}
+			change_env("PWD", pwd);
+		free(pwd);
 	}
-	else if (arraylen(all->argv) > 1)
-		result_error("слишком много аргументов\n", NULL, 1);
+	else
+	{
+		if (errno == 2)
+			result_error(NO_FILE_OR_DIR, g_all->argv[0], 1);
+		else
+			result_error(IT_IS_NOT_DIR, g_all->argv[0], 1);
+	}
+}
+
+void cd_blt(void)
+{
+	char	*home;
+
+	home = gethome();
+	if (arraylen(g_all->argv) == 1 && ft_strncmp(g_all->argv[0], "~", 2) != 0)
+		cd_one_arg();
+	else if (arraylen(g_all->argv) > 1)
+		result_error(TOO_MANY_ARGS, NULL, 1);
 	else
 	{
 		if (home == NULL)
-			result_error("Не задана переменная HOME\n", NULL, 1);
+			result_error(NO_HOME, NULL, 1);
 		else if (chdir(home) == 0)
 			change_env("PWD", home);
 		else
-			result_error("Нет такого файла или каталога\n", home, 1);
+			result_error(NO_FILE_OR_DIR, home, 1);
 	}
 	free(home);
 	change_last_arg();

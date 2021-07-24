@@ -1,13 +1,13 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all *g_all;
 
 void sigint(int sig)
 {
 	(void)sig;
-	if (all->exec_flag == 0)
+	if (g_all->exec_flag == 0)
 	{
-		all->exit_status = 130;
+		g_all->exit_status = 130;
 		printf("^C\n");
 		rl_on_new_line();
 		rl_replace_line("", 0);

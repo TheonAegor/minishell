@@ -1,12 +1,12 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all *g_all;
 
 void pwd_blt()
 {
-	all->result = NULL;
-	all->result = getcwd(all->result, 0);
-	all->result = stradd(all->result, "\n");
+	g_all->result = NULL;
+	g_all->result = getcwd(g_all->result, 0);
+	g_all->result = stradd(g_all->result, "\n");
 	change_last_arg();
-	all->exit_status = 0;
+	g_all->exit_status = 0;
 }
