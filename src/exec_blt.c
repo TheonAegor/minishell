@@ -1,98 +1,94 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all *g_all;
 
-int get_path()
+static int get_path()
 {
 	int i;
-	char *temp;
 
 	i = 0;
-	while (all->envp[i] != NULL)
+	while (g_all->envp[i] != NULL)
 	{
-		if (ft_strncmp(all->envp[i], "PATH=", 5) == 0)
-			all->path = ft_split(ft_strchr(all->envp[i], '=') + 1, ':');
+		if (ft_strncmp(g_all->envp[i], "PATH=", 5) == 0)
+			g_all->path = ft_split(ft_strchr(g_all->envp[i], '=') + 1, ':');
 		i++;
 	}
 	i = 0;
-	while (all->path[i] != NULL)
-	{
-		temp = ft_strjoin(all->path[i], "/");
-		free(all->path[i]);
-		all->path[i] = temp;
-		i++;
-	}
+	if (g_all->path != NULL)
+		while (g_all->path[i] != NULL)
+		{
+			g_all->path[i] = stradd(g_all->path[i], "/");
+			g_all->path[i] = stradd(g_all->path[i], g_all->name);
+			i++;
+		}
 	return(1);
 }
 
-char **form_array(char *first_arg)
+static char **prepare_array()
 {
 	int i;
 	char **array;
 
 	i = 0;
 	array = NULL;	
-	array = arrayadd(array, first_arg);
-	if (all->argv != NULL)
-		while (all->argv[i] != 0)
+	array = arrayadd(array, g_all->name);
+	if (g_all->argv != NULL)
+		while (g_all->argv[i] != 0)
 		{
-			array = arrayadd(array, all->argv[i]);
+			array = arrayadd(array, g_all->argv[i]);
 			i++;
 		}
+	get_path();
+	g_all->exec_flag = 1;
 	return(array);
 }
 
-int exec_blt(char *first_arg)
+static void parent(int *status)
+{
+	wait(status);
+	if (WIFEXITED(*status) != 0)
+	{
+		if (WEXITSTATUS(*status) != 0)
+			g_all->error_flag = 1;
+		change_env_error(WEXITSTATUS(*status));
+	}
+	if (WIFSIGNALED(*status) != 0)
+	{
+		g_all->error_flag = 1;
+		change_env_error(128 + WTERMSIG(*status));
+		if (WTERMSIG(*status) == 3)
+			printf(QUIT);
+		printf("\n");
+	}
+	if (WEXITSTATUS(*status) == 127)
+		result_error(NO_FILE_OR_DIR, NULL, 127);
+}
+
+int exec_blt()
 {
 	pid_t pid;
-	char *fullpath;
 	int i;
 	int status;
 
 	i = 0;
-	all->argv = form_array(first_arg);
-	get_path();
-	all->exec_flag = 1;
+	g_all->argv = prepare_array();
 	pid = fork();
 	if (pid == 0)
 	{
-		while (all->path[i] != NULL)
-		{
-			fullpath = ft_strjoin(all->path[i], all->name);
-			if (execve(fullpath, all->argv, all->envp) != -1)
+		if (g_all->path != NULL)
+			while (g_all->path[i] != NULL)
 			{
-				free(fullpath);
-				break;
+				execve(g_all->path[i], g_all->argv, g_all->envp);
+				i++;
 			}
-			free(fullpath);
-			i++;
-		}
-		execve(all->name, all->argv, all->envp);
+		execve(g_all->name, g_all->argv, g_all->envp);
 		exit(127);
 	}
 	else
-	{
-		wait(&status);
-		if (WIFEXITED(status) != 0)
-		{
-			if (WEXITSTATUS(status) != 0)
-				all->error_flag = 1;
-			change_env_error(WEXITSTATUS(status));
-		}
-		if (WIFSIGNALED(status) != 0)
-		{
-			all->error_flag = 1;
-			change_env_error(128 + WTERMSIG(status));
-			if (WTERMSIG(status) == 3)
-				printf("Выход (стек памяти сброшен на диск)");
-			printf("\n");
-		}
-		if (WEXITSTATUS(status) == 127)
-			result_error("команда не найдена\n", NULL, 127);
-	}
-	if (arraylen(all->argv) == 1)
-		change_env("_", all->name);
+		parent(&status);
+	if (arraylen(g_all->argv) == 1)
+		change_env("_", g_all->name);
 	else
-		change_env("_", all->argv[arraylen(all->argv) - 1]);
+		change_env("_", g_all->argv[arraylen(g_all->argv) - 1]);
 	return(0);
 }

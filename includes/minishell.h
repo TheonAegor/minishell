@@ -15,6 +15,17 @@
 # include <sys/wait.h>
 # include <errno.h>
 
+# define CD_DELETED_DIR "cd: ошибка определения текущего каталога: \
+getcwd: нет доступа к родительским каталогам: \
+Нет такого файла или каталога\n"
+# define NO_FILE_OR_DIR "Нет такого файла или каталога\n"
+# define IT_IS_NOT_DIR "Это не каталог\n"
+# define TOO_MANY_ARGS "слишком много аргументов\n"
+# define NO_HOME "Не задана переменная HOME\n"
+# define QUIT "Выход (стек памяти сброшен на диск)"
+# define NUM_NEEDED "требуется числовой аргумент\n"
+# define INVALID_IDENT "это недопустимый идентификатор\n"
+
 enum token_type {
 	CHAR_GENERAL = -1,
 	ESCAPE = '\\',
@@ -169,6 +180,7 @@ int				redirect_out(t_simple_command **com);
 int				write_in_pipe(t_simple_command **com);
 void			clear_simple_command(t_simple_command **com);
 
+void			swap(char ***envp, int j);
 int				strncmp_mix(const char *s1, const char *s2, size_t n);
 void			sigint(int sig);
 void			sigquit(int sig);
@@ -188,12 +200,11 @@ void			cd_blt();
 void			echo_blt();
 void			unset_blt();
 void			exit_blt();
-int				exec_blt(char *first_arg);
-void 			sigint(int sig);
-void 			sigquit(int sig);
+int				exec_blt();
 void 			do_func(t_simple_command *com);
 void			init_all();
 void			was_error();
-int       change_env_error(int exit_status);
+int       		change_env_error(int exit_status);
+void			free_and_exit(char *msg);
 int				redirect_in(t_simple_command **command);
 #endif

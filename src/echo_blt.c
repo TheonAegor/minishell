@@ -1,21 +1,21 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all *g_all;
 
-int find_pos()
+static int find_pos()
 {
 	int i;
 	int j;
 
 	i = 0;
-	while (all->argv[i] != NULL)
+	while (g_all->argv[i] != NULL)
 	{
 		j = 1;
-		if (all->argv[i][0] != '-' || all->argv[i][1] != 'n')
+		if (g_all->argv[i][0] != '-' || g_all->argv[i][1] != 'n')
 			return (i);
-		while (all->argv[i][j] != 0)
+		while (g_all->argv[i][j] != 0)
 		{
-			if (all->argv[i][j] != 'n')
+			if (g_all->argv[i][j] != 'n')
 				return (i);
 			j++;
 		}
@@ -24,18 +24,18 @@ int find_pos()
 	return (i);
 }
 
-int check_n()
+static int check_n()
 {
 	int i;
 
 	i = 1;
-	if (all->argv != NULL)
+	if (g_all->argv != NULL)
 	{
-		if (all->argv[0][0] != '-' && all->argv[0][1] != 'n')
+		if (g_all->argv[0][0] != '-' && g_all->argv[0][1] != 'n')
 			return (0);
-		while (all->argv[0][i] != 0)
+		while (g_all->argv[0][i] != 0)
 		{
-			if (all->argv[0][i] != 'n')
+			if (g_all->argv[0][i] != 'n')
 				return (0);
 			i++;
 		}
@@ -50,22 +50,22 @@ void echo_blt()
 	int i;
 
 	i = 0;
-	if (all->argv != NULL)
+	if (g_all->argv != NULL)
 	{
 		if (check_n() == 1)
 			i = find_pos();
-		while (all->argv[i] != NULL)
+		while (g_all->argv[i] != NULL)
 		{
-			all->result = stradd(all->result, all->argv[i]);
-			if (all->argv[i + 1] != NULL)
-				all->result = stradd(all->result, " ");
+			g_all->result = stradd(g_all->result, g_all->argv[i]);
+			if (g_all->argv[i + 1] != NULL)
+				g_all->result = stradd(g_all->result, " ");
 			i++;
 		}
 		if (check_n() == 0)
-			all->result = stradd(all->result, "\n");
+			g_all->result = stradd(g_all->result, "\n");
 	}
 	else
-		all->result = stradd(all->result, "\n");
+		g_all->result = stradd(g_all->result, "\n");
 	change_last_arg();
 	change_env_error(0);
 }

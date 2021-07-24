@@ -1,18 +1,23 @@
 #include "minishell.h"
 
-extern t_all *all;
+extern t_all *g_all;
 
 void env_blt()
 {
 	int i;
 
 	i = 0;
-	all->result = NULL;
+	g_all->result = NULL;
 	change_last_arg();
-	while (all->envp[i] != NULL)
+	while (g_all->envp[i] != NULL)
 	{
-		all->result = stradd(all->result, all->envp[i]);
-		all->result = stradd(all->result, "\n");
+		if (ft_strncmp(g_all->envp[i], "?=", 2) == 0)
+		{
+			i++;
+			continue ;
+		}
+		g_all->result = stradd(g_all->result, g_all->envp[i]);
+		g_all->result = stradd(g_all->result, "\n");
 		i++;
 	}
 }
