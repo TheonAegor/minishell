@@ -74,13 +74,13 @@ int main(int argc, char **argv, char **envp)
 		token = ft_parser(str, g_all->envp);
 		if (token == NULL)
 		{
-			free_and_exit("exit\n");
+			free_and_exit("");
 			return (-1);
 		}
 		free(str);
 		head = grammar(token);
 		free_delete_all_tokens(&token);
-        execute(head, &command);
+		execute(head, &command);
 		g_all->exec_flag = 0;
 	}
 	return (0);

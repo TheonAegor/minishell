@@ -75,6 +75,11 @@ t_token		*ft_parser(char *str, char **env)
 #endif
 	
 	tmp = sup->token;
+	if (check_tokens(tmp) == -1)
+	{
+		free_delete_all_tokens(&sup->token);
+		return (NULL);
+	}
 	free_support_token(&sup);
 	return (tmp);
 }

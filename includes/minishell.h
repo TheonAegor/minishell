@@ -208,4 +208,6 @@ int       		change_env_error(int exit_status);
 void			free_and_exit(char *msg);
 void			free_all();
 int				redirect_in(t_simple_command **command);
+int				is_end_of_command(int type);
+int				check_tokens(t_token *tok);
 #endif
