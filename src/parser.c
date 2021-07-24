@@ -61,6 +61,12 @@ t_token		*ft_parser(char *str, char **env)
 			dquote_state_processor(&sup, env);
 		else if ((sup->state) == ESCAPE_S)
 			escape_state_processor(&sup);
+		if (sup->error == 1)
+		{
+			free_delete_all_tokens(&sup->token);
+			free_support_token(&sup);
+			return (NULL);
+		}
 		if (sup->chtype == CHAR_NULL)
 			break;
 	}

@@ -3,29 +3,29 @@ make: Entering directory '/home/taegor/school21/level3/minishell'
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/pwd_blt.c -o obj/pwd_blt.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/commands2.c -o obj/commands2.o -lreadline
+gcc   -Iincludes -O3 -c src/state_processors.c -o obj/state_processors.o -lreadline
+mkdir -p obj
+gcc   -Iincludes -O3 -c src/execute_cases.c -o obj/execute_cases.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/exec_blt.c -o obj/exec_blt.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/tree_node.c -o obj/tree_node.o -lreadline
 mkdir -p obj
+gcc   -Iincludes -O3 -c src/state_cases4.c -o obj/state_cases4.o -lreadline
+mkdir -p obj
 gcc   -Iincludes -O3 -c src/token2.c -o obj/token2.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/export_blt.c -o obj/export_blt.o -lreadline
-mkdir -p obj
-gcc   -Iincludes -O3 -c src/parser4.c -o obj/parser4.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/do.c -o obj/do.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/utils2.c -o obj/utils2.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/parser3.c -o obj/parser3.o -lreadline
+gcc   -Iincludes -O3 -c src/state_cases.c -o obj/state_cases.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/commands3.c -o obj/commands3.o -lreadline
+gcc   -Iincludes -O3 -c src/minishell.c -o obj/minishell.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/cd_blt.c -o obj/cd_blt.o -lreadline
-mkdir -p obj
-gcc   -Iincludes -O3 -c src/utils.c -o obj/utils.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/pipe.c -o obj/pipe.o -lreadline
 mkdir -p obj
@@ -33,7 +33,9 @@ gcc   -Iincludes -O3 -c src/parser.c -o obj/parser.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/echo_blt.c -o obj/echo_blt.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/token.c -o obj/token.o -lreadline
+gcc   -Iincludes -O3 -c src/utils4.c -o obj/utils4.o -lreadline
+mkdir -p obj
+gcc   -Iincludes -O3 -c src/commands2.c -o obj/commands2.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/grammar.c -o obj/grammar.o -lreadline
 mkdir -p obj
@@ -43,9 +45,14 @@ gcc   -Iincludes -O3 -c src/commands.c -o obj/commands.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/execute.c -o obj/execute.o -lreadline
 mkdir -p obj
+gcc   -Iincludes -O3 -c src/state_cases2.c -o obj/state_cases2.o -lreadline
+mkdir -p obj
 gcc   -Iincludes -O3 -c src/redirect_in.c -o obj/redirect_in.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/minishell.c -o obj/minishell.o -lreadline
+gcc   -Iincludes -O3 -c src/token.c -o obj/token.o -lreadline
+mkdir -p obj
+gcc   -Iincludes -O3 -c src/utils3.c -o obj/utils3.o -lreadline
+ 
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/signals.c -o obj/signals.o -lreadline
 mkdir -p obj
@@ -57,7 +64,9 @@ gcc   -Iincludes -O3 -c src/exit_btl.c -o obj/exit_btl.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/env_blt.c -o obj/env_blt.o -lreadline
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/parser2.c -o obj/parser2.o -lreadline
-gcc   -o minishell -Iincludes obj/pwd_blt.o obj/commands2.o obj/exec_blt.o obj/tree_node.o obj/token2.o obj/export_blt.o obj/parser4.o obj/do.o obj/utils2.o obj/parser3.o obj/commands3.o obj/cd_blt.o obj/utils.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/token.o obj/grammar.o obj/unset_blt.o obj/commands.o obj/execute.o obj/redirect_in.o obj/minishell.o obj/signals.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/parser2.o libft/libft.a -lreadline
+gcc   -Iincludes -O3 -c src/printer.c -o obj/printer.o -lreadline
+mkdir -p obj
+gcc   -Iincludes -O3 -c src/utils.c -o obj/utils.o -lreadline
+gcc   -o minishell -Iincludes obj/pwd_blt.o obj/state_processors.o obj/execute_cases.o obj/exec_blt.o obj/tree_node.o obj/state_cases4.o obj/token2.o obj/export_blt.o obj/do.o obj/utils2.o obj/state_cases.o obj/minishell.o obj/cd_blt.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/utils4.o obj/commands2.o obj/grammar.o obj/unset_blt.o obj/commands.o obj/execute.o obj/state_cases2.o obj/redirect_in.o obj/token.o obj/utils3.o obj/signals.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/printer.o obj/utils.o libft/libft.a -lreadline
 make: Leaving directory '/home/taegor/school21/level3/minishell'
  

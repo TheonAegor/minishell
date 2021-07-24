@@ -72,6 +72,11 @@ int main(int argc, char **argv, char **envp)
 			continue;
 		add_history(str);
 		token = ft_parser(str, g_all->envp);
+		if (token == NULL)
+		{
+			free_and_exit("exit\n");
+			return (-1);
+		}
 		free(str);
 		head = grammar(token);
 		free_delete_all_tokens(&token);

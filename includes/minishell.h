@@ -206,5 +206,6 @@ void			init_all();
 void			was_error();
 int       		change_env_error(int exit_status);
 void			free_and_exit(char *msg);
+void			free_all();
 int				redirect_in(t_simple_command **command);
 #endif
