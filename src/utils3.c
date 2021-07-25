@@ -1,38 +1,36 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-char *stradd(char *dst, char *str)
+char	*stradd(char *dst, char *str)
 {
-	int i;
-	int j;
-	char *new;
+	int		i;
+	int		j;
+	char	*new;
 
 	i = 0;
 	j = 0;
 	new = malloc((ft_strlen(dst) + ft_strlen(str) + 1) * sizeof(char));
-	if (dst != NULL)
-		while (dst[i] != 0)
-		{
-			new[i] = dst[i];
-			i++;
-		}
-	if (str != NULL)
-		while (str[j] != 0)
-		{
-			new[i] = str[j];
-			i++;
-			j++;
-		}
+	while (dst != NULL && dst[i] != 0)
+	{
+		new[i] = dst[i];
+		i++;
+	}
+	while (str != NULL && str[j] != 0)
+	{
+		new[i] = str[j];
+		i++;
+		j++;
+	}
 	new[i] = '\0';
 	if (dst != NULL)
 		free(dst);
 	return (new);
 }
 
-int change_env_error(int exit_status)
+int	change_env_error(int exit_status)
 {
-	char *str_error;
+	char	*str_error;
 
 	g_all->exit_status = exit_status;
 	str_error = ft_itoa(exit_status);
@@ -42,7 +40,7 @@ int change_env_error(int exit_status)
 	return (0);
 }
 
-void result_error(char *error, char *arg, int exit_status)
+void	result_error(char *error, char *arg, int exit_status)
 {
 	g_all->error = stradd(g_all->error, "minishell: ");
 	g_all->error = stradd(g_all->error, g_all->name);
@@ -56,9 +54,9 @@ void result_error(char *error, char *arg, int exit_status)
 	change_env_error(exit_status);
 }
 
-void change_env(char *key, char *data)
+void	change_env(char *key, char *data)
 {
-	char *complete;
+	char	*complete;
 
 	complete = NULL;
 	complete = stradd(complete, key);
@@ -67,4 +65,3 @@ void change_env(char *key, char *data)
 	envadd(complete);
 	free(complete);
 }
-

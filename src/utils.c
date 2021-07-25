@@ -13,7 +13,7 @@ void	free_array(char **arr)
 	free(arr);
 }
 
-void		free_del_str(char *str)
+void	free_del_str(char *str)
 {
 	if (str)
 	{

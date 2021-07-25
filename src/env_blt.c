@@ -1,10 +1,10 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void env_blt()
+void	env_blt(void)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	g_all->result = NULL;

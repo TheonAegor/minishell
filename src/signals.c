@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void sigint(int sig)
+void	sigint(int sig)
 {
 	(void)sig;
 	if (g_all->exec_flag == 0)
@@ -15,7 +15,7 @@ void sigint(int sig)
 	}
 }
 
-void sigquit(int sig)
+void	sigquit(int sig)
 {
 	(void)sig;
 }

@@ -1,10 +1,10 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-static int checknum(char *str)
+static int	checknum(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != 0)
@@ -16,7 +16,7 @@ static int checknum(char *str)
 	return (0);
 }
 
-void exit_blt()
+void	exit_blt(void)
 {
 	if (arraylen(g_all->argv) > 1 && checknum(g_all->argv[0]) == 0)
 		result_error(TOO_MANY_ARGS, NULL, 1);

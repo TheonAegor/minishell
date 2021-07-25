@@ -41,7 +41,7 @@ static void	cd_one_arg(void)
 	}
 }
 
-void cd_blt(void)
+void	cd_blt(void)
 {
 	char	*home;
 

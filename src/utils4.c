@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void change_last_arg()
+void	change_last_arg(void)
 {
 	if (arraylen(g_all->argv) == 0)
 		change_env("_", g_all->name);
@@ -10,7 +10,7 @@ void change_last_arg()
 		change_env("_", g_all->argv[arraylen(g_all->argv) - 1]);
 }
 
-void was_error()
+void	was_error(void)
 {
 	if (g_all->error_flag == 1)
 		g_all->error_flag = 0;
@@ -18,7 +18,7 @@ void was_error()
 		g_all->exit_status = 0;
 }
 
-void free_and_exit(char *msg)
+void	free_and_exit(char *msg)
 {
 	if (g_all->name != NULL)
 		free(g_all->name);
@@ -42,9 +42,9 @@ void free_and_exit(char *msg)
 	exit(g_all->exit_status);
 }
 
-void swap(char ***envp, int j)
+void	swap(char ***envp, int j)
 {
-	char *temp;
+	char	*temp;
 
 	temp = ft_strdup((*envp)[j]);
 	free((*envp)[j]);

@@ -47,7 +47,7 @@ enum token_type {
 	SKIP_LEFT,
 };
 
-typedef struct	s_all
+typedef struct s_all
 {
 	char		*name;
 	char		**argv;
@@ -84,7 +84,7 @@ typedef struct s_token
 	struct s_token	*next;
 }	t_token;
 
-typedef struct	s_simple_command
+typedef struct s_simple_command
 {
 	int		num_of_arguments;
 	char	*command_name;
@@ -99,20 +99,20 @@ typedef struct	s_simple_command
 	char	*redirect_out;
 }	t_simple_command;
 
-typedef struct	s_commands
+typedef struct s_commands
 {
-	t_simple_command **simple_commands;
+	t_simple_command	**simple_commands;
 }	t_commands;
 
-typedef struct	s_tree_node
+typedef struct s_tree_node
 {
 	struct s_tree_node	*left;
 	struct s_tree_node	*right;
 	char				*data;
 	int					type;
-} t_tree_node;
+}	t_tree_node;
 
-typedef struct	s_support_token
+typedef struct s_support_token
 {
 	t_token	*token;
 	char	*str;
@@ -127,26 +127,28 @@ typedef struct	s_support_token
 t_token			*init_token(int size);
 t_token			*first_token(t_token *last_token);
 t_token			*ft_parser(char *str, char **env);
-void		    add_token_front(t_token **last_token, t_token *new_token);
-void		    implement_f_to_all_tokens(t_token **last_token,void (*f)());
+void			add_token_front(t_token **last_token, t_token *new_token);
+void			implement_f_to_all_tokens(t_token **last_token, void (*f)());
 t_tree_node		*grammar(t_token *p);
 void			print_token_data(t_token *token);
 void			print_node_data_type(t_tree_node *n);
-t_tree_node     *init_tree_with_values(char *data, int type);
+t_tree_node		*init_tree_with_values(char *data, int type);
 t_tree_node		*init_tree_node(int size);
-int		        implement_f_to_all_tree_nodes(t_tree_node *n,void (*f)());
-void	        insert_node(t_tree_node **head, t_tree_node *new);
+int				implement_f_to_all_tree_nodes(t_tree_node *n, void (*f)());
+void			insert_node(t_tree_node **head, t_tree_node *new);
 void			insert(char *data, int type, t_tree_node **leaf);
 void			insert_tree(t_tree_node *new, t_tree_node **leaf);
 void			execute(t_tree_node *head, t_simple_command **com);
-void            find_num_of_left_nodes(t_tree_node *head, int *count);
+void			find_num_of_left_nodes(t_tree_node *head, int *count);
 void			init_simple_command(t_simple_command **com, t_tree_node *head);
-void		    print_simple_command_info(t_simple_command *com);
-int			    del_comm_name_args(t_simple_command **com);
-void   		    fill_redirect_in_info(t_simple_command **com, t_tree_node *head);
-void        	fill_redirect_out_info(t_simple_command **com, t_tree_node *head);
-void   		    execute_command(t_simple_command **com);
-int				error_manager();
+void			print_simple_command_info(t_simple_command *com);
+int				del_comm_name_args(t_simple_command **com);
+void			fill_redirect_in_info(t_simple_command **com,
+					t_tree_node *head);
+void			fill_redirect_out_info(t_simple_command **com,
+					t_tree_node *head);
+void			execute_command(t_simple_command **com);
+int				error_manager(void);
 void			ft_dollar(t_token **token, char **env, t_support_token **sup);
 void			dquote_state_processor(t_support_token **sup, char **env);
 void			quote_state_processor(t_support_token **sup);
@@ -159,7 +161,6 @@ void			case_dollar(t_support_token **sup, char **env, t_token **tmp);
 void			case_separator(t_support_token **sup, t_token **tmp);
 void			case_charnull_in_general(t_support_token **sup, t_token **tmp);
 void			case_general_char(t_support_token **sup, t_token **tmp);
-
 int				pipe_case(t_tree_node *head, t_simple_command **com);
 int				redir_cases(t_tree_node *head, t_simple_command **com);
 int				dgreater_case(t_tree_node *head, t_simple_command **com);
@@ -172,14 +173,13 @@ void			free_delete_all_tokens(t_token **last_token);
 void			free_support_token(t_support_token **sup);
 void			free_array(char **arr);
 void			free_del_str(char *str);
-void	        free_del_all_nodes(t_tree_node **head);
+void			free_del_all_nodes(t_tree_node **head);
 void			case_lower_greater(t_support_token **sup, t_token **tmp);
 void			move_to_next_command(t_tree_node **node);
 int				read_from_pipe(t_simple_command **com);
 int				redirect_out(t_simple_command **com);
 int				write_in_pipe(t_simple_command **com);
 void			clear_simple_command(t_simple_command **com);
-
 void			swap(char ***envp, int j);
 int				strncmp_mix(const char *s1, const char *s2, size_t n);
 void			sigint(int sig);
@@ -192,25 +192,29 @@ char			**arrayadd(char **src, char *str);
 void			arrayfree(char **array);
 void			envadd(char *new_str);
 void			change_env(char *key, char *data);
-void			change_last_arg();
-void			pwd_blt();
-void			env_blt();
-void			export_blt();
-void			cd_blt();
-void			echo_blt();
-void			unset_blt();
-void			exit_blt();
-int				exec_blt();
-void 			do_func(t_simple_command *com);
-void			init_all();
-void			was_error();
-int       		change_env_error(int exit_status);
+void			change_last_arg(void);
+void			pwd_blt(void);
+void			env_blt(void);
+void			export_blt(void);
+void			cd_blt(void);
+void			echo_blt(void);
+void			unset_blt(void);
+void			exit_blt(void);
+int				exec_blt(void);
+void			do_func(t_simple_command *com);
+void			init_all(void);
+void			was_error(void);
+int				change_env_error(int exit_status);
 void			free_and_exit(char *msg);
-void			free_all();
+void			free_all(void);
 int				redirect_in(t_simple_command **command);
 int				is_end_of_command(int type);
 int				check_tokens(t_token *tok);
 int     		find_num_redir_in(t_tree_node *head);
 int				pipe_case_no_init(t_tree_node *head, t_simple_command **com);
 void    		redir_middle(t_tree_node **head, t_simple_command **com, int num_redirs);
+int				mywexitstatus(int status);
+int				mywtermsig(int status);
+int				mywifsignaled(int status);
+int				mywifexited(int status);
 #endif

@@ -1,11 +1,11 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-static int find_pos()
+static int	find_pos(void)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (g_all->argv[i] != NULL)
@@ -24,9 +24,9 @@ static int find_pos()
 	return (i);
 }
 
-static int check_n()
+static int	check_n(void)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	if (g_all->argv != NULL)
@@ -45,9 +45,9 @@ static int check_n()
 	return (1);
 }
 
-void echo_blt()
+void	echo_blt(void)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (g_all->argv != NULL)

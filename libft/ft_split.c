@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static int		ft_line_count(char const *s, char c)
+static int	ft_line_count(char const *s, char c)
 {
-	int i;
-	int line_num;
+	int	i;
+	int	line_num;
 
 	i = -1;
 	line_num = 0;
@@ -40,7 +40,7 @@ static int		ft_line_count(char const *s, char c)
 	return (line_num);
 }
 
-static int		ft_find_end(const char *s, char c, int *start, int i)
+static int	ft_find_end(const char *s, char c, int *start, int i)
 {
 	while (s[i] == c && s[i] != '\0')
 		i++;
@@ -64,7 +64,7 @@ static int		ft_find_end(const char *s, char c, int *start, int i)
 	return (i);
 }
 
-static char		**ft_create(char **p, const char *s, char c, int line_num)
+static char	**ft_create(char **p, const char *s, char c, int line_num)
 {
 	int			i;
 	int			end;
@@ -84,7 +84,7 @@ static char		**ft_create(char **p, const char *s, char c, int line_num)
 	return (p);
 }
 
-char			**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char		**p;
 	int			line_num;
