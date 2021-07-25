@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void init_all()
+void	init_all(void)
 {
 	g_all->name = NULL;
 	g_all->argv = NULL;
@@ -13,7 +13,7 @@ void init_all()
 	g_all->redirect_out = NULL;
 }
 
-void free_all()
+void	free_all(void)
 {
 	if (g_all->name != NULL)
 		free(g_all->name);
@@ -32,7 +32,7 @@ void free_all()
 	init_all();
 }
 
-void list_to_list(t_simple_command *com)
+void	list_to_list(t_simple_command *com)
 {
 	init_all();
 	g_all->name = ft_strdup(com->command_name);
@@ -45,7 +45,7 @@ void list_to_list(t_simple_command *com)
 	g_all->redirect_out = ft_strdup(com->redirect_out);
 }
 
-static void result_and_error(t_simple_command *com)
+static void	result_and_error(t_simple_command *com)
 {
 	if (g_all->result != NULL)
 	{
@@ -61,7 +61,7 @@ static void result_and_error(t_simple_command *com)
 	}
 }
 
-void do_func(t_simple_command *com)
+void	do_func(t_simple_command *com)
 {
 	list_to_list(com);
 	if (strncmp_mix(g_all->name, "exit", 5) != 0)

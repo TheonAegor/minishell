@@ -1,28 +1,29 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-static int check_arg(char *str)
+static int	check_arg(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if ((str[0] >= '0' && str[0] <= '9') || str[0] == '\0' || str[0] == '=')
 		return (1);
 	while (str[i] != 0 && str[i] != '=')
 	{
-		if (str[i] < '0'  || (str[i] > '9' && str[i] < 'A') || (str[i] > 'Z' && str[i] != '_' && str[i] < 'a') || str[i] > 'z')
+		if (str[i] < '0' || (str[i] > '9' && str[i] < 'A')
+			|| (str[i] > 'Z' && str[i] != '_' && str[i] < 'a') || str[i] > 'z')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-static char **envp_sort(char **src)
+static char	**envp_sort(char **src)
 {
-	int i;
-	int j;
-	char **envp;
+	int		i;
+	int		j;
+	char	**envp;
 
 	i = 0;
 	envp = arraycpy(src, arraylen(src));
@@ -37,10 +38,10 @@ static char **envp_sort(char **src)
 		}
 		i++;
 	}
-	return(envp);
+	return (envp);
 }
 
-static void add_args_to_envp(int i)
+static void	add_args_to_envp(int i)
 {
 	while (g_all->argv[i] != NULL)
 	{
@@ -52,13 +53,12 @@ static void add_args_to_envp(int i)
 	}
 }
 
-static void add_env_to_result(char **envp_cpy, char *equal, int i)
+static void	add_env_to_result(char **envp_cpy, char *equal, int i)
 {
 	g_all->result = stradd(g_all->result, "declare -x ");
 	g_all->result = stradd(g_all->result, envp_cpy[i]);
 	if (equal != NULL)
 	{
-
 		g_all->result = stradd(g_all->result, "=\"");
 		g_all->result = stradd(g_all->result, equal + 1);
 		g_all->result = stradd(g_all->result, "\"");
@@ -66,30 +66,30 @@ static void add_env_to_result(char **envp_cpy, char *equal, int i)
 	g_all->result = stradd(g_all->result, "\n");
 }
 
-void	export_blt()
+void	export_blt(void)
 {
-	char **envp_cpy;
-	char *equal;
-	int i;
+	char	**envp_cpy;
+	char	*equal;
+	int		i;
 
 	i = 0;
 	envp_cpy = envp_sort(g_all->envp);
 	g_all->result = NULL;
-	if (arraylen(g_all->argv) == 0)
-		while (envp_cpy[i] != NULL)
+	while (arraylen(g_all->argv) == 0 && envp_cpy[i] != NULL)
+	{
+		if (ft_strncmp(envp_cpy[i], "_=", 2) == 0
+			|| ft_strncmp(envp_cpy[i], "?=", 2) == 0)
 		{
-			if (ft_strncmp(envp_cpy[i], "_=", 2) == 0 || ft_strncmp(envp_cpy[i], "?=", 2) == 0)
-			{
-				i++;
-				continue;
-			}
-			equal = ft_strchr(envp_cpy[i], '=');
-			if (equal != NULL)
-				*equal = '\0';
-			add_env_to_result(envp_cpy, equal, i);
 			i++;
+			continue ;
 		}
-	else
+		equal = ft_strchr(envp_cpy[i], '=');
+		if (equal != NULL)
+			*equal = '\0';
+		add_env_to_result(envp_cpy, equal, i);
+		i++;
+	}
+	if (arraylen(g_all->argv) != 0)
 		add_args_to_envp(i);
 	arrayfree(envp_cpy);
 	change_last_arg();

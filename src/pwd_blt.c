@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void pwd_blt()
+void	pwd_blt(void)
 {
 	g_all->result = NULL;
 	g_all->result = getcwd(g_all->result, 0);

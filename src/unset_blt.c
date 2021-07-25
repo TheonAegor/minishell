@@ -1,32 +1,35 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-static int included_or_not(int i)
+static int	included_or_not(int i)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	if (g_all->argv != 0)
+	{
 		while (g_all->argv[j] != NULL)
 		{
 			if (ft_strchr(g_all->argv[j], '=') != NULL)
 			{
 				j++;
-				continue;
+				continue ;
 			}
-			if (ft_strncmp(g_all->envp[i], g_all->argv[j], ft_strlen(g_all->argv[j])) == 0)
+			if (ft_strncmp(g_all->envp[i], g_all->argv[j],
+					ft_strlen(g_all->argv[j])) == 0)
 				return (1);
 			j++;
 		}
+	}
 	return (0);
 }
 
-void unset_blt()
+void	unset_blt(void)
 {
-	int i;
-	int flag;
-	char **new_envp;
+	int		i;
+	int		flag;
+	char	**new_envp;
 
 	new_envp = NULL;
 	i = 0;

@@ -1,14 +1,14 @@
 #include "minishell.h"
 
-extern t_all *g_all;
+extern t_all	*g_all;
 
-void arrayfree(char **array)
+void	arrayfree(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (array == 0)
-		return;
+		return ;
 	while (array[i] != 0)
 	{
 		free(array[i]);
@@ -18,9 +18,9 @@ void arrayfree(char **array)
 	free(array);
 }
 
-int arraylen(char **array)
+int	arraylen(char **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (array == 0)
@@ -30,10 +30,10 @@ int arraylen(char **array)
 	return (i);
 }
 
-char **arraycpy(char **src, int len)
+char	**arraycpy(char **src, int len)
 {
-	int i;
-	char **array;
+	int		i;
+	char	**array;
 
 	i = 0;
 	if (len == NO_VAL)
@@ -46,35 +46,37 @@ char **arraycpy(char **src, int len)
 		i++;
 	}
 	array[i] = 0;
-	return(array);
+	return (array);
 }
 
-char **arrayadd(char **src, char *str)
+char	**arrayadd(char **src, char *str)
 {
-	int i;
-	int len;
-	char **array;
+	int		i;
+	int		len;
+	char	**array;
 
 	len = arraylen(src);
 	i = 0;
 	array = malloc((len + 2) * sizeof(char *));
 	if (src != NULL)
+	{
 		while (src[i] != 0)
 		{
 			array[i] = ft_strdup(src[i]);
 			i++;
 		}
+	}
 	array[i] = ft_strdup(str);
 	array[i + 1] = 0;
 	arrayfree(src);
-	return(array);
+	return (array);
 }
 
-void envadd(char *new_str)
+void	envadd(char *new_str)
 {
-	int i;
-	char *equal;
-	char *temp;
+	int		i;
+	char	*equal;
+	char	*temp;
 
 	i = 0;
 	temp = ft_strdup(new_str);
@@ -87,7 +89,7 @@ void envadd(char *new_str)
 		{
 			free(g_all->envp[i]);
 			g_all->envp[i] = ft_strdup(new_str);
-			break;
+			break ;
 		}
 		i++;
 	}
