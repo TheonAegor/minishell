@@ -54,7 +54,7 @@ void	ft_dollar(t_token **token, char **env, t_support_token **sup)
 	(*token)->type = DOLLAR;
 	(*sup)->j = (*sup)->j + ft_strlen(res) - 1;
 	if ((*sup)->j == -1)
-		(*sup)->j = 0;
+		(*token)->type = CHAR_NULL;
 	free_del_str(res);
 	free_del_str(tmp);
 }

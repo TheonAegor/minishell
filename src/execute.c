@@ -2,14 +2,12 @@
 
 void	execute(t_tree_node *head, t_simple_command **com)
 {
-	if (head->type == PIPE)
+	if ((ft_strncmp(head->left->data, "exit", ft_strlen(head->left->data))) == 0)
+		null_case(head, com);
+	else if (head->type == PIPE)
 		pipe_case(head, com);
-	else if (head->type == GREATER || head->type == DGREATER)
-		greater_case(head, com);
-	else if (head->type == LOWER)
-		lower_case(head, com);
-	else if (head->type == DLOWER)
-		dlower_case(head, com);
+	else if (head->type == GREATER || head->type == DGREATER || head->type == LOWER || head->type == DLOWER)
+		redir_cases(head, com);
 	else if (head->type == SEMICOLON)
 		semicolon_case(head, com);
 	else if (head->type == CHAR_NULL)

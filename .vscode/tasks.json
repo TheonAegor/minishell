@@ -41,6 +41,7 @@
                 "${fileDirname}/strncmp_mix.c", 
                 "${fileDirname}/signals.c",
                 "${fileDirname}/checker.c",
+                "${fileDirname}/redir_utils.c",
                 "-lreadline",
                 "${workspaceFolder}/libft/libft.a",
                 "-o",

@@ -20,9 +20,14 @@ int	del_comm_name_args(t_simple_command **com)
 
 static int	name_and_alloc_args(t_simple_command **com, t_tree_node *head)
 {
+	int	i;
+
+	i = -1;
 	(*com)->command_name = ft_strdup(head->data);
 	find_num_of_left_nodes(head->left, &(*com)->num_of_arguments);
 	(*com)->arguments = malloc(sizeof(char*)*(*com)->num_of_arguments + 1);
+	while (++i < (*com)->num_of_arguments + 1)
+		(*com)->arguments[i] = NULL;
 	return (1);
 }
 
@@ -78,10 +83,28 @@ void		execute_command(t_simple_command **command)
 
 void		fill_redirect_in_info(t_simple_command **com, t_tree_node *head)
 {
-	(*com)->redirect_in = strdup(head->left->data);
+	char *tmp;
+
+	tmp = NULL;
+	if (!head || !head->left)
+		return ;
+	if ((*com)->redirect_in)
+		tmp = (*com)->redirect_in;
+	(*com)->redirect_in = ft_strdup(head->left->data);
+	if (tmp)
+		free(tmp);
 }
 
 void		fill_redirect_out_info(t_simple_command **com, t_tree_node *head)
 {
-	(*com)->redirect_out = strdup(head->left->data);
+	char *tmp;
+
+	tmp = NULL;
+	if (!head || !head->left)
+		return ;
+	if ((*com)->redirect_out)
+		tmp = (*com)->redirect_out;
+	(*com)->redirect_out = ft_strdup(head->left->data);
+	if (tmp) 
+		free(tmp);
 }

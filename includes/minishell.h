@@ -1,6 +1,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
-# define PRINT
+//# define PRINT
 
 # include <stdio.h>
 # include <string.h>
@@ -161,7 +161,7 @@ void			case_charnull_in_general(t_support_token **sup, t_token **tmp);
 void			case_general_char(t_support_token **sup, t_token **tmp);
 
 int				pipe_case(t_tree_node *head, t_simple_command **com);
-int				greater_case(t_tree_node *head, t_simple_command **com);
+int				redir_cases(t_tree_node *head, t_simple_command **com);
 int				dgreater_case(t_tree_node *head, t_simple_command **com);
 int				lower_case(t_tree_node *head, t_simple_command **com);
 int				dlower_case(t_tree_node *head, t_simple_command **com);
@@ -210,4 +210,7 @@ void			free_all();
 int				redirect_in(t_simple_command **command);
 int				is_end_of_command(int type);
 int				check_tokens(t_token *tok);
+int     		find_num_redir_in(t_tree_node *head);
+int				pipe_case_no_init(t_tree_node *head, t_simple_command **com);
+void    		redir_middle(t_tree_node **head, t_simple_command **com, int num_redirs);
 #endif
