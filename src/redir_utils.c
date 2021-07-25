@@ -53,5 +53,5 @@ void    redir_middle(t_tree_node **p_head, t_simple_command **com, int num_redir
 		if (head->right->type == DLOWER)
 			(*com)->save = DLOWER;
 	}
-    head = head->right;
+    *p_head = (*p_head)->right;
 }

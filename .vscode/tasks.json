@@ -42,6 +42,8 @@
                 "${fileDirname}/signals.c",
                 "${fileDirname}/checker.c",
                 "${fileDirname}/redir_utils.c",
+                "${fileDirname}/fork_macroses.c",
+                "${fileDirname}/redir_case.c",
                 "-lreadline",
                 "${workspaceFolder}/libft/libft.a",
                 "-o",

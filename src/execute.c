@@ -2,11 +2,13 @@
 
 void	execute(t_tree_node *head, t_simple_command **com)
 {
-	if ((ft_strncmp(head->left->data, "exit", ft_strlen(head->left->data))) == 0)
+	if ((ft_strncmp(head->left->data, "exit", \
+					ft_strlen(head->left->data))) == 0)
 		null_case(head, com);
 	else if (head->type == PIPE)
 		pipe_case(head, com);
-	else if (head->type == GREATER || head->type == DGREATER || head->type == LOWER || head->type == DLOWER)
+	else if (head->type == GREATER || head->type == DGREATER \
+			|| head->type == LOWER || head->type == DLOWER)
 		redir_cases(head, com);
 	else if (head->type == SEMICOLON)
 		semicolon_case(head, com);
@@ -16,7 +18,7 @@ void	execute(t_tree_node *head, t_simple_command **com)
 
 void	print_simple_command_info(t_simple_command *com)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	printf("===============START_SIMPLE_COMMAND_INFO=============\n");
@@ -28,8 +30,6 @@ void	print_simple_command_info(t_simple_command *com)
 	printf("redirect_in = %s\n", com->redirect_in);
 	printf("redirect_out = %s\n", com->redirect_out);
 	while (++i < com->num_of_arguments)
-	{
 		printf("%d argument = %s\n", i, com->arguments[i]);
-	}
 	printf("================END_SIMPLE_COMMAND_INFO==============\n");
 }

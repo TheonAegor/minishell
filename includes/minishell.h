@@ -1,6 +1,6 @@
 #ifndef MINISHELL_H
 # define MINISHELL_H
-//# define PRINT
+# define PRINT
 
 # include <stdio.h>
 # include <string.h>
