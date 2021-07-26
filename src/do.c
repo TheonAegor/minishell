@@ -9,8 +9,6 @@ void	init_all(void)
 	g_all->result = NULL;
 	g_all->error = NULL;
 	g_all->path = NULL;
-	g_all->redirect_in = NULL;
-	g_all->redirect_out = NULL;
 }
 
 void	free_all(void)
@@ -19,10 +17,6 @@ void	free_all(void)
 		free(g_all->name);
 	if (g_all->argv != NULL)
 		arrayfree(g_all->argv);
-	if (g_all->redirect_in != NULL)
-		free(g_all->redirect_in);
-	if (g_all->redirect_out != NULL)
-		free(g_all->redirect_out);
 	if (g_all->result != NULL)
 		free(g_all->result);
 	if (g_all->error != NULL)
@@ -38,11 +32,6 @@ void	list_to_list(t_simple_command *com)
 	g_all->name = ft_strdup(com->command_name);
 	if (com->num_of_arguments != 0)
 		g_all->argv = arraycpy(com->arguments, com->num_of_arguments);
-	g_all->pipe_read = com->pipe_read;
-	g_all->pipe_write = com->pipe_write;
-	g_all->save = com->save;
-	g_all->redirect_in = ft_strdup(com->redirect_in);
-	g_all->redirect_out = ft_strdup(com->redirect_out);
 }
 
 static void	result_and_error(t_simple_command *com)

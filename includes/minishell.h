@@ -47,24 +47,6 @@ enum e_token_type {
 	SKIP_LEFT,
 };
 
-typedef struct s_all
-{
-	char		*name;
-	char		**argv;
-	char		**envp;
-	char		*result;
-	char		*error;
-	char		**path;
-	int			exit_status;
-	int			error_flag;	
-	int			exec_flag;
-	int			pipe_read;
-	int			pipe_write;
-	int			save;
-	char		*redirect_in;
-	char		*redirect_out;
-}				t_all;
-
 enum e_state {
 	GENERAL_S,
 	QUOTE_S,
@@ -98,6 +80,20 @@ typedef struct s_simple_command
 	char	*redirect_in;
 	char	*redirect_out;
 }	t_simple_command;
+
+typedef struct s_all
+{
+	char				*name;
+	char				**argv;
+	char				**envp;
+	char				*result;
+	char				*error;
+	char				**path;
+	int					exit_status;
+	int					error_flag;	
+	int					exec_flag;
+	t_simple_command	**command;
+}				t_all;
 
 typedef struct s_commands
 {

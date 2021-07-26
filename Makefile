@@ -2,7 +2,7 @@ NAME = minishell
 
 option = -Iincludes
 
-cc = gcc  #-Wall -Werror -Wextra
+cc = gcc #-Wall -Werror -Wextra
 
 files = src/*.c
 
