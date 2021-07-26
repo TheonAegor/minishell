@@ -26,7 +26,7 @@ getcwd: нет доступа к родительским каталогам: \
 # define NUM_NEEDED "требуется числовой аргумент\n"
 # define INVALID_IDENT "это недопустимый идентификатор\n"
 
-enum token_type {
+enum e_token_type {
 	CHAR_GENERAL = -1,
 	ESCAPE = '\\',
 	QUOTE = '\'',
@@ -65,14 +65,14 @@ typedef struct s_all
 	char		*redirect_out;
 }				t_all;
 
-enum state {
+enum e_state {
 	GENERAL_S,
 	QUOTE_S,
 	DQUOTE_S,
 	ESCAPE_S,
 };
 
-enum gram_types {
+enum e_gram_types {
 	CMD,
 	ARG,
 };
@@ -210,9 +210,10 @@ void			free_all(void);
 int				redirect_in(t_simple_command **command);
 int				is_end_of_command(int type);
 int				check_tokens(t_token *tok);
-int     		find_num_redir_in(t_tree_node *head);
+int				find_num_redir_in(t_tree_node *head);
 int				pipe_case_no_init(t_tree_node *head, t_simple_command **com);
-void    		redir_middle(t_tree_node **head, t_simple_command **com, int num_redirs);
+void			redir_middle(t_tree_node **head, \
+		t_simple_command **com, int num_redirs);
 int				mywexitstatus(int status);
 int				mywtermsig(int status);
 int				mywifsignaled(int status);
