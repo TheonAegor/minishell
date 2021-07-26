@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jul 26 16:31:43 2021
+# Make data base, printed on Mon Jul 26 17:43:11 2021
 
 # Variables
 
@@ -79,7 +79,7 @@ MANAGERPID = 1074
 # environment
 P9K_SSH = 0
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-1c63227c-d9ae-45a6-b398-8f34141cd0c9.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-dc9b7760-7eeb-459c-a0da-9fc0cd067f85.sock
 # environment
 LC_NAME = ru_RU.UTF-8
 # environment
@@ -125,7 +125,6 @@ GDK_PIXBUF_MODULEDIR = /snap/code/70/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
- 
 LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # environment
 XDG_SESSION_DESKTOP = ubuntu
@@ -226,7 +225,7 @@ MAKE_COMMAND := make
 # environment
 _WSREP_START_POSITION = 
 # environment
-OLDPWD = /home/taegor
+OLDPWD = /home/taegor/school21/level3/minishell/test
 # environment
 TERMINATOR_DBUS_PATH = /net/tenshu/Terminator2
 # default
@@ -274,7 +273,7 @@ PAGER = less
 # environment
 LC_ALL = C
 # makefile (from 'Makefile', line 5)
-cc = gcc  
+cc = gcc -Wall -Werror -Wextra
 # environment
 P9K_TTY = old
 # automatic
@@ -293,6 +292,7 @@ WINDOWPATH = 2
 LC_IDENTIFICATION = ru_RU.UTF-8
 # default
 .RECIPEPREFIX := 
+ 
 # environment
 LC_ADDRESS = ru_RU.UTF-8
 # makefile (from 'Makefile', line 3)
@@ -306,11 +306,11 @@ TERMINATOR_DBUS_NAME = net.tenshu.Terminator21a9d5db22c73a993ff0b42f64b396873
 # environment
 _P9K_TTY = /dev/pts/0
 # environment
-VSCODE_PID = 3057
+VSCODE_PID = 23864
 # environment
 TERMINATOR_UUID = urn:uuid:f65dac44-6a3c-4b8f-851b-f7e4e7588c41
 # variable set hash-table stats:
-# Load=149/1024=15%, Rehash=0, Collisions=23/186=12%
+# Load=149/1024=15%, Rehash=0, Collisions=23/180=13%
 
 # Pattern-specific Variable Values
 
@@ -318,10 +318,10 @@ TERMINATOR_UUID = urn:uuid:f65dac44-6a3c-4b8f-851b-f7e4e7588c41
 
 # Directories
 
-# . (device 66313, inode 1052290): 13 files, no impossibilities.
+# . (device 66313, inode 1052290): 17 files, no impossibilities.
 # src (device 66313, inode 1052285): 43 files, no impossibilities.
 
-# 56 files, no impossibilities in 2 directories.
+# 60 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -338,115 +338,328 @@ obj/%.o: src/%.c
 # Files
 
 # Not a target:
-obj/token2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/printer.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 07:58:08.196391065
+#  File has been updated.
+#  Successfully updated.
+
+obj/token2.o: src/token2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'token2'
+#  Last modified 2021-07-26 17:42:38.451450579
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/parser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/exit_btl.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
+
+obj/parser.o: src/parser.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'parser'
+#  Last modified 2021-07-26 17:42:39.439458324
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/commands2.o: src/commands2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'commands2'
+#  Last modified 2021-07-26 17:42:39.739460677
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/unset_blt.o: src/unset_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'unset_blt'
+#  Last modified 2021-07-26 17:42:40.07146328
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/commands2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/unset_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/echo_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
 
 all: minishell
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  Successfully updated.
 
 # Not a target:
-obj/utils2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/state_cases.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/pipe.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/grammar.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-obj/do.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-Makefile:
+src/exec_blt.c:
 #  Implicit rule search has been done.
-#  Last modified 2021-07-26 16:25:25.47183077
+#  Last modified 2021-07-25 20:57:00.029803499
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
-obj/tree_node.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/minishell.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:08:03.718208329
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/execute.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute_cases2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:53:52.598820562
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/execute_cases.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/strncmp_mix.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
 
+obj/utils2.o: src/utils2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils2'
+#  Last modified 2021-07-26 17:42:38.947454467
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/state_cases.o: src/state_cases.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'state_cases'
+#  Last modified 2021-07-26 17:42:39.039455188
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/redir_utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:08:15.326379387
+#  File has been updated.
+#  Successfully updated.
+
+obj/pipe.o: src/pipe.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'pipe'
+#  Last modified 2021-07-26 17:42:39.335457509
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/env_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/state_cases4.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 08:23:11.214299054
+#  File has been updated.
+#  Successfully updated.
+
+obj/grammar.o: src/grammar.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'grammar'
+#  Last modified 2021-07-26 17:42:40.463466354
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/do.o: src/do.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'do'
+#  Last modified 2021-07-26 17:42:38.803453338
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:04:58.463273054
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/token2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 08:37:20.041596822
+#  File has been updated.
+#  Successfully updated.
+
+obj/tree_node.o: src/tree_node.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'tree_node'
+#  Last modified 2021-07-26 17:42:38.18744851
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/parser.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 13:41:17.760205327
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/commands2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 21:45:57.771493217
+#  File has been updated.
+#  Successfully updated.
+
+obj/execute.o: src/execute.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'execute'
  
+#  Last modified 2021-07-26 17:42:40.259464754
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/unset_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:58:25.868912716
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/utils2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/state_cases.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:51:13.813595308
+#  File has been updated.
+#  Successfully updated.
+
+obj/execute_cases.o: src/execute_cases.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'execute_cases'
+#  Last modified 2021-07-26 17:42:37.967446786
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
 minishell: obj/pwd_blt.o obj/state_processors.o obj/fork_macroses.o obj/execute_cases.o obj/exec_blt.o obj/tree_node.o obj/state_cases4.o obj/checker.o obj/token2.o obj/export_blt.o obj/commands.o obj/do.o obj/utils2.o obj/state_cases.o obj/execute_cases2.o obj/cd_blt.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/utils4.o obj/commands2.o obj/only_grammar.o obj/minishell.o obj/unset_blt.o obj/redir_case.o obj/execute.o obj/state_cases2.o obj/grammar.o obj/redirect_in.o obj/token.o obj/utils3.o obj/signals.o obj/redir_utils.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/printer.o obj/tree_node2.o obj/utils.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2021-07-26 17:42:41.675475863
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 20):
-	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
+	@$(cc) -o $(NAME) $(option) $^ libft.a -lreadline
+
+obj/checker.o: src/checker.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'checker'
+#  Last modified 2021-07-26 17:42:38.367449921
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/checker.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/pipe.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:56:55.47222249
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-obj/error_manager.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/error_manager.o: src/error_manager.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'error_manager'
+#  Last modified 2021-07-26 17:42:41.159471814
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 fclean: clean
 #  Implicit rule search has not been done.
@@ -456,36 +669,51 @@ fclean: clean
 	rm -rf $(NAME)
 	make fclean -C libft	
 
-# Not a target:
-obj/utils4.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/utils4.o: src/utils4.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils4'
+#  Last modified 2021-07-26 17:42:39.647459955
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 obj/pwd_blt.o: src/pwd_blt.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'pwd_blt'
-#  File does not exist.
+#  Last modified 2021-07-26 17:42:37.675444497
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := obj/pwd_blt.o
-# automatic
-# % := 
-# automatic
-# * := pwd_blt
-# automatic
-# + := src/pwd_blt.c
-# automatic
-# | := 
-# automatic
-# < := src/pwd_blt.c
-# automatic
-# ^ := src/pwd_blt.c
-# automatic
-# ? := src/pwd_blt.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/16=6%
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/cd_blt.o: src/cd_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'cd_blt'
+#  Last modified 2021-07-26 17:42:39.231456694
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/fork_macroses.o: src/fork_macroses.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'fork_macroses'
+#  Last modified 2021-07-26 17:42:37.871446033
+#  File has been updated.
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 23):
 	make -C libft
 	cp libft/libft.a ./
@@ -494,40 +722,70 @@ obj/pwd_blt.o: src/pwd_blt.c
 	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/cd_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/do.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:41:23.620915317
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/fork_macroses.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/tree_node.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:50:42.20535026
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-obj/redir_case.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/redir_case.o: src/redir_case.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'redir_case'
+#  Last modified 2021-07-26 17:42:40.167464033
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/state_processors.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/state_processors.o: src/state_processors.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'state_processors'
+#  Last modified 2021-07-26 17:42:37.783445343
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/utils3.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/utils3.o: src/utils3.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils3'
+#  Last modified 2021-07-26 17:42:40.791468927
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/signals.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/signals.o: src/signals.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'signals'
+#  Last modified 2021-07-26 17:42:40.883469649
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
 .DEFAULT:
@@ -535,41 +793,91 @@ obj/signals.o:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-obj/state_cases2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/state_cases2.o: src/state_cases2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'state_cases2'
+#  Last modified 2021-07-26 17:42:40.371465633
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/echo_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 08:50:51.064900473
+#  File has been updated.
+#  Successfully updated.
 
-# Not a target:
-obj/token.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/echo_blt.o: src/echo_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'echo_blt'
+#  Last modified 2021-07-26 17:42:39.547459171
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/commands.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/token.o: src/token.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'token'
+#  Last modified 2021-07-26 17:42:40.659467892
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/only_grammar.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/commands.o: src/commands.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'commands'
+#  Last modified 2021-07-26 17:42:38.691452461
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
-# Not a target:
-obj/export_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/only_grammar.o: src/only_grammar.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'only_grammar'
+ 
+#  Last modified 2021-07-26 17:42:39.855461586
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/export_blt.o: src/export_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'export_blt'
+#  Last modified 2021-07-26 17:42:38.571451519
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 re: fclean
 #  Implicit rule search has not been done.
@@ -578,11 +886,25 @@ re: fclean
 #  recipe to execute (from 'Makefile', line 38):
 	make all
 
+obj/redirect_in.o: src/redirect_in.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'redirect_in'
+#  Last modified 2021-07-26 17:42:40.559467108
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
 # Not a target:
-obj/redirect_in.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/execute_cases.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:50:23.321203659
+#  File has been updated.
+#  Successfully updated.
 
 clean:
 #  Implicit rule search has not been done.
@@ -592,17 +914,59 @@ clean:
 	rm -rf $(obj)
 	rm libft.a
 
-# Not a target:
-obj/utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/utils.o: src/utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'utils'
+#  Last modified 2021-07-26 17:42:41.631475517
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/tree_node2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/checker.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 21:39:47.868640431
+#  File has been updated.
+#  Successfully updated.
+
+obj/tree_node2.o: src/tree_node2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'tree_node2'
+#  Last modified 2021-07-26 17:42:41.547474858
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/error_manager.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 21:47:05.417971254
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/grammar.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 23:10:51.621433543
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/utils4.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:41:23.620915317
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
 src/pwd_blt.c:
@@ -611,74 +975,236 @@ src/pwd_blt.c:
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-obj/printer.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+obj/printer.o: src/printer.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'printer'
+#  Last modified 2021-07-26 17:42:41.427473916
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/exit_btl.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/cd_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/exec_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/fork_macroses.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
+
+obj/exit_btl.o: src/exit_btl.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exit_btl'
+#  Last modified 2021-07-26 17:42:41.251472536
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/minishell.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/redir_case.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:06:38.544909866
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/execute_cases2.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/state_processors.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:52:49.350333556
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/strncmp_mix.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/utils3.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/redir_utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/signals.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
 
 # Not a target:
-obj/env_blt.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/state_cases2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:00:14.229738236
+#  File has been updated.
+#  Successfully updated.
+
+obj/exec_blt.o: src/exec_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'exec_blt'
+#  Last modified 2021-07-26 17:42:38.087447726
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/minishell.o: src/minishell.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'minishell'
+#  Last modified 2021-07-26 17:42:39.975462527
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/execute_cases2.o: src/execute_cases2.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'execute_cases2'
+#  Last modified 2021-07-26 17:42:39.127455878
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
 
 # Not a target:
-obj/state_cases4.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/token.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 08:42:25.495617544
+#  File has been updated.
+#  Successfully updated.
+
+obj/strncmp_mix.o: src/strncmp_mix.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'strncmp_mix'
+#  Last modified 2021-07-26 17:42:41.079471187
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/commands.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:41:08.520791364
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/only_grammar.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 13:41:42.738512188
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/export_blt.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-25 20:57:00.029803499
+#  File has been updated.
+#  Successfully updated.
+
+obj/redir_utils.o: src/redir_utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'redir_utils'
+#  Last modified 2021-07-26 17:42:40.995470527
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+ 
+
+# Not a target:
+src/redirect_in.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 17:00:32.906142831
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 16:41:08.520791364
+#  File has been updated.
+#  Successfully updated.
+
+obj/env_blt.o: src/env_blt.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'env_blt'
+#  Last modified 2021-07-26 17:42:41.335473195
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+obj/state_cases4.o: src/state_cases4.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'state_cases4'
+#  Last modified 2021-07-26 17:42:38.291449325
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 23):
+	make -C libft
+	cp libft/libft.a ./
+	cp libft/libft.h ./includes/
+	@mkdir -p $(OBJDIR)
+	$(cc) $(option) -O3 -c $< -o $@ -lreadline
+
+# Not a target:
+src/tree_node2.c:
+#  Implicit rule search has been done.
+#  Last modified 2021-07-26 08:49:33.088899076
+#  File has been updated.
+#  Successfully updated.
 
 # files hash-table stats:
-# Load=49/1024=5%, Rehash=0, Collisions=3/107=3%
+# Load=88/1024=9%, Rehash=0, Collisions=9/263=3%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 106 / storage = 1302 B / avg = 12 B
-# current buf: size = 8162 B / used = 1302 B / count = 106 / avg = 12 B
+# strcache buffers: 1 (0) / strings = 183 / storage = 2279 B / avg = 12 B
+# current buf: size = 8162 B / used = 2279 B / count = 183 / avg = 12 B
 
-# strcache performance: lookups = 124 / hit rate = 14%
+# strcache performance: lookups = 245 / hit rate = 25%
 # hash-table stats:
-# Load=106/8192=1%, Rehash=0, Collisions=3/124=2%
-# Finished Make data base on Mon Jul 26 16:31:43 2021
+# Load=183/8192=2%, Rehash=0, Collisions=3/245=1%
+# Finished Make data base on Mon Jul 26 17:43:11 2021
 
  

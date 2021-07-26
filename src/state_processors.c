@@ -72,7 +72,14 @@ void	quote_state_processor(t_support_token **sup)
 
 	tmp = first_token((*sup)->token);
 	if (((*sup)->chtype) == QUOTE)
+	{
+		if ((*sup)->j == 0)
+		{
+			tmp->data[(*sup)->j++] = '\0';
+			tmp->type = DQUOTE;
+		}
 		((*sup)->state) = GENERAL_S;
+	}
 	else if (((*sup)->chtype) == CHAR_NULL)
 		(*sup)->error = 1;
 	else

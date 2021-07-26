@@ -1,205 +1,207 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/taegor/school21/level3/minishell'
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/pwd_blt.c -o obj/pwd_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/pwd_blt.c -o obj/pwd_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/state_processors.c -o obj/state_processors.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/state_processors.c -o obj/state_processors.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/fork_macroses.c -o obj/fork_macroses.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/fork_macroses.c -o obj/fork_macroses.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/execute_cases.c -o obj/execute_cases.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/execute_cases.c -o obj/execute_cases.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/exec_blt.c -o obj/exec_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/exec_blt.c -o obj/exec_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/tree_node.c -o obj/tree_node.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/tree_node.c -o obj/tree_node.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/state_cases4.c -o obj/state_cases4.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/state_cases4.c -o obj/state_cases4.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/checker.c -o obj/checker.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/checker.c -o obj/checker.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/token2.c -o obj/token2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/token2.c -o obj/token2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/export_blt.c -o obj/export_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/export_blt.c -o obj/export_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/commands.c -o obj/commands.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/commands.c -o obj/commands.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/do.c -o obj/do.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/do.c -o obj/do.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/utils2.c -o obj/utils2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/utils2.c -o obj/utils2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/state_cases.c -o obj/state_cases.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/state_cases.c -o obj/state_cases.o -lreadline
+ 
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/execute_cases2.c -o obj/execute_cases2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/execute_cases2.c -o obj/execute_cases2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/cd_blt.c -o obj/cd_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/cd_blt.c -o obj/cd_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/pipe.c -o obj/pipe.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/pipe.c -o obj/pipe.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/parser.c -o obj/parser.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/parser.c -o obj/parser.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/echo_blt.c -o obj/echo_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/echo_blt.c -o obj/echo_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/utils4.c -o obj/utils4.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/utils4.c -o obj/utils4.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/commands2.c -o obj/commands2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/commands2.c -o obj/commands2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/only_grammar.c -o obj/only_grammar.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/only_grammar.c -o obj/only_grammar.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/minishell.c -o obj/minishell.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/minishell.c -o obj/minishell.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/unset_blt.c -o obj/unset_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/unset_blt.c -o obj/unset_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/redir_case.c -o obj/redir_case.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/redir_case.c -o obj/redir_case.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/execute.c -o obj/execute.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/execute.c -o obj/execute.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/state_cases2.c -o obj/state_cases2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/state_cases2.c -o obj/state_cases2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/grammar.c -o obj/grammar.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/grammar.c -o obj/grammar.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/redirect_in.c -o obj/redirect_in.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/redirect_in.c -o obj/redirect_in.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/token.c -o obj/token.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/token.c -o obj/token.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/utils3.c -o obj/utils3.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/utils3.c -o obj/utils3.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/signals.c -o obj/signals.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/signals.c -o obj/signals.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/redir_utils.c -o obj/redir_utils.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/redir_utils.c -o obj/redir_utils.o -lreadline
+ 
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/strncmp_mix.c -o obj/strncmp_mix.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/strncmp_mix.c -o obj/strncmp_mix.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/error_manager.c -o obj/error_manager.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/error_manager.c -o obj/error_manager.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/exit_btl.c -o obj/exit_btl.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/exit_btl.c -o obj/exit_btl.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/env_blt.c -o obj/env_blt.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/env_blt.c -o obj/env_blt.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/printer.c -o obj/printer.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/printer.c -o obj/printer.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/tree_node2.c -o obj/tree_node2.o -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/tree_node2.c -o obj/tree_node2.o -lreadline
 make -C libft
 cp libft/libft.a ./
 cp libft/libft.h ./includes/
 mkdir -p obj
-gcc   -Iincludes -O3 -c src/utils.c -o obj/utils.o -lreadline
-gcc   -o minishell -Iincludes obj/pwd_blt.o obj/state_processors.o obj/fork_macroses.o obj/execute_cases.o obj/exec_blt.o obj/tree_node.o obj/state_cases4.o obj/checker.o obj/token2.o obj/export_blt.o obj/commands.o obj/do.o obj/utils2.o obj/state_cases.o obj/execute_cases2.o obj/cd_blt.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/utils4.o obj/commands2.o obj/only_grammar.o obj/minishell.o obj/unset_blt.o obj/redir_case.o obj/execute.o obj/state_cases2.o obj/grammar.o obj/redirect_in.o obj/token.o obj/utils3.o obj/signals.o obj/redir_utils.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/printer.o obj/tree_node2.o obj/utils.o libft/libft.a -lreadline
+gcc -Wall -Werror -Wextra -Iincludes -O3 -c src/utils.c -o obj/utils.o -lreadline
+gcc -Wall -Werror -Wextra -o minishell -Iincludes obj/pwd_blt.o obj/state_processors.o obj/fork_macroses.o obj/execute_cases.o obj/exec_blt.o obj/tree_node.o obj/state_cases4.o obj/checker.o obj/token2.o obj/export_blt.o obj/commands.o obj/do.o obj/utils2.o obj/state_cases.o obj/execute_cases2.o obj/cd_blt.o obj/pipe.o obj/parser.o obj/echo_blt.o obj/utils4.o obj/commands2.o obj/only_grammar.o obj/minishell.o obj/unset_blt.o obj/redir_case.o obj/execute.o obj/state_cases2.o obj/grammar.o obj/redirect_in.o obj/token.o obj/utils3.o obj/signals.o obj/redir_utils.o obj/strncmp_mix.o obj/error_manager.o obj/exit_btl.o obj/env_blt.o obj/printer.o obj/tree_node2.o obj/utils.o libft.a -lreadline
 make: Leaving directory '/home/taegor/school21/level3/minishell'
  
