@@ -52,6 +52,7 @@ mkdir -p obj
 gcc   -Iincludes -O3 -c src/execute.c -o obj/execute.o -lreadline
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/state_cases2.c -o obj/state_cases2.o -lreadline
+ 
 mkdir -p obj
 gcc   -Iincludes -O3 -c src/commands2.c -o obj/commands2.o -lreadline
 mkdir -p obj

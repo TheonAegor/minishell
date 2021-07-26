@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-void		general_state_processor(t_support_token **sup, char **env)
+void	general_state_processor(t_support_token **sup, char **env)
 {
-	t_token *tmp;
+	t_token	*tmp;
 
 	tmp = first_token((*sup)->token);
 	if (((*sup)->chtype) == WHITESPACE)
@@ -23,70 +23,69 @@ void		general_state_processor(t_support_token **sup, char **env)
 		case_general_char(sup, &tmp);
 }
 
-void	dquote_state_processor(t_support_token **sup, char **env)
+static void	dqoute2(t_token **tmp, t_support_token **sup, char **env)
 {
-	t_token *tmp;
-
-	tmp = first_token((*sup)->token);
-	if ((*sup)->chtype == DQUOTE)
+	if ((*sup)->chtype == DOLLAR)
 	{
-		if ((*sup)->j == 0)
-		{
-			tmp->data[(*sup)->j++] = '\0'; 
-			tmp->type = DQUOTE;
-		}
-		(*sup)->state = GENERAL_S;	
-	}
-	else if ((*sup)->chtype == ESCAPE)
-	{
-		if ((*sup)->str[(*sup)->i + 1] == DOLLAR || (*sup)->str[(*sup)->i + 1] == ESCAPE || (*sup)->str[(*sup)->i + 1] == DQUOTE)
-			tmp->data[(*sup)->j++] = (*sup)->str[++(*sup)->i];
-		else
-			tmp->data[(*sup)->j++] = (*sup)->str[(*sup)->i];
-	}
-	else if ((*sup)->chtype == DOLLAR)
-	{
-		ft_dollar(&tmp, env, sup);
+		ft_dollar(tmp, env, sup);
 		(*sup)->j++;
 	}
 	else if ((*sup)->chtype == CHAR_NULL)
 		(*sup)->error = 1;
 	else
 	{
-		tmp->data[(*sup)->j++] = (*sup)->str[(*sup)->i]; 
-		tmp->type = DQUOTE;
+		(*tmp)->data[(*sup)->j++] = (*sup)->str[(*sup)->i];
+		(*tmp)->type = DQUOTE;
 	}
 }
 
-void		quote_state_processor(t_support_token **sup)
+void	dquote_state_processor(t_support_token **sup, char **env)
 {
-	t_token *tmp;
+	t_token	*tmp;
 
-//	printf("in quote state proc, j = %d\n", (*sup)->j);
 	tmp = first_token((*sup)->token);
-	if (((*sup)->chtype) == QUOTE)
+	if ((*sup)->chtype == DQUOTE)
 	{
-		((*sup)->state) = GENERAL_S;
-//		add_token_front(&tmp, init_token(((*sup)->len) - (*sup)->i));
-//		((*sup)->j) = 0;
+		if ((*sup)->j == 0)
+		{
+			tmp->data[(*sup)->j++] = '\0';
+			tmp->type = DQUOTE;
+		}
+		(*sup)->state = GENERAL_S;
 	}
-	else if (((*sup)->chtype) == CHAR_NULL)
+	else if ((*sup)->chtype == ESCAPE)
 	{
-		printf("quote\n");
-		(*sup)->error = 1;
+		if ((*sup)->str[(*sup)->i + 1] == DOLLAR || \
+				(*sup)->str[(*sup)->i + 1] == ESCAPE \
+				|| (*sup)->str[(*sup)->i + 1] == DQUOTE)
+			tmp->data[(*sup)->j++] = (*sup)->str[++(*sup)->i];
+		else
+			tmp->data[(*sup)->j++] = (*sup)->str[(*sup)->i];
 	}
 	else
+		dqoute2(&tmp, sup, env);
+}
+
+void	quote_state_processor(t_support_token **sup)
+{
+	t_token	*tmp;
+
+	tmp = first_token((*sup)->token);
+	if (((*sup)->chtype) == QUOTE)
+		((*sup)->state) = GENERAL_S;
+	else if (((*sup)->chtype) == CHAR_NULL)
+		(*sup)->error = 1;
+	else
 	{
-		tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i]; 
+		tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
 		tmp->type = QUOTE;
 	}
 }
 
-void		escape_state_processor(t_support_token **sup)
+void	escape_state_processor(t_support_token **sup)
 {
-	t_token *tmp;
+	t_token	*tmp;
 
-//	printf("j = %d, i = %d, str[i] = %c\n", (*sup)->j, (*sup)->i, (*sup)->str[(*sup)->i]); 
 	tmp = first_token((*sup)->token);
 	tmp->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
 	((*sup)->state) = GENERAL_S;

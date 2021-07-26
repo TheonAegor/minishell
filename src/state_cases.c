@@ -7,7 +7,6 @@ void	case_whitespace(t_support_token **sup, t_token **tmp)
 		(*tmp)->data[((*sup)->j)] = 0;
 		add_token_front(tmp, init_token(((*sup)->len) - (*sup)->i));
 		((*sup)->j) = 0;
-//		printf("str in whitespace = %s\n", tmp->data);
 	}
 }
 
@@ -19,17 +18,18 @@ void	case_dollar(t_support_token **sup, char **env, t_token **tmp)
 
 void	case_quote(t_support_token **sup, t_token **tmp)
 {
-		((*sup)->state) = QUOTE_S;
+	((*sup)->state) = QUOTE_S;
 }
 
 void	case_dquote(t_support_token **sup, t_token **tmp)
 {
-		((*sup)->state) = DQUOTE_S;
+	((*sup)->state) = DQUOTE_S;
 }
 
-int		is_separator(int chtype)
+int	is_separator(int chtype)
 {
-	if (chtype == PIPE || chtype == SEMICOLON || chtype == GREATER || chtype == LOWER)
+	if (chtype == PIPE || chtype == SEMICOLON \
+			|| chtype == GREATER || chtype == LOWER)
 		return (1);
 	return (0);
 }

@@ -1,8 +1,8 @@
 #include "minishell.h"
 
-void		case_separator(t_support_token **sup, t_token **tmp)
+void	case_separator(t_support_token **sup, t_token **tmp)
 {
-	t_token *tmp2;
+	t_token	*tmp2;
 
 	tmp2 = first_token(*tmp);
 	if (((*sup)->j) > 0)
@@ -25,7 +25,7 @@ void		case_separator(t_support_token **sup, t_token **tmp)
 	add_token_front(tmp, init_token((*sup)->len - (*sup)->i));
 }
 
-void		case_charnull_in_general(t_support_token **sup, t_token **tmp)
+void	case_charnull_in_general(t_support_token **sup, t_token **tmp)
 {
 	if (((*sup)->j) > 0)
 	{
@@ -35,15 +35,16 @@ void		case_charnull_in_general(t_support_token **sup, t_token **tmp)
 	}
 }
 
-void		case_general_char(t_support_token **sup, t_token **tmp)
+void	case_general_char(t_support_token **sup, t_token **tmp)
 {
 	(*tmp)->data[((*sup)->j)++] = (*sup)->str[(*sup)->i];
 	(*tmp)->type = TOKEN;
 }
 
-void		case_lower_greater(t_support_token **sup, t_token **tmp)
+void	case_lower_greater(t_support_token **sup, t_token **tmp)
 {
-	if ((*sup)->str[(*sup)->i] == GREATER && (*sup)->str[(*sup)->i + 1] == GREATER)
+	if ((*sup)->str[(*sup)->i] == GREATER && \
+			(*sup)->str[(*sup)->i + 1] == GREATER)
 	{
 		(*tmp)->data[0] = ((*sup)->chtype);
 		(*tmp)->data[1] = ((*sup)->chtype);
@@ -51,7 +52,8 @@ void		case_lower_greater(t_support_token **sup, t_token **tmp)
 		(*tmp)->type = DGREATER;
 		(*sup)->i++;
 	}
-	else if ((*sup)->str[(*sup)->i] == LOWER && (*sup)->str[(*sup)->i + 1] == LOWER)
+	else if ((*sup)->str[(*sup)->i] == LOWER && \
+			(*sup)->str[(*sup)->i + 1] == LOWER)
 	{
 		(*tmp)->data[0] = ((*sup)->chtype);
 		(*tmp)->data[1] = ((*sup)->chtype);

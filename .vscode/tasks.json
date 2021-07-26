@@ -44,6 +44,7 @@
                 "${fileDirname}/redir_utils.c",
                 "${fileDirname}/fork_macroses.c",
                 "${fileDirname}/redir_case.c",
+                "${fileDirname}/tree_node2.c",
                 "-lreadline",
                 "${workspaceFolder}/libft/libft.a",
                 "-o",

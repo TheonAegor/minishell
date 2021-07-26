@@ -3,9 +3,9 @@
 static void	clean_up(t_tree_node *head, t_simple_command **com)
 {
 	if ((*com)->redirect_in)
- 	   free((*com)->redirect_in);
+		free((*com)->redirect_in);
 	if ((*com)->redirect_out)
- 	   free((*com)->redirect_out);
+		free((*com)->redirect_out);
 	(*com)->redirect_in = NULL;
 	(*com)->redirect_out = NULL;
 	(*com)->save = NO_VAL;
@@ -29,10 +29,10 @@ static void	last_redir(t_tree_node *head, t_simple_command **com)
 	}
 }
 
-int redir_cases(t_tree_node *head, t_simple_command **com)
+int	redir_cases(t_tree_node *head, t_simple_command **com)
 {
-	char 	*tmp_arg;
-	char 	*tmp_cmd;
+	char	*tmp_arg;
+	char	*tmp_cmd;
 	int		num_redirs;
 
 	init_simple_command(com, head->left);
@@ -42,7 +42,7 @@ int redir_cases(t_tree_node *head, t_simple_command **com)
 	while (head->right->type == GREATER || head->right->type == DGREATER || \
 	head->right->type == LOWER || head->right->type == DLOWER)
 		redir_middle(&head, com, num_redirs);
-	(*com)->arguments[0] = tmp_arg; 
+	(*com)->arguments[0] = tmp_arg;
 	(*com)->command_name = tmp_cmd;
 	last_redir(head, com);
 	if (head->right->type == PIPE && num_redirs == 0)
