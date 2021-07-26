@@ -34,20 +34,12 @@ void	list_to_list(t_simple_command *com)
 		g_all->argv = arraycpy(com->arguments, com->num_of_arguments);
 }
 
-static void	result_and_error(t_simple_command *com)
+static void	result_and_error()
 {
 	if (g_all->result != NULL)
-	{
-		com->result = ft_strdup(g_all->result);
 		printf("%s", g_all->result);
-	}
 	if (g_all->error != NULL)
-	{
-		com->error_log = ft_strdup(g_all->error);
-		printf("===============ERROR=================\n");
 		printf("%s", g_all->error);
-		printf("===============ERROR=================\n");
-	}
 }
 
 void	do_func(t_simple_command *com)
