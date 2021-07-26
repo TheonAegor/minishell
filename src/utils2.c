@@ -96,6 +96,6 @@ void	envadd(char *new_str)
 	if (equal != NULL)
 		*equal = '=';
 	free(temp);
-	if (g_all->envp[i] == NULL)
+	if (g_all->envp[i] == NULL || equal == NULL)
 		g_all->envp = arrayadd(g_all->envp, new_str);
 }

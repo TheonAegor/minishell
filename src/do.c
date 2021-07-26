@@ -34,7 +34,7 @@ void	list_to_list(t_simple_command *com)
 		g_all->argv = arraycpy(com->arguments, com->num_of_arguments);
 }
 
-static void	result_and_error()
+static void	result_and_error(void)
 {
 	if (g_all->result != NULL)
 		printf("%s", g_all->result);
@@ -63,7 +63,7 @@ void	do_func(t_simple_command *com)
 		exit_blt();
 	else
 		exec_blt();
-	result_and_error(com);
+	result_and_error();
 	g_all->exec_flag = 0;
 	was_error();
 	free_all();
