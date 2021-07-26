@@ -18,6 +18,7 @@ int	redirect_in(t_simple_command **command)
 	do_func(com);
 	close(fd);
 	dup2(std_out, 1);
+	return (1);
 }
 
 static void	redir_out2(int	*fd_read, int *fd_write, t_simple_command **command)

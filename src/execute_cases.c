@@ -11,6 +11,7 @@ int	dgreater_case(t_tree_node *head, t_simple_command **com)
 	move_to_next_command(&head);
 	if (head->right)
 		execute(head->right, com);
+	return (1);
 }
 
 int	lower_case(t_tree_node *head, t_simple_command **com)
@@ -24,6 +25,7 @@ int	lower_case(t_tree_node *head, t_simple_command **com)
 	move_to_next_command(&head);
 	if (head->right)
 		execute(head->right, com);
+	return (1);
 }
 
 int	dlower_case(t_tree_node *head, t_simple_command **com)
@@ -37,6 +39,7 @@ int	dlower_case(t_tree_node *head, t_simple_command **com)
 	(*com)->redirect_out = NULL;
 	move_to_next_command(&head);
 	execute(head->right, com);
+	return (1);
 }
 
 int	semicolon_case(t_tree_node *head, t_simple_command **com)
@@ -45,6 +48,7 @@ int	semicolon_case(t_tree_node *head, t_simple_command **com)
 	execute_command(com);
 	clear_simple_command(com);
 	execute(head->right, com);
+	return (1);
 }
 
 int	null_case(t_tree_node *head, t_simple_command **com)
@@ -52,4 +56,5 @@ int	null_case(t_tree_node *head, t_simple_command **com)
 	init_simple_command(com, head->left);
 	execute_command(com);
 	free_simple_command(com);
+	return (1);
 }

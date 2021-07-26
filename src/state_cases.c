@@ -16,12 +16,12 @@ void	case_dollar(t_support_token **sup, char **env, t_token **tmp)
 	((*sup)->j)++;
 }
 
-void	case_quote(t_support_token **sup, t_token **tmp)
+void	case_quote(t_support_token **sup)
 {
 	((*sup)->state) = QUOTE_S;
 }
 
-void	case_dquote(t_support_token **sup, t_token **tmp)
+void	case_dquote(t_support_token **sup)
 {
 	((*sup)->state) = DQUOTE_S;
 }

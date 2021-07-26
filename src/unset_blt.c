@@ -28,14 +28,12 @@ static int	included_or_not(int i)
 void	unset_blt(void)
 {
 	int		i;
-	int		flag;
 	char	**new_envp;
 
 	new_envp = NULL;
 	i = 0;
 	while (g_all->envp[i] != NULL)
 	{
-		flag = 0;
 		if (included_or_not(i) == 0)
 			new_envp = arrayadd(new_envp, g_all->envp[i]);
 		i++;

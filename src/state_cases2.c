@@ -27,7 +27,6 @@ static void	look_in_env2(char **env, char *to_find, char **res)
 static char	*look_in_env(char **env, char *to_find)
 {
 	char	*res;
-	int		check;
 
 	if (ft_strlen(to_find) == 0)
 	{

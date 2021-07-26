@@ -3,8 +3,11 @@
 int	pipe_case(t_tree_node *head, t_simple_command **com)
 {
 	int	fd[2];
+	int	err;
 
-	pipe(fd);
+	err = pipe(fd);
+	if (err == -1)
+		return (-1);
 	init_simple_command(com, head->left);
 	(*com)->pipe_write = fd[1];
 	execute_command(com);

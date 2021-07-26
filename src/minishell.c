@@ -50,6 +50,8 @@ int	main(int argc, char **argv, char **envp)
 	t_simple_command	*command;
 
 	(void) argc;
+	(void) argv;
+	head = NULL;
 	main_inits(&command, envp);
 	while (1 == 1)
 	{
@@ -66,6 +68,5 @@ int	main(int argc, char **argv, char **envp)
 		if (token->type != CHAR_NULL)
 			fck_minishell(&token, head, &command);
 	}
-	free(command);
 	return (0);
 }

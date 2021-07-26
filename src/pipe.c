@@ -3,13 +3,10 @@
 int	read_from_pipe(t_simple_command **command)
 {
 	int					std_in;
-	int					std_out;
-	int					fd;
 	t_simple_command	*com;
 
 	com = *command;
 	std_in = dup(0);
-	std_out = dup(1);
 	dup2(com->pipe_read, 0);
 	if (com->redirect_in != NULL)
 		redirect_in(&com);
@@ -17,8 +14,6 @@ int	read_from_pipe(t_simple_command **command)
 		write_in_pipe(&com);
 	else
 		do_func(com);
-	if (com->redirect_in != NULL)
-		close(fd);
 	close(com->pipe_read);
 	com->pipe_read = NO_VAL;
 	dup2(std_in, 0);

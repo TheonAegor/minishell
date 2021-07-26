@@ -1,6 +1,6 @@
 #include "minishell.h"
 
-static void	clean_up(t_tree_node *head, t_simple_command **com)
+static void	clean_up(t_simple_command **com)
 {
 	if ((*com)->redirect_in)
 		free((*com)->redirect_in);
@@ -57,11 +57,12 @@ int	redir_cases(t_tree_node *head, t_simple_command **com)
 	work_with_args(com, &tmp_arg, &tmp_cmd, tmp_num_args);
 	last_redir(head, com);
 	if (head->right->type == PIPE && num_redirs == 0)
-		pipe_case_no_init(head, com);
+		pipe_case_no_init(com);
 	else
 		execute_command(com);
-	clean_up(head, com);
+	clean_up(com);
 	move_to_next_command(&head);
 	if (head->right)
 		execute(head->right, com);
+	return (1);
 }

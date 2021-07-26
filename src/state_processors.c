@@ -10,9 +10,9 @@ void	general_state_processor(t_support_token **sup, char **env)
 	else if (((*sup)->chtype) == DOLLAR)
 		case_dollar(sup, env, &tmp);
 	else if (((*sup)->chtype) == QUOTE)
-		case_quote(sup, &tmp);
+		case_quote(sup);
 	else if (((*sup)->chtype) == DQUOTE)
-		case_dquote(sup, &tmp);
+		case_dquote(sup);
 	else if (((*sup)->chtype) == ESCAPE)
 		((*sup)->state) = ESCAPE_S;
 	else if (is_separator((*sup)->chtype))

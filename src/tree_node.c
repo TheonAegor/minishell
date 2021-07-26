@@ -48,4 +48,5 @@ int	implement_f_to_all_tree_nodes(t_tree_node *n, void (*f)())
 	f(n);
 	implement_f_to_all_tree_nodes(n->left, f);
 	implement_f_to_all_tree_nodes(n->right, f);
+	return (1);
 }

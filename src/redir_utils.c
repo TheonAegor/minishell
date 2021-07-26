@@ -17,15 +17,19 @@ int	find_num_redir_in(t_tree_node *head)
 	return (res);
 }
 
-int	pipe_case_no_init(t_tree_node *head, t_simple_command **com)
+int	pipe_case_no_init(t_simple_command **com)
 {
 	int	fd[2];
+	int	err;
 
-	pipe(fd);
+	err = pipe(fd);
+	if (err == -1)
+		return (-1);
 	(*com)->pipe_write = fd[1];
 	execute_command(com);
 	(*com)->pipe_read = fd[0];
 	(*com)->pipe_write = NO_VAL;
+	return (1);
 }
 
 void	redir_middle(t_tree_node **p_head, \

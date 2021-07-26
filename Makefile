@@ -2,7 +2,7 @@ NAME = minishell
 
 option = -Iincludes
 
-cc = gcc #-Wall -Werror -Wextra
+cc = gcc -Wall -Werror -Wextra
 
 files = src/*.c
 
@@ -17,7 +17,7 @@ obj = $(addprefix $(OBJDIR)/,$(addsuffix .o, $(basename $(notdir $(src)))))
 all: $(NAME)
 
 $(NAME): $(obj)
-	@$(cc) -o $(NAME) $(option) $^ libft/libft.a -lreadline
+	@$(cc) -o $(NAME) $(option) $^ libft.a -lreadline
 
 $(OBJDIR)/%.o:  src/%.c
 	make -C libft
