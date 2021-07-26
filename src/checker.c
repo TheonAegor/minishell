@@ -5,7 +5,7 @@ int	check_tokens(t_token *tok)
 	t_token	*tmp;
 
 	tmp = tok;
-	if (is_end_of_command(tmp->type))
+	if (is_end_of_command(tmp->type) && tmp->type != CHAR_NULL)
 		return (-1);
 	while (tmp->next)
 	{
