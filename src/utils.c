@@ -12,9 +12,6 @@ void	free_simple_command(t_simple_command **com)
 		(*com)->redirect_in = NULL;
 		(*com)->redirect_out = NULL;
 		(*com)->save = NO_VAL;
-		/*
-		free(*com);
-		*/
 	}
 }
 
