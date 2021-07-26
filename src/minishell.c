@@ -24,6 +24,7 @@ static void	main_inits(t_simple_command **command, char **envp)
 	signal(SIGINT, sigint);
 	signal(SIGQUIT, sigquit);
 	*command = init_command();
+	g_all->command = command;
 	init_all();
 	g_all->envp = arraycpy(envp, arraylen(envp));
 	g_all->exit_status = 0;

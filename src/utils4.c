@@ -32,10 +32,6 @@ void	free_and_exit(char *msg)
 		free(g_all->error);
 	if (g_all->path != NULL)
 		arrayfree(g_all->path);
-	if (g_all->redirect_in != NULL)
-		free(g_all->redirect_in);
-	if (g_all->redirect_out != NULL)
-		free(g_all->redirect_out);
 	if (msg != NULL)
 		printf("%s", msg);
 	free(g_all);
