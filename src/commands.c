@@ -60,9 +60,6 @@ void	execute_command(t_simple_command **command)
 	t_simple_command	*com;
 
 	com = *command;
-#ifdef PRINT
-	print_simple_command_info(com);
-#endif
 	if (com->pipe_read != NO_VAL)
 		read_from_pipe(&com);
 	else if (com->redirect_out != NULL)

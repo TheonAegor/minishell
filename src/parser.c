@@ -81,9 +81,6 @@ t_token	*ft_parser(char *str, char **env)
 		if (sup->chtype == CHAR_NULL)
 			break ;
 	}
-#ifdef PRINT
-	implement_f_to_all_tokens(&(sup->token), print_token_data);
-#endif
 	tmp = sup->token;
 	if (check_tokens(tmp) == -1)
 	{

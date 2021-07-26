@@ -49,10 +49,5 @@ t_tree_node	*grammar(t_token *p)
 	{
 		res = middle_grammar(&end, &node, &head, &flag);
 	}
-	/*
-#ifdef PRINT
-	implement_f_to_all_tree_nodes(head, print_node_data_type);
-#endif
-*/
 	return (head);
 }
