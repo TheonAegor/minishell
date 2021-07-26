@@ -218,4 +218,5 @@ int				mywexitstatus(int status);
 int				mywtermsig(int status);
 int				mywifsignaled(int status);
 int				mywifexited(int status);
+void			free_simple_command(t_simple_command **com);
 #endif

@@ -51,4 +51,6 @@ int	null_case(t_tree_node *head, t_simple_command **com)
 {
 	init_simple_command(com, head->left);
 	execute_command(com);
+	free_simple_command(com);
+	
 }

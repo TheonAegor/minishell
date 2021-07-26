@@ -37,6 +37,7 @@ static void	fck_minishell(t_token **token,
 	head = grammar(*token);
 	free_delete_all_tokens(token);
 	execute(head, command);
+	free_del_all_nodes(&head);
 	g_all->exec_flag = 0;
 }
 
@@ -64,5 +65,6 @@ int	main(int argc, char **argv, char **envp)
 		if (token->type != CHAR_NULL)
 			fck_minishell(&token, head, &command);
 	}
+	free(command);
 	return (0);
 }

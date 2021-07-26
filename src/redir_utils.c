@@ -39,7 +39,10 @@ void	redir_middle(t_tree_node **p_head, \
 		fill_redirect_in_info(com, head->right);
 		if (num_redirs > 1)
 		{
-			(*com)->arguments[0] = ft_strdup("");
+			(*com)->num_of_arguments = 0;
+			(*com)->arguments = NULL;
+			if ((*com)->command_name)
+				free((*com)->command_name);
 			(*com)->command_name = ft_strdup("echo");
 			execute_command(com);
 		}

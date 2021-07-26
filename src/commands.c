@@ -5,15 +5,22 @@ int	del_comm_name_args(t_simple_command **com)
 	int	i;
 
 	i = -1;
-	free((*com)->command_name);
+	if ((*com)->command_name)
+		free((*com)->command_name);
 	(*com)->command_name = NULL;
-	while (++i < (*com)->num_of_arguments)
+	if ((*com)->arguments)
 	{
-		free(((*com)->arguments)[i]);
-		((*com)->arguments)[i] = NULL;
+		while (++i < (*com)->num_of_arguments)
+		{
+			if (((*com)->arguments)[i])
+			{
+				free(((*com)->arguments)[i]);
+				((*com)->arguments)[i] = NULL;
+			}
+		}
+		free((*com)->arguments);
+		(*com)->arguments = NULL;
 	}
-	free((*com)->arguments);
-	(*com)->arguments = NULL;
 	(*com)->num_of_arguments = 0;
 	return (1);
 }
