@@ -29,6 +29,17 @@ static void	last_redir(t_tree_node *head, t_simple_command **com)
 	}
 }
 
+static void	work_with_args(t_simple_command **com, char **tmp_arg, \
+							char **tmp_cmd)
+{
+	if ((*com)->arguments[0])
+		free((*com)->arguments[0]);
+	(*com)->arguments[0] = *tmp_arg;
+	if ((*com)->command_name)
+		free((*com)->command_name);
+	(*com)->command_name = *tmp_cmd;
+}
+
 int	redir_cases(t_tree_node *head, t_simple_command **com)
 {
 	char	*tmp_arg;
@@ -42,8 +53,7 @@ int	redir_cases(t_tree_node *head, t_simple_command **com)
 	while (head->right->type == GREATER || head->right->type == DGREATER || \
 	head->right->type == LOWER || head->right->type == DLOWER)
 		redir_middle(&head, com, num_redirs);
-	(*com)->arguments[0] = tmp_arg;
-	(*com)->command_name = tmp_cmd;
+	work_with_args(com, &tmp_arg, &tmp_cmd);
 	last_redir(head, com);
 	if (head->right->type == PIPE && num_redirs == 0)
 		pipe_case_no_init(head, com);
