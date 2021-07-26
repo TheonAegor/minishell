@@ -66,7 +66,7 @@ static void	parent(int *status)
 		printf("\n");
 	}
 	if (mywexitstatus(*status) == 127)
-		result_error(NO_FILE_OR_DIR, NULL, 127);
+		result_error(COMMAND_NOT_FOUND, NULL, 127);
 }
 
 int	exec_blt(void)

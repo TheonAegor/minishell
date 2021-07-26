@@ -25,6 +25,7 @@ getcwd: нет доступа к родительским каталогам: \
 # define QUIT "Выход (стек памяти сброшен на диск)"
 # define NUM_NEEDED "требуется числовой аргумент\n"
 # define INVALID_IDENT "это недопустимый идентификатор\n"
+# define COMMAND_NOT_FOUND "команда не найдена\n"
 
 enum e_token_type {
 	CHAR_GENERAL = -1,
